@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Legal Search - Sovereign Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f7f7f7;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    li {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+    }
+    li:hover {
+      background: #f0f0f0;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🔍 Smart Legal Search</h2>
+  <p>Search common legal topics by voice or text. Fuzzy match helps if spelling isn’t your thing 😎</p>
+
+  <input type="text" id="smartSearch" placeholder="e.g., custudy, paroll, arrest" oninput="smartNavigate(this.value)">
+  <ul id="smartSuggestions" style="display:none;"></ul>
+  <button onclick="startVoiceSearch()">🎙️ Voice Search</button>
+
+  <script>
+    const topics = [
+      { keyword: "custody", page: "custody.html" },
+      { keyword: "eviction", page: "eviction.html" },
+      { keyword: "records", page: "records.html" },
+      { keyword: "dss", page: "dss.html" },
+      { keyword: "liberties", page: "liberties.html" },
+      { keyword: "estate", page: "estate.html" },
+      { keyword: "remedies", page: "remedies.html" },
+      { keyword: "arrested", page: "arrested.html" },
+      { keyword: "resources", page: "resources.html" },
+      { keyword: "parole", page: "remedies.html" }
+    ];
+
+    function levenshtein(a, b) {
+      const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
+      for (let i = 0; i <= a.length; i++) matrix[0][i] = i;
+      for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j] + 1,
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j - 1] + (b[i - 1] === a[j - 1] ? 0 : 1)
+          );
+        }
+      }
+      return matrix[b.length][a.length];
+    }
+
+    function fuzzyMatch(input) {
+      input = input.toLowerCase().trim();
+      let bestMatch = null;
+      let bestScore = Infinity;
+
+      topics.forEach(t => {
+        const score = levenshtein(input, t.keyword);
+        if (score < bestScore && score <= 3) {
+          bestMatch = t;
+          bestScore = score;
+        }
+      });
+
+      return bestMatch;
+    }
+
+    function smartNavigate(input) {
+      const match = fuzzyMatch(input);
+      if (match) window.location.href = match.page;
+      updateSuggestions(input);
+    }
+
+    function updateSuggestions(input) {
+      const suggestionsBox = document.getElementById("smartSuggestions");
+      suggestionsBox.innerHTML = "";
+
+      if (!input) {
+        suggestionsBox.style.display = "none";
+        return;
+      }
+
+      const matches = topics.filter(t =>
+        t.keyword.toLowerCase().includes(input)
+      );
+
+      if (matches.length === 0) {
+        suggestionsBox.style.display = "none";
+        return;
+      }
+
+      matches.forEach(t => {
+        const li = document.createElement("li");
+        li.textContent = t.keyword;
+        li.onclick = () => (window.location.href = t.page);
+        suggestionsBox.appendChild(li);
+      });
+
+      suggestionsBox.style.display = "block";
+    }
+
+    function startVoiceSearch() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = "en-US";
+      recognition.start();
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById("smartSearch").value = transcript;
+        smartNavigate(transcript);
+      };
+
+      recognition.onerror = (event) => {
+        alert("Voice recognition error: " + event.error);
+      };
+    }
+  </script>
+
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

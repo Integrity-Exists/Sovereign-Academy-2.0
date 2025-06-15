@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estate & Property Rights</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="smart-search.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #2C3E50;
+    }
+    p {
+      max-width: 800px;
+      margin: 10px auto;
+      text-align: center;
+      line-height: 1.6;
+    }
+    ul {
+      max-width: 800px;
+      margin: 20px auto;
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Estate & Property Rights</h1>
+  <p>
+    Understanding your rights when it comes to your property and estate can empower you to protect what’s yours. Whether you're facing code enforcement, eviction threats, or planning for the future, here's what you need to know:
+  </p>
+  <ul>
+    <li><strong>Property Ownership:</strong> Know the difference between titles, deeds, and liens.</li>
+    <li><strong>Wills & Estates:</strong> Learn how to create legally binding wills and assign beneficiaries.</li>
+    <li><strong>Tenant & Landlord Law:</strong> Protect yourself with knowledge of tenant rights and eviction procedures.</li>
+    <li><strong>Inheritance Rules:</strong> Understand intestate succession and how probate works.</li>
+    <li><strong>Government Overreach:</strong> What to do if you receive demolition, zoning, or condemnation notices.</li>
+  </ul>
+  <p>
+    Sovereign Academy equips you with the knowledge to challenge unlawful claims and assert your right to own and defend your land.
+  </p>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker failed', err));
+    });
+  }
+</script>
+
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

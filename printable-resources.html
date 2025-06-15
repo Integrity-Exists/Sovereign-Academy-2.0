@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Printable Legal Resources | Sovereign Academy</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fcfcfc;
+      color: #2C3E50;
+      padding: 20px;
+    }
+    .navbar {
+      background-color: #2C3E50;
+      color: #F4D03F;
+      padding: 1rem;
+      text-align: center;
+      font-size: 20px;
+    }
+    .navbar a {
+      color: #F4D03F;
+      margin: 0 12px;
+      text-decoration: none;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+    }
+    p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    li {
+      margin: 15px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #0047ab;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .search-wrapper {
+      text-align: center;
+      margin-top: 30px;
+      position: relative;
+    }
+    #smartSuggestions {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin: 5px auto 0;
+      width: 60%;
+      text-align: left;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      font-size: 16px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+    .voice-search {
+      text-align: center;
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">Home</a> |
+    <a href="dss-defense.html">DSS Defense</a> |
+    <a href="ask-sage.html">Ask Sage</a> |
+    <a href="court-prep.html">Court Prep</a>
+  </div>
+
+  <div class="search-wrapper">
+    <input type="text" id="smartSearch" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" onkeyup="smartNavigate(this.value)">
+    <span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 18px; color: #999;">🔍</span>
+  </div>
+
+  <ul id="smartSuggestions"></ul>
+
+  <div class="voice-search">
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <h1>📄 Printable Legal Resources</h1>
+  <p>Need tools for court, DSS disputes, or self-representation? Download and print these battle-tested documents — ready to file or customize.</p>
+
+  <ul>
+    <li><a href="court-prep-checklist.pdf" download>🧾 Court Prep Checklist (PDF)</a></li>
+    <li><a href="motion-to-dismiss.docx" download>📄 Motion to Dismiss Template (DOCX)</a></li>
+    <li><a href="notice-of-appearance.docx" download>📝 Notice of Appearance (DOCX)</a></li>
+  </ul>
+
+  <p style="text-align: center; margin-top: 30px;"><a href="index.html">⬅️ Return to Home</a></p>
+
+  <script src="smart-search.js"></script>
+  <script src="voice-search.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered ✅', reg))
+          .catch(err => console.error('Service Worker registration failed ❌', err));
+      });
+    }
+  </script>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

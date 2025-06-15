@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sovereign Academy - Sui Juris Center</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root {
+--primary-color: #2C3E50;
+--secondary-color: #F4D03F;
+--accent-color: #ECF0F1;
+}
+body { background-color: var(--accent-color); color: var(--primary-color); font-family: Arial,
+sans-serif; padding: 20px; }
+.navbar { background-color: var(--primary-color); color: var(--secondary-color); padding:
+1rem; font-size: 24px; }
+</style>
+</head>
+<body>
+<div class="navbar">
+<a href="index.html" style="color: var(--secondary-color); margin-right: 20px;">Home</a>
+<a href="about.html" style="color: var(--secondary-color); margin-right: 20px;">About</a>
+<a href="contact.html" style="color: var(--secondary-color); margin-right: 20px;">Contact</a>
+<a href="sui-juris.html" style="color: var(--secondary-color); margin-right: 20px;">Sui
+Juris</a>
+<a href="ask-sage.html" style="color: var(--secondary-color); margin-right: 20px;">Ask
+Sage</a>
+<a href="court-prep.html" style="color: var(--secondary-color);">Court Prep</a>
+</div>
+<h1>Sui Juris & Pro Se Center</h1>
+<section>
+<h2>What is Sui Juris?</h2>
+<p>Sui Juris means representing yourself in court without an attorney. It empowers individuals
+to assert their legal rights independently, using their own knowledge and preparation.</p>
+<script src="smart-search.js"></script>
+</div>
+<h2>Self-Representation Resources:</h2>
+<ul>
+<li>How to File a Motion (coming soon!)</li>
+<li>Sample Motion Template (coming soon!)</li>
+<li>Steps to Prepare for Your Hearing</li>
+</ul>
+<h2>Downloadable Templates</h2>
+<a href="motion-to-dismiss.docx" download>Download Motion to Dismiss Template
+(DOC)</a><br>
+<a href="notice-of-appearance.docx" download>Download Notice of Appearance Template
+(DOC)</a>
+</section>
+<p>Learn how to represent yourself in court, file motions, and assert your rights as a sovereign
+individual. Resources and downloadable templates coming soon.</p>
+<div style="text-align: center; margin-top: 40px; position: relative;">
+<input type="text" id="smartSearch" placeholder="🔍 Search legal topics..."
+style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px;
+border: 1px solid #ccc;"
+onkeyup="smartNavigate(this.value)">
+<span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size:
+18px; color: #999;">🔍</span>
+<ul id="smartSuggestions" style="list-style: none; padding: 0; margin: 5px auto 0; width: 60%;
+text-align: left; display: none; border: 1px solid #ccc; border-radius: 6px; background: #fff;
+font-size: 16px; max-height: 150px; overflow-y: auto;"></ul>
+<div style="margin-top: 30px;">
+<div style="text-align: center; margin-top: 10px;">
+<button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px;
+border-radius: 6px; cursor: pointer;">
+🎤 Voice Search
+</button>
+</div>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('service-worker.js')
+.then(reg => console.log('Service Worker registered ✅', reg))
+.catch(err => console.error('Service Worker registration failed ❌', err));
+});
+}
+</script>
+<footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
+&copy; 2025 Sovereign Academy. All rights reserved.
+</footer>
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

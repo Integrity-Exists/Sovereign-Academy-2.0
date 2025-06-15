@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legal Remedies for Incarcerated Individuals</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    p {
+      text-align: center;
+      max-width: 700px;
+      margin: 10px auto 30px;
+    }
+
+    #smartSearch {
+      padding: 10px;
+      width: 60%;
+      font-size: 16px;
+    }
+
+    #smartSuggestions {
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+      max-width: 400px;
+      text-align: center;
+      display: none;
+    }
+
+    #smartSuggestions li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #smartSuggestions li:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Floating Sage Button */
+    #sageChatBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2C3E50;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    #sageChatWindow {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    #sageChatWindow iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <nav style="text-align:center; padding: 10px; background-color: #2C3E50;">
+  <a href="index.html" style="color:white; margin: 0 10px; text-decoration:none;">Home</a>
+  <a href="custody.html" style="color:white; margin: 0 10px; text-decoration:none;">Custody</a>
+  <a href="dss.html" style="color:white; margin: 0 10px; text-decoration:none;">DSS</a>
+  <a href="remedies.html" style="color:white; margin: 0 10px; text-decoration:none;">Remedies</a>
+  <a href="eviction.html" style="color:white; margin: 0 10px; text-decoration:none;">Eviction</a>
+  <a href="records.html" style="color:white; margin: 0 10px; text-decoration:none;">Records</a>
+  <a href="liberties.html" style="color:white; margin: 0 10px; text-decoration:none;">Liberties</a>
+  <a href="estate.html" style="color:white; margin: 0 10px; text-decoration:none;">Estate</a>
+  <a href="arrested.html" style="color:white; margin: 0 10px; text-decoration:none;">Arrested</a>
+</nav>
+  <h1>Legal Remedies for Incarcerated Individuals</h1>
+  <p>
+    If you're locked up or advocating for someone who is, this is where the fight starts. 
+    Learn about state and federal remedies including habeas corpus, sentence reduction motions, 
+    compassionate release, and clemency options. Sage can help break down what’s possible and how to begin.
+  </p>
+
+  <!-- Smart Search Input -->
+  <div style="text-align: center; margin-top: 40px;">
+    <input id="smartSearch" type="text" placeholder="Search legal topics..." onkeyup="smartNavigate(this.value)" />
+    <ul id="smartSuggestions"></ul>
+    <br><br>
+    <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px;">🎤 Voice Search</button>
+  </div>
+
+  <!-- Floating Ask Sage Button -->
+  <button id="sageChatBtn">💬 Ask Sage</button>
+  <div id="sageChatWindow">
+    <iframe src="https://embed.tawk.to/681d203afe55ac190d5636e6/1hvnjsplk" allow="autoplay; microphone; camera"></iframe>
+  </div>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('✅ Service Worker registered', reg))
+          .catch(err => console.error('❌ Service Worker registration failed', err));
+      });
+    }
+  </script>
+
+  <!-- Smart Search Logic -->
+  <script>
+    const topics = [
+      { keyword: "custody", page: "custody.html" },
+      { keyword: "eviction", page: "eviction.html" },
+      { keyword: "records", page: "records.html" },
+      { keyword: "dss", page: "dss.html" },
+      { keyword: "liberties", page: "liberties.html" },
+      { keyword: "estate", page: "estate.html" },
+      { keyword: "remedies", page: "remedies.html" },
+      { keyword: "arrested", page: "arrested.html" },
+      { keyword: "resources", page: "resources.html" },
+      { keyword: "parole", page: "remedies.html" },
+    ];
+
+    function levenshtein(a, b) {
+      const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
+      for (let i = 0; i <= a.length; i++) matrix[0][i] = i;
+      for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j] + 1,
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j - 1] + (b[i - 1] === a[j - 1] ? 0 : 1)
+          );
+        }
+      }
+      return matrix[b.length][a.length];
+    }
+
+    function fuzzyMatch(input) {
+      input = input.toLowerCase().trim();
+      let bestMatch = null;
+      let bestScore = Infinity;
+      topics.forEach(t => {
+        const score = levenshtein(input, t.keyword);
+        if (score < bestScore && score <= 3) {
+          bestMatch = t;
+          bestScore = score;
+        }
+      });
+      return bestMatch;
+    }
+
+    function smartNavigate(input) {
+      const match = fuzzyMatch(input);
+      if (match) window.location.href = match.page;
+      updateSuggestions(input);
+    }
+
+    function updateSuggestions(input) {
+      const suggestionsBox = document.getElementById("smartSuggestions");
+      suggestionsBox.innerHTML = "";
+      if (!input) return (suggestionsBox.style.display = "none");
+
+      const matches = topics.filter(t => t.keyword.toLowerCase().includes(input));
+      if (matches.length === 0) return (suggestionsBox.style.display = "none");
+
+      matches.forEach(t => {
+        const li = document.createElement("li");
+        li.textContent = t.keyword;
+        li.onclick = () => (window.location.href = t.page);
+        suggestionsBox.appendChild(li);
+      });
+
+      suggestionsBox.style.display = "block";
+    }
+
+    function startVoiceSearch() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = "en-US";
+      recognition.start();
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById("smartSearch").value = transcript;
+        smartNavigate(transcript);
+      };
+
+      recognition.onerror = (event) => {
+        alert("Voice recognition error: " + event.error);
+      };
+    }
+
+    // Chatbot toggle logic
+    const btn = document.getElementById('sageChatBtn');
+    const chatWindow = document.getElementById('sageChatWindow');
+    btn.addEventListener('click', () => {
+      chatWindow.style.display = chatWindow.style.display === 'none' || !chatWindow.style.display
+        ? 'block'
+        : 'none';
+    });
+  </script>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

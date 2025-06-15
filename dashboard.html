@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sovereign Justice Dashboard</title>
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <h1>Welcome to Sovereign Justice</h1>
+  <p>Your legal mission control, powered by Case Fire.</p>
+
+  <section>
+    <h2>🔥 Real-Time Alerts</h2>
+    <ul>
+      <li>Criminal Charges</li>
+      <li>CPS / DSS</li>
+      <li>Civil</li>
+      <li>ADA</li>
+    </ul>
+    <p>Get instant case law and motion updates tailored to your battle type.</p>
+  </section>
+
+  <section>
+    <h2>📂 My Case Dashboard</h2>
+    <p>Save your case number for personalized alerts and legal changes.</p>
+    <form>
+      <label for="caseNum">Enter Case Number:</label>
+      <input type="text" id="caseNum" name="caseNum" />
+      <button type="submit">Save</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>🧠 Ask Sage</h2>
+    <p>24/7 Sui Juris legal coaching. Ask anything.</p>
+    <a href="ask-sage.html">Open Ask Sage</a>
+  </section>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

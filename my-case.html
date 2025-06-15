@@ -1,0 +1,227 @@
+<!DOCKTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MyCase - Sovereign Academy</title>
+<link rel="manifest" herf="manifest.json">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: sans-serif; padding: 20px; }
+textarea, input[type="text"], input[type="date"] {
+width: 100%; margin-bottom: 10px; padding: 8px;
+}
+button { padding: 10px; width: 100%; }
+h2, h3 { margin-top: 20px; }
+body {
+display: flex;
+margin: 0;
+font-family: Arial, sans-serif;
+}
+.sidebar {
+width: 250px;
+background-color: #2C3E50;
+color: white;
+padding: 20px;
+height: 100vh;
+position: fixed;
+}
+.sidebar h2 {
+text-align: center;
+}
+.sidebar ul {
+list-style-type: none;
+padding: 0;
+}
+.sidebar ul li {
+margin: 15px 0;
+}
+.sidebar ul li a {
+color: white;
+text-decoration: none;
+}
+.main-content {
+margin-left: 270px;
+padding: 20px;
+flex-grow: 1;
+}
+</style>
+</head>
+<body>
+<h2>MyCase Dashboard</h2>
+<!-- Case Notes -->
+<section id="notes">
+<h3>Case Notes</h3>
+<textarea id="caseNotes" placeholder="Enter notes..."></textarea>
+<button onclick="saveNotes()">Save Notes</button>
+</section>
+<!-- Uploaded Documents -->
+<section id="uploads">
+<h3>Upload Documents</h3>
+<input type="file" id="fileUpload" multiple>
+<ul id="docList"></ul>
+</section>
+<!-- Court Dates -->
+<section id="calendar">
+<h3>Court Dates</h3>
+<input type="date" id="courtDate">
+<input type="text" id="eventDescription" placeholder="Event description">
+<button onclick="addReminder()">Add Reminder</button>
+<ul id="reminderList"></ul>
+</section>
+<div class="sidebar">
+<h2>My Case Tools</h2>
+<ul>
+<li><a href="#notes">📝 Notes</a></li>
+<li><a href="#deadlines">📅 Deadlines</a></li>
+<li><a href="#uploads">📁 Uploads</a></li>
+</ul>
+</div>
+<div class="main-content">
+<section id="notes">
+<h3>Case Notes</h3>
+<textarea id="caseNotes" placeholder="Type your notes here..." rows="10" style="width:
+100%;"></textarea>
+</section>
+<section id="deadlines">
+<h3>Deadlines</h3>
+<ul id="deadlineList"></ul>
+<input type="text" id="deadlineInput" placeholder="Add a deadline (e.g., Court Date -
+2025-06-01)" style="width: 80%;">
+<button onclick="addDeadline()">Add</button>
+</section>
+<section id="uploads">
+<h3>Upload Documents</h3>
+<input type="file" id="fileUpload">
+<ul id="fileList"></ul>
+</section>
+</div>
+<div class="sidebar">
+<h2>My Case Tools</h2>
+<ul>
+<li><a href="#notes">📝 Notes</a></li>
+<li><a href="#deadlines">📅 Deadlines</a></li>
+<li><a href="#uploads">📁 Uploads</a></li>
+</ul>
+</div>
+<div class="main-content">
+<section id="notes">
+<h3>Case Notes</h3>
+<textarea id="caseNotes" placeholder="Type your notes here..." rows="10" style="width:
+100%;"></textarea>
+</section>
+<section id="deadlines">
+<h3>Deadlines</h3>
+<ul id="deadlineList"></ul>
+<input type="text" id="deadlineInput" placeholder="Add a deadline (e.g., Court Date -
+2025-06-01)" style="width: 80%;">
+<button onclick="addDeadline()">Add</button>
+</section>
+<section id="uploads">
+<h3>Upload Documents</h3>
+<input type="file" id="fileUpload">
+<ul id="fileList"></ul>
+</section>
+</div>
+<script>
+// Save and load case notes
+function saveNotes() {
+localStorage.setItem("caseNotes", document.getElementById("caseNotes").value);
+alert("Notes saved!");
+}
+document.getElementById("caseNotes").value = localStorage.getItem("caseNotes") || "";
+// Add court date reminders
+function addReminder() {
+const date = document.getElementById("courtDate").value;
+const desc = document.getElementById("eventDescription").value;
+if (!date || !desc) return alert("Enter both date and description.");
+const list = document.getElementById("reminderList");
+const li = document.createElement("li");
+li.textContent = `${date} – ${desc}`;
+list.appendChild(li);
+}
+// Show uploaded files
+document.getElementById("fileUpload").addEventListener("change", function() {
+const list = document.getElementById("docList");
+list.innerHTML = "";
+for (let file of this.files) {
+const li = document.createElement("li");
+li.textContent = file.name;
+list.appendChild(li);
+}
+});
+</script>
+<script>
+// --- Auto-save case notes every 5 seconds ---
+const notesArea = document.getElementById("caseNotes");
+notesArea.value = localStorage.getItem("caseNotes") || "";
+notesArea.addEventListener("input", () => {
+localStorage.setItem("caseNotes", notesArea.value);
+});
+// --- Save and load court date reminders ---
+const reminderList = document.getElementById("reminderList");
+const savedReminders = JSON.parse(localStorage.getItem("courtReminders")) || [];
+function renderReminders() {
+reminderList.innerHTML = "";
+savedReminders.forEach(({ date, desc }) => {
+const li = document.createElement("li");
+li.textContent = `${date} – ${desc}`;
+reminderList.appendChild(li);
+});
+}
+renderReminders();
+function addReminder() {
+const date = document.getElementById("courtDate").value;
+const desc = document.getElementById("eventDescription").value;
+if (!date || !desc) return alert("Enter both date and description.");
+const newReminder = { date, desc };
+savedReminders.push(newReminder);
+localStorage.setItem("courtReminders", JSON.stringify(savedReminders));
+renderReminders();
+}
+</script>
+mycase_script_upgrade.html
+Displaying mycase_script_upgrade.html.
+<script>
+// Auto-save notes every 5 seconds
+const notesArea = document.getElementById("caseNotes");
+notesArea.value = localStorage.getItem("caseNotes") || "";
+setInterval(() => {
+localStorage.setItem("caseNotes", notesArea.value);
+}, 5000);
+// Add deadlines
+function addDeadline() {
+const input = document.getElementById("deadlineInput");
+const list = document.getElementById("deadlineList");
+if (input.value.trim() !== "") {
+const li = document.createElement("li");
+li.textContent = input.value;
+list.appendChild(li);
+input.value = "";
+}
+}
+// Handle file uploads
+const fileUpload = document.getElementById("fileUpload");
+const fileList = document.getElementById("fileList");
+fileUpload.addEventListener("change", () => {
+const file = fileUpload.files[0];
+if (file) {
+const li = document.createElement("li");
+li.textContent = file.name;
+fileList.appendChild(li);
+}
+});
+</script>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

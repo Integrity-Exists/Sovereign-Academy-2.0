@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2C3E50" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="description" content="Prep like a pro for your court date. Download printable checklists and learn what to bring, say, and expect." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+  <title>Sovereign Academy - Court Prep</title>
+  <style>
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #F4D03F;
+      --accent-color: #ECF0F1;
+    }
+    body {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .navbar {
+      background-color: var(--primary-color);
+      padding: 1rem;
+      text-align: center;
+    }
+    .navbar a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a.download-link {
+      display: inline-block;
+      margin: 10px 0 20px;
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="sui-juris.html">Sui Juris</a> |
+    <a href="ask-sage.html">Ask Sage</a> |
+    <a href="court-prep.html">Court Prep</a>
+  </div>
+
+  <h1>🧑‍⚖️ Court Prep Center</h1>
+
+  <section>
+    <h2>📝 Before Court</h2>
+    <ul>
+      <li>Gather and organize all evidence and paperwork.</li>
+      <li>Prepare a short outline of key points you want to make.</li>
+      <li>Practice speaking clearly and calmly.</li>
+    </ul>
+
+    <h2>🧾 Day of Court Checklist</h2>
+    <a class="download-link" href="court-prep-checklist.pdf" download>📄 Download Checklist (PDF)</a>
+    <ul>
+      <li>Dress professionally and arrive early.</li>
+      <li>Bring all necessary documents, copies, and notes.</li>
+      <li>Listen carefully and address the judge respectfully.</li>
+    </ul>
+
+    <h2>📤 After Court</h2>
+    <p>Follow up on any required actions from the court. Always request a signed copy of any orders issued.</p>
+
+    <p style="margin-top: 30px;"><em>More prep tools coming soon — including printable walkthroughs, what to expect, and how to stay focused in court.</em></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Sovereign Academy. All rights reserved.
+  </footer>
+
+  <!-- Tawk.to Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!-- Register Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered:', reg))
+        .catch(err => console.error('❌ Service Worker failed:', err));
+    });
+  }
+</script>
+
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>
+

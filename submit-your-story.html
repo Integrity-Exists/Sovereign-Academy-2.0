@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Your Story - Sovereign Academy</title>
+  <meta name="description" content="Share your fight against injustice. Submit your story to be featured on Sovereign Academy.">
+  <meta name="keywords" content="submit cps story, dss survivor story, real legal injustice, parent testimony, sovereign voice">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #222;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    input, textarea, label {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      background: #333;
+      border: none;
+      color: #fff;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 3rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>📣 Submit Your Story</h1>
+  <p>Have you been through it? CPS, DSS, wrongful court actions, injustice? Tell your story here. We’ll never publish it without your permission — but your voice may help someone else survive.</p>
+
+  <form name="submit-story" method="POST" data-netlify="true">
+    <label for="name">Name (or Alias)</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email (kept private)</label>
+    <input type="email" id="email" name="email">
+
+    <label for="story">Your Story</label>
+    <textarea id="story" name="story" rows="10" required></textarea>
+
+    <label>
+      <input type="checkbox" name="consent" required>
+      I consent to having my story reviewed and potentially shared publicly (name may be anonymized).
+    </label>
+
+    <button type="submit">🔥 Submit My Story</button>
+  </form>
+
+  <footer>&copy; Sovereign Academy</footer>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

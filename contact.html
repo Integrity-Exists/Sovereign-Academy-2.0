@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Sovereign Academy</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="sui-juris.html">Sui Juris</a>
+    <a href="ask-sage.html">Ask Sage</a>
+    <a href="court-prep.html">Court Prep</a>
+  </div>
+
+  <h1>Contact Us</h1>
+  <p>Get in touch with Sovereign Academy. We’re here to listen, support, and guide.</p>
+
+  <form action="https://formspree.io/f/xeogkwoe" method="POST" style="max-width: 500px; margin: auto;">
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" id="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" name="_replyto" id="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea name="message" id="message" rows="5" required></textarea><br><br>
+
+    <button class="button" type="submit">Send Message</button>
+  </form>
+
+  <footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
+    &copy; 2025 Sovereign Academy. All rights reserved.
+  </footer>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker failed', err));
+    });
+  }
+</script>
+
+
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

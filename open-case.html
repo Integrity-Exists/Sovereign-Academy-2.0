@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Open Case - Sovereign Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #2c3e50;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    pre {
+      background: #eee;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>📂 Opened Legal File</h1>
+  <p>Drag and drop a legal case file into the app — JSON files will be parsed below.</p>
+  <pre id="file-content">Waiting for file...</pre>
+
+  <script>
+    if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
+      window.launchQueue.setConsumer(async (launchParams) => {
+        if (!launchParams.files.length) return;
+
+        const fileHandle = launchParams.files[0];
+        const file = await fileHandle.getFile();
+
+        if (file.type === "application/json") {
+          const text = await file.text();
+          document.getElementById('file-content').textContent = text;
+        } else if (file.type === "application/pdf") {
+          window.open(URL.createObjectURL(file), '_blank');
+        } else {
+          document.getElementById('file-content').textContent = "❌ Unsupported file type.";
+        }
+      });
+    } else {
+      document.getElementById('file-content').textContent = "⚠️ File handler API not supported in this browser.";
+    }
+  </script>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

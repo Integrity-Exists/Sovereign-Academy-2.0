@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSS Strategy Tools - Sovereign Academy</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #F4D03F;
+      --accent-color: #ECF0F1;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    .form-section, .dashboard-section {
+      background: white;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .results {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e0f7e9;
+      border: 1px solid #b2dfdb;
+      border-radius: 5px;
+    }
+    hr {
+      margin: 40px auto;
+      max-width: 80%;
+    }
+    ul, ol {
+      max-width: 700px;
+      margin: auto;
+      padding-left: 20px;
+    }
+    a {
+      color: #0047ab;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DSS Defense Strategy Tools</h1>
+
+    <div class="form-section">
+      <h2>Generate PDF Strategy Plan</h2>
+      <form id="strategyForm">
+        <label for="case">Case Type</label>
+        <select id="case" required>
+          <option value="CPS">CPS</option>
+          <option value="Kinship Custody">Kinship Custody</option>
+          <option value="Foster Parent">Foster Parent</option>
+          <option value="Reunification">Reunification</option>
+        </select>
+
+        <label for="goal">Main Goal</label>
+        <input type="text" id="goal" required />
+
+        <label for="barriers">Main Barriers</label>
+        <textarea id="barriers" rows="4" required></textarea>
+
+        <button type="submit">Create My Plan (PDF)</button>
+      </form>
+      <div id="pdfStatus" class="results"></div>
+    </div>
+
+    <div class="dashboard-section">
+      <h2>Live Case Tracker</h2>
+      <p><em>Feature coming soon:</em> Visual dashboard of most common DSS conflict types and strategic recommendations.</p>
+    </div>
+
+    <hr>
+
+    <h2>What to Do If DSS Shows Up</h2>
+    <ol>
+      <li><strong>Stay calm</strong> and do not allow entry without a warrant.</li>
+      <li><strong>Ask for identification</strong> and request their business card.</li>
+      <li><strong>Do not answer questions</strong> without legal representation.</li>
+      <li><strong>Document everything</strong>: who came, what time, what was said.</li>
+      <li><strong>Politely refuse entry</strong> unless they present a valid court order or there’s a clear emergency.</li>
+    </ol>
+
+    <hr>
+
+    <h2>📄 Tools You Can Use</h2>
+    <ul>
+      <li><a href="motion-to-dismiss.docx" download>📄 Motion to Dismiss Template (DOCX)</a></li>
+      <li><a href="notice-of-appearance.docx" download>📝 Notice of Appearance (DOCX)</a></li>
+      <li><a href="court-prep-checklist.pdf" download>🧾 Court Prep Checklist (PDF)</a></li>
+    </ul>
+    <p><a href="printable-resources.html">🖨 View More Printable Legal Resources</a></p>
+
+    <hr>
+
+    <h2>⚖️ Know Your Rights</h2>
+    <ul>
+      <li><strong>📜 Right to remain silent:</strong> You do NOT have to answer questions or sign anything without a lawyer.</li>
+      <li><strong>🏠 Right to privacy:</strong> DSS cannot enter your home without a court order or emergency.</li>
+      <li><strong>👩‍⚖️ Right to legal counsel:</strong> You can request a public defender or legal aid.</li>
+      <li><strong>📸 Right to record:</strong> In Virginia, you may legally record your own conversations — document everything.</li>
+      <li><strong>🛑 You can say NO:</strong> Refuse drug tests, interviews, or inspections unless ordered by a judge.</li>
+    </ul>
+    <p><em>When in doubt, Ask Sage. Better informed than intimidated.</em></p>
+  </div>
+
+  <script>
+    document.getElementById("strategyForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const caseType = document.getElementById("case").value;
+      const goal = document.getElementById("goal").value;
+      const barriers = document.getElementById("barriers").value;
+      const summary = `DSS Strategy Plan:\n\nCase Type: ${caseType}\nGoal: ${goal}\nBarriers:\n${barriers}`;
+      const blob = new Blob([summary], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "DSS_Strategy_Plan.txt"; // Swap with .pdf if using converter later
+      link.click();
+      document.getElementById("pdfStatus").textContent = "✅ Your strategy plan is ready to download!";
+    });
+  </script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker failed', err));
+    });
+  }
+</script>
+
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

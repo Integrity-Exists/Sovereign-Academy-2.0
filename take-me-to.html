@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Take Me To... - Sovereign Academy</title>
+  <meta name="description" content="Quick-access legal support hub. Choose what you need and go directly there with one click.">
+  <meta name="keywords" content="legal help, where do I go, CPS help, court help, self-representation, legal tools quick access">
+  <meta property="og:title" content="Take Me To... - Sovereign Academy">
+  <meta property="og:description" content="Tap to go directly where you need: DSS help, Ask Sage, forms, court prep, and more.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Quick Legal Help - Sovereign Academy">
+  <meta name="twitter:description" content="Big buttons. Clear choices. No tech knowledge needed. Just tap and go.">
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2em; }
+    h1 { font-size: 2em; }
+    .btn-grid { display: grid; grid-template-columns: 1fr; gap: 1em; max-width: 400px; margin: auto; }
+    a.button {
+      background-color: #222;
+      color: white;
+      padding: 1em;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1em;
+      display: block;
+    }
+    a.button:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Where Do You Need to Go?</h1>
+    <p>Just tap a button. We'll take you there.</p>
+    <div class="btn-grid">
+      <a href="ask-sage.html" class="button">🧠 Ask Sage for Help</a>
+      <a href="dss-defense.html" class="button">🚨 DSS / CPS Defense</a>
+      <a href="expungement.html" class="button">🧹 Expunge My Record</a>
+      <a href="court-prep.html" class="button">👩‍⚖️ Get Ready for Court</a>
+      <a href="foia-request.html" class="button">📄 Request My Case File (FOIA)</a>
+      <a href="name-change.html" class="button">📝 Change My Name</a>
+      <a href="dashboard.html" class="button">📂 Go to My Dashboard</a>
+    </div>
+    <footer><p style="margin-top: 2em;">&copy; Sovereign Academy</p></footer>
+  </main>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2C3E50" />
+  <meta name="description" content="Custody & Family Law help — Ask Sage about visitation, parenting plans, and emergency motions." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+  <title>Custody & Family Law Help</title>
+  <script src="smart-search.js"></script>
+
+
+  <style>
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #F4D03F;
+      --accent-color: #ECF0F1;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+    }
+    h1 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    .search-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    #smartSearch {
+      padding: 10px 20px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .voice-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+    }
+    iframe#sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      height: 440px;
+      border: none;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>👪 Custody & Family Law Help</h1>
+  <p>Welcome to your legal support hub for custody and family law questions. Ask Sage anything — visitation, parenting plans, or emergency hearings.</p>
+
+  <div class="search-container">
+    <input type="text" id="smartSearch" placeholder="🔍 Search legal topics..." onkeyup="smartNavigate(this.value)" />
+    <br>
+    <button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <!-- AI Chatbot Iframe -->
+  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+  <!-- Smart + Voice Scripts -->
+  <script src="smart-search.js"></script>
+  <script src="voice-search.js"></script>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered ✅', reg))
+          .catch(err => console.error('Service Worker registration failed ❌', err));
+      });
+    }
+  </script>
+
+  <!-- Tawk.to Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+</body>
+</html>
