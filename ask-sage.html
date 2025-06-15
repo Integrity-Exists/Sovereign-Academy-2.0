@@ -42,16 +42,9 @@
       margin: 0 10px;
       text-decoration: none;
     }
-    iframe {
-      border: none;
-      width: 100%;
-      max-width: 600px;
-      height: 500px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.4);
-    }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -67,24 +60,33 @@
   <h1>Ask Sage</h1>
   <p>Your AI-powered legal ally. Ask me anything — no legalese, no BS.</p>
 
-  <!-- Tawk.to Chat Embed -->
-  <iframe src="https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt" allow="microphone; camera"></iframe>
-
   <footer style="margin-top: 3rem; color: #999;">
     &copy; 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
   </footer>
 
+  <!-- Ask Sage Bot Script -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Hey there, how can I help you with your legal questions today?",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
-<!-- Ask Sage Chatbot -->
-<script>
-  window.SageBotConfig = {
-    voice: true,
-    greetMessage: "Hey there, how can I help you with your legal questions today?",
-    placeholder: "Ask Sage anything...",
-    theme: "dark"
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+  <!-- Tawk.to Embed -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
 
 </body>
 </html>
