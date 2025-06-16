@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CPS & DSS Defense Hub</title>
-<link rel="manifest" href="manifest.json"> 
-  <script src="smart-search.js"></script>
-  
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CPS &amp; DSS Defense Hub</title>
+<link href="manifest.json" rel="manifest"/>
+<script src="smart-search.js"></script>
 <style>
 body {
 font-family: Arial, sans-serif;
@@ -35,16 +35,24 @@ z-index: 999;
 </style>
 </head>
 <body>
-<h1>CPS & DSS Defense Hub</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
+
+<h1>CPS &amp; DSS Defense Hub</h1>
 <p>If DSS or CPS is involved in your life, Sage has your back. Learn what they’re allowed to
 do — and how to push back.</p>
 <div style="text-align: center; margin-top: 40px; position: relative;">
-<input type="text" id="smartSearch" placeholder="🔍 Search legal topics..."
-style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px;
-border: 1px solid #ccc;"
-onkeyup="smartNavigate(this.value)">
+<input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px;
+border: 1px solid #ccc;" type="text"/>
 <span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 1
-</div>
+&lt;/div&gt;
 8px; color: #999;">🔍</span>
 <!-- Voice Search Button -->
 <div style="text-align: center; margin-top: 10px;">
@@ -56,8 +64,7 @@ border-radius: 6px; cursor: pointer;">
 <!-- Embedded Sage Chatbot -->
 <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
 <script src="smart-search.js"></script>
-<script src=”voice-search.js”></script>
-
+<script src="”voice-search.js”"></script>
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -68,6 +75,21 @@ border-radius: 6px; cursor: pointer;">
   };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+</div>
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
 
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
 </body>
 </html>
