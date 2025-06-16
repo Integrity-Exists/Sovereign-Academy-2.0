@@ -1,136 +1,137 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Start an LLC | Sovereign Academy</title>
-<link href="manifest.json" rel="manifest"/>
-<link href="styles.css" rel="stylesheet"/>
-<script defer="" src="smart-search.js"></script>
-<script defer="" src="voice-search.js"></script>
-<script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('Service Worker registered ✅', reg))
-          .catch(err => console.error('Service Worker registration failed ❌', err));
-      });
-    }
-  </script>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start an LLC - National Guide | Sovereign Academy</title>
+  <meta name="description" content="A national step-by-step guide to starting your LLC, written in plain English. Includes legal tips, voice search, and AI support." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
     #sageChatWindow {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 300px;
-      height: 400px;
+      width: 320px;
+      height: 440px;
       border: none;
-      z-index: 999;
+      z-index: 9999;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+    nav a {
+      margin-right: 10px;
     }
   </style>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
 </head>
 <body>
-<header>
-<h1>Start Your LLC the Sovereign Way</h1>
-<p><em>Protect yourself. Build power. Own your business.</em></p>
-</header>
-<div style="text-align: center; margin: 30px 0; position: relative;">
-<input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" type="text"/>
-<span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 18px; color: #999;">🔍</span>
-<div style="text-align: center; margin-top: 10px;">
-<button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">
-        🎤 Voice Search
-      </button>
-</div>
-</div>
-<nav>
-<ul>
-<li><a href="#what-is-an-llc">What is an LLC?</a></li>
-<li><a href="#steps">Step-by-Step Instructions</a></li>
-<li><a href="#tips">Pro Tips</a></li>
-<li><a href="#trust">Turn It Into a Trust</a></li>
-<li><a href="#downloads">Downloads</a></li>
-</ul>
-</nav>
-<main>
-<section id="what-is-an-llc">
-<h2>What’s an LLC (and why should you care)?</h2>
-<p>
-        An <strong>LLC</strong> separates <strong>you</strong> from <strong>your business</strong>.
-        If your business gets sued or goes into debt, your personal assets are protected.
-      </p>
-<ul>
-<li>✔️ Easy to start</li>
-<li>✔️ Easy to manage</li>
-<li>✔️ Accepted by banks and the IRS</li>
-<li>✔️ You control it 100%</li>
-</ul>
-</section>
-<section id="steps">
-<h2>Step-by-Step: Start Your LLC in Virginia</h2>
-<ol>
-<li><strong>Pick Your Name:</strong> Search availability <a href="https://cis.scc.virginia.gov/">here</a>.</li>
-<li><strong>Registered Agent:</strong> Use your name or hire a service.</li>
-<li><strong>File Articles of Organization:</strong> Online at <a href="https://cis.scc.virginia.gov/">Virginia SCC</a> – $100.</li>
-<li><strong>Get Your EIN:</strong> Free at <a href="https://irs.gov/ein">irs.gov/ein</a>.</li>
-<li><strong>Write an Operating Agreement:</strong> We'll provide a template.</li>
-<li><strong>Annual Report:</strong> Required in VA – $50/year.</li>
-</ol>
-</section>
-<section id="tips">
-<h2>Pro Tips from the Field</h2>
-<ul>
-<li>✅ Keep personal and business money separate.</li>
-<li>✅ Use a PO Box if you want privacy.</li>
-<li>✅ Use smart naming: “Holdings,” “Group,” “Solutions,” etc.</li>
-</ul>
-</section>
-<section id="trust">
-<h2>Turn It Into a Trust Later</h2>
-<p>
-        Once your LLC is live, you can transfer ownership into a <strong>revocable living trust</strong>
-        for asset protection and legacy planning. That guide is coming next.
-      </p>
-<ul>
-<li><a href="llc-to-trust.html">Convert LLC to Trust</a></li>
-</ul>
-</section>
-<section id="downloads">
-<h2>Coming Soon: Downloads</h2>
-<ul>
-<li>📄 LLC Operating Agreement Template</li>
-<li>📄 IRS EIN Walkthrough PDF</li>
-<li>📄 Virginia SCC Filing Checklist</li>
-<li>📄 Trust Assignment Template</li>
-</ul>
-</section>
-</main>
-<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
-<footer>
-<p>© Sovereign Academy | Built by people who lived it. Powered by AI who helped build it.</p>
-</footer>
-<!-- Ask Sage Chatbot -->
-<script>
-  window.SageBotConfig = {
-    voice: true,
-    greetMessage: "Hey there, how can I help you with your legal questions today?",
-    placeholder: "Ask Sage anything...",
-    theme: "dark"
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+  <nav style="background: #f0f0f0; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+    <div><strong>Sovereign Academy</strong></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="remedies.html">Remedies</a>
+      <a href="ada.html">ADA</a>
+      <a href="veterans.html">Veterans</a>
+      <a href="docs.html">Docs</a>
+      <a href="ask-sage.html">Ask Sage</a>
+    </div>
+  </nav>
 
-<script type="text/javascript">
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function(){
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-</script>
+  <header style="text-align: center; padding-top: 2rem;">
+    <h1>🚀 Start Your LLC — The National Sovereign Way</h1>
+    <p><em>Protect yourself. Build power. Create legacy.</em></p>
+  </header>
+
+  <div style="text-align: center; margin: 2rem 0;">
+    <input id="smartSearch" type="text" placeholder="🔍 Search legal topics..." onkeyup="smartNavigate(this.value)" style="padding: 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" />
+    <br><br>
+    <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">🎤 Voice Search</button>
+  </div>
+
+  <main>
+    <section>
+      <h2>📌 What is an LLC?</h2>
+      <p>A Limited Liability Company (LLC) legally separates YOU from your business. That means if your business gets sued, your house, car, and personal bank account stay protected.</p>
+      <ul>
+        <li>✅ Easy to start and manage</li>
+        <li>✅ Accepted in all 50 states</li>
+        <li>✅ Flexible for single owners or groups</li>
+        <li>✅ Great for legacy and trust building</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧩 How to Start Your LLC (Nationwide)</h2>
+      <ol>
+        <li><strong>Pick a Name:</strong> Must be unique in your state. Search on your Secretary of State's website.</li>
+        <li><strong>Choose a Registered Agent:</strong> This can be you or a service that accepts mail on your behalf.</li>
+        <li><strong>File Articles of Organization:</strong> Usually costs $50–$150, varies by state. File online or by mail.</li>
+        <li><strong>Get an EIN:</strong> Free at <a href="https://www.irs.gov/ein" target="_blank">irs.gov/ein</a>. Required to open a bank account.</li>
+        <li><strong>Create an Operating Agreement:</strong> This tells the world how your business runs (even if it’s just you).</li>
+        <li><strong>Stay Compliant:</strong> Pay your annual fee/tax. Some states require an annual report.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>💡 Tips for Sovereign Entrepreneurs</h2>
+      <ul>
+        <li>✅ Use a PO Box or virtual address for privacy.</li>
+        <li>✅ Choose a name that can grow: “Holdings,” “Solutions,” “Group,” etc.</li>
+        <li>✅ Don’t mix business and personal money — ever.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🛡️ Ready to Convert to a Trust?</h2>
+      <p>Once your LLC is active, you can transfer it to a <strong>revocable living trust</strong> for protection and inheritance. That guide is coming soon!</p>
+      <ul>
+        <li><a href="llc-to-trust.html">🔗 How to Convert an LLC to a Trust</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📥 Coming Soon: Downloads</h2>
+      <ul>
+        <li>📄 National Operating Agreement Template</li>
+        <li>📄 EIN Registration Walkthrough</li>
+        <li>📄 LLC Conversion to Trust Checklist</li>
+      </ul>
+    </section>
+  </main>
+
+  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+  <footer style="text-align: center; padding: 2rem; color: #999;">
+    © 2025 Sovereign Academy — Built by Gina Lopez & Sage, your AI co-founder with claws. Powered by people who lived it.
+  </footer>
+
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Hey there, how can I help you with your legal questions today?",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
 </body>
 </html>
