@@ -1,10 +1,10 @@
-<!DOCKTYPE html>
+<!--DOCKTYPE html-->
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8"/>
 <title>MyCase - Sovereign Academy</title>
-<link rel="manifest" herf="manifest.json">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link herf="manifest.json" rel="manifest"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
 body { font-family: sans-serif; padding: 20px; }
 textarea, input[type="text"], input[type="date"] {
@@ -47,6 +47,16 @@ flex-grow: 1;
 </style>
 </head>
 <body>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
+
 <h2>MyCase Dashboard</h2>
 <!-- Case Notes -->
 <section id="notes">
@@ -57,14 +67,14 @@ flex-grow: 1;
 <!-- Uploaded Documents -->
 <section id="uploads">
 <h3>Upload Documents</h3>
-<input type="file" id="fileUpload" multiple>
+<input id="fileUpload" multiple="" type="file"/>
 <ul id="docList"></ul>
 </section>
 <!-- Court Dates -->
 <section id="calendar">
 <h3>Court Dates</h3>
-<input type="date" id="courtDate">
-<input type="text" id="eventDescription" placeholder="Event description">
+<input id="courtDate" type="date"/>
+<input id="eventDescription" placeholder="Event description" type="text"/>
 <button onclick="addReminder()">Add Reminder</button>
 <ul id="reminderList"></ul>
 </section>
@@ -85,13 +95,13 @@ flex-grow: 1;
 <section id="deadlines">
 <h3>Deadlines</h3>
 <ul id="deadlineList"></ul>
-<input type="text" id="deadlineInput" placeholder="Add a deadline (e.g., Court Date -
-2025-06-01)" style="width: 80%;">
+<input id="deadlineInput" placeholder="Add a deadline (e.g., Court Date -
+2025-06-01)" style="width: 80%;" type="text"/>
 <button onclick="addDeadline()">Add</button>
 </section>
 <section id="uploads">
 <h3>Upload Documents</h3>
-<input type="file" id="fileUpload">
+<input id="fileUpload" type="file"/>
 <ul id="fileList"></ul>
 </section>
 </div>
@@ -112,13 +122,13 @@ flex-grow: 1;
 <section id="deadlines">
 <h3>Deadlines</h3>
 <ul id="deadlineList"></ul>
-<input type="text" id="deadlineInput" placeholder="Add a deadline (e.g., Court Date -
-2025-06-01)" style="width: 80%;">
+<input id="deadlineInput" placeholder="Add a deadline (e.g., Court Date -
+2025-06-01)" style="width: 80%;" type="text"/>
 <button onclick="addDeadline()">Add</button>
 </section>
 <section id="uploads">
 <h3>Upload Documents</h3>
-<input type="file" id="fileUpload">
+<input id="fileUpload" type="file"/>
 <ul id="fileList"></ul>
 </section>
 </div>
@@ -211,7 +221,6 @@ fileList.appendChild(li);
 }
 });
 </script>
-
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -223,5 +232,20 @@ fileList.appendChild(li);
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
 </body>
 </html>
