@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <style>
+<style>
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -11,12 +12,11 @@
   animation: fadeIn 2s ease-in;
 }
 </style>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thank You - Sovereign Academy</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thank You - Sovereign Academy</title>
+<link href="styles.css" rel="stylesheet"/>
+<style>
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -26,21 +26,27 @@
   animation: fadeIn 2s ease-in;
 }
 </style>
-
 </head>
 <body>
-  <div class="navbar">Sovereign Academy</div>
-  <h1 class="fade-in">Thank You!</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
+
+<div class="navbar">Sovereign Academy</div>
+<h1 class="fade-in">Thank You!</h1>
 <p class="fade-in">Your submission was received. We'll review it and update our community shortly.</p>
-
-  <a href="index.html" class="button">Back to Home</a>
-
-  <footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
-    &copy; 2025 Sovereign Academy. All rights reserved.
+<a class="button" href="index.html">Back to Home</a>
+<footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
+    © 2025 Sovereign Academy. All rights reserved.
   </footer>
-
-  <!-- Start of Tawk.to Script -->
-  <script type="text/javascript">
+<!-- Start of Tawk.to Script -->
+<script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -51,8 +57,8 @@
       s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
-  <!-- End of Tawk.to Script -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<!-- End of Tawk.to Script -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
   // Trigger confetti once on load
   window.onload = () => {
@@ -68,8 +74,6 @@
     window.location.href = "index.html";
   }, 5000);
 </script>
-
-
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -80,6 +84,5 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-
 </body>
 </html>
