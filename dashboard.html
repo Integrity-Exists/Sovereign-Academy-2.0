@@ -1,42 +1,49 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sovereign Justice Dashboard</title>
-  <link rel="manifest" href="manifest.json" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Justice Dashboard</title>
+<link href="manifest.json" rel="manifest"/>
 </head>
 <body>
-  <h1>Welcome to Sovereign Justice</h1>
-  <p>Your legal mission control, powered by Case Fire.</p>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
 
-  <section>
-    <h2>🔥 Real-Time Alerts</h2>
-    <ul>
-      <li>Criminal Charges</li>
-      <li>CPS / DSS</li>
-      <li>Civil</li>
-      <li>ADA</li>
-    </ul>
-    <p>Get instant case law and motion updates tailored to your battle type.</p>
-  </section>
-
-  <section>
-    <h2>📂 My Case Dashboard</h2>
-    <p>Save your case number for personalized alerts and legal changes.</p>
-    <form>
-      <label for="caseNum">Enter Case Number:</label>
-      <input type="text" id="caseNum" name="caseNum" />
-      <button type="submit">Save</button>
-    </form>
-  </section>
-
-  <section>
-    <h2>🧠 Ask Sage</h2>
-    <p>24/7 Sui Juris legal coaching. Ask anything.</p>
-    <a href="ask-sage.html">Open Ask Sage</a>
-  </section>
-
+<h1>Welcome to Sovereign Justice</h1>
+<p>Your legal mission control, powered by Case Fire.</p>
+<section>
+<h2>🔥 Real-Time Alerts</h2>
+<ul>
+<li>Criminal Charges</li>
+<li>CPS / DSS</li>
+<li>Civil</li>
+<li>ADA</li>
+</ul>
+<p>Get instant case law and motion updates tailored to your battle type.</p>
+</section>
+<section>
+<h2>📂 My Case Dashboard</h2>
+<p>Save your case number for personalized alerts and legal changes.</p>
+<form>
+<label for="caseNum">Enter Case Number:</label>
+<input id="caseNum" name="caseNum" type="text"/>
+<button type="submit">Save</button>
+</form>
+</section>
+<section>
+<h2>🧠 Ask Sage</h2>
+<p>24/7 Sui Juris legal coaching. Ask anything.</p>
+<a href="ask-sage.html">Open Ask Sage</a>
+</section>
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -48,5 +55,20 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
 </body>
 </html>
