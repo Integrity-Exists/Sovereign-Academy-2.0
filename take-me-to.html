@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Take Me To... - Sovereign Academy</title>
-  <meta name="description" content="Quick-access legal support hub. Choose what you need and go directly there with one click.">
-  <meta name="keywords" content="legal help, where do I go, CPS help, court help, self-representation, legal tools quick access">
-  <meta property="og:title" content="Take Me To... - Sovereign Academy">
-  <meta property="og:description" content="Tap to go directly where you need: DSS help, Ask Sage, forms, court prep, and more.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Quick Legal Help - Sovereign Academy">
-  <meta name="twitter:description" content="Big buttons. Clear choices. No tech knowledge needed. Just tap and go.">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Take Me To... - Sovereign Academy</title>
+<meta content="Quick-access legal support hub. Choose what you need and go directly there with one click." name="description"/>
+<meta content="legal help, where do I go, CPS help, court help, self-representation, legal tools quick access" name="keywords"/>
+<meta content="Take Me To... - Sovereign Academy" property="og:title"/>
+<meta content="Tap to go directly where you need: DSS help, Ask Sage, forms, court prep, and more." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Quick Legal Help - Sovereign Academy" name="twitter:title"/>
+<meta content="Big buttons. Clear choices. No tech knowledge needed. Just tap and go." name="twitter:description"/>
+<style>
     body { font-family: sans-serif; text-align: center; padding: 2em; }
     h1 { font-size: 2em; }
     .btn-grid { display: grid; grid-template-columns: 1fr; gap: 1em; max-width: 400px; margin: auto; }
@@ -32,21 +33,30 @@
   </style>
 </head>
 <body>
-  <main>
-    <h1>Where Do You Need to Go?</h1>
-    <p>Just tap a button. We'll take you there.</p>
-    <div class="btn-grid">
-      <a href="ask-sage.html" class="button">🧠 Ask Sage for Help</a>
-      <a href="dss-defense.html" class="button">🚨 DSS / CPS Defense</a>
-      <a href="expungement.html" class="button">🧹 Expunge My Record</a>
-      <a href="court-prep.html" class="button">👩‍⚖️ Get Ready for Court</a>
-      <a href="foia-request.html" class="button">📄 Request My Case File (FOIA)</a>
-      <a href="name-change.html" class="button">📝 Change My Name</a>
-      <a href="dashboard.html" class="button">📂 Go to My Dashboard</a>
-    </div>
-    <footer><p style="margin-top: 2em;">&copy; Sovereign Academy</p></footer>
-  </main>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
 
+<main>
+<h1>Where Do You Need to Go?</h1>
+<p>Just tap a button. We'll take you there.</p>
+<div class="btn-grid">
+<a class="button" href="ask-sage.html">🧠 Ask Sage for Help</a>
+<a class="button" href="dss-defense.html">🚨 DSS / CPS Defense</a>
+<a class="button" href="expungement.html">🧹 Expunge My Record</a>
+<a class="button" href="court-prep.html">👩‍⚖️ Get Ready for Court</a>
+<a class="button" href="foia-request.html">📄 Request My Case File (FOIA)</a>
+<a class="button" href="name-change.html">📝 Change My Name</a>
+<a class="button" href="dashboard.html">📂 Go to My Dashboard</a>
+</div>
+<footer><p style="margin-top: 2em;">© Sovereign Academy</p></footer>
+</main>
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -58,5 +68,16 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
 </body>
 </html>
