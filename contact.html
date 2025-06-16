@@ -4,9 +4,63 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contact - Sovereign Academy</title>
+<meta content="#2C3E50" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="Prep like a pro for your court date. Download printable checklists and learn what to bring, say, and expect." name="description"/>
 <link href="manifest.json" rel="manifest"/>
-<link href="css/style.css" rel="stylesheet"/>
+<link href="icons/icon-192x192.png" rel="icon" type="image/png"/>
+<link href="icons/icon-512x512.png" rel="apple-touch-icon"/>
+<title>Sovereign Academy - Court Prep</title>
+<style>
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #F4D03F;
+      --accent-color: #ECF0F1;
+    }
+    body {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .navbar {
+      background-color: var(--primary-color);
+      padding: 1rem;
+      text-align: center;
+    }
+    .navbar a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a.download-link {
+      display: inline-block;
+      margin: 10px 0 20px;
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--primary-color);
+    }
+  </style>
 </head>
 <body>
 <nav>
@@ -20,28 +74,36 @@
 </nav>
 
 <div class="navbar">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="sui-juris.html">Sui Juris</a>
-<a href="ask-sage.html">Ask Sage</a>
-<a href="court-prep.html">Court Prep</a>
+<a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="sui-juris.html">Sui Juris</a> |
+    <a href="ask-sage.html">Ask Sage</a> |
+    <a href="court-prep.html">Court Prep</a>
 </div>
-<h1>Contact Us</h1>
-<p>Get in touch with Sovereign Academy. We’re here to listen, support, and guide.</p>
-<form action="https://formspree.io/f/xeogkwoe" method="POST" style="max-width: 500px; margin: auto;">
-<label for="name">Name:</label><br/>
-<input id="name" name="name" required="" type="text"/><br/><br/>
-<label for="email">Email:</label><br/>
-<input id="email" name="_replyto" required="" type="email"/><br/><br/>
-<label for="message">Message:</label><br/>
-<textarea id="message" name="message" required="" rows="5"></textarea><br/><br/>
-<button class="button" type="submit">Send Message</button>
-</form>
-<footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
+<h1>🧑‍⚖️ Court Prep Center</h1>
+<section>
+<h2>📝 Before Court</h2>
+<ul>
+<li>Gather and organize all evidence and paperwork.</li>
+<li>Prepare a short outline of key points you want to make.</li>
+<li>Practice speaking clearly and calmly.</li>
+</ul>
+<h2>🧾 Day of Court Checklist</h2>
+<a class="download-link" download="" href="court-prep-checklist.pdf">📄 Download Checklist (PDF)</a>
+<ul>
+<li>Dress professionally and arrive early.</li>
+<li>Bring all necessary documents, copies, and notes.</li>
+<li>Listen carefully and address the judge respectfully.</li>
+</ul>
+<h2>📤 After Court</h2>
+<p>Follow up on any required actions from the court. Always request a signed copy of any orders issued.</p>
+<p style="margin-top: 30px;"><em>More prep tools coming soon — including printable walkthroughs, what to expect, and how to stay focused in court.</em></p>
+</section>
+<footer>
     © 2025 Sovereign Academy. All rights reserved.
   </footer>
-<!--Start of Tawk.to Script-->
+<!-- Tawk.to Chat -->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -53,13 +115,13 @@
       s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
-<!--End of Tawk.to Script-->
+<!-- Register Service Worker -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/service-worker.js')
-        .then(reg => console.log('✅ Service Worker registered', reg))
-        .catch(err => console.error('❌ Service Worker failed', err));
+        .then(reg => console.log('✅ Service Worker registered:', reg))
+        .catch(err => console.error('❌ Service Worker failed:', err));
     });
   }
 </script>
