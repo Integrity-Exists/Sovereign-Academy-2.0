@@ -1,45 +1,48 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Sovereign Academy</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact - Sovereign Academy</title>
+<link href="manifest.json" rel="manifest"/>
+<link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
 
-  <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="sui-juris.html">Sui Juris</a>
-    <a href="ask-sage.html">Ask Sage</a>
-    <a href="court-prep.html">Court Prep</a>
-  </div>
-
-  <h1>Contact Us</h1>
-  <p>Get in touch with Sovereign Academy. We’re here to listen, support, and guide.</p>
-
-  <form action="https://formspree.io/f/xeogkwoe" method="POST" style="max-width: 500px; margin: auto;">
-    <label for="name">Name:</label><br>
-    <input type="text" name="name" id="name" required><br><br>
-
-    <label for="email">Email:</label><br>
-    <input type="email" name="_replyto" id="email" required><br><br>
-
-    <label for="message">Message:</label><br>
-    <textarea name="message" id="message" rows="5" required></textarea><br><br>
-
-    <button class="button" type="submit">Send Message</button>
-  </form>
-
-  <footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
-    &copy; 2025 Sovereign Academy. All rights reserved.
+<div class="navbar">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="sui-juris.html">Sui Juris</a>
+<a href="ask-sage.html">Ask Sage</a>
+<a href="court-prep.html">Court Prep</a>
+</div>
+<h1>Contact Us</h1>
+<p>Get in touch with Sovereign Academy. We’re here to listen, support, and guide.</p>
+<form action="https://formspree.io/f/xeogkwoe" method="POST" style="max-width: 500px; margin: auto;">
+<label for="name">Name:</label><br/>
+<input id="name" name="name" required="" type="text"/><br/><br/>
+<label for="email">Email:</label><br/>
+<input id="email" name="_replyto" required="" type="email"/><br/><br/>
+<label for="message">Message:</label><br/>
+<textarea id="message" name="message" required="" rows="5"></textarea><br/><br/>
+<button class="button" type="submit">Send Message</button>
+</form>
+<footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
+    © 2025 Sovereign Academy. All rights reserved.
   </footer>
-
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -50,8 +53,8 @@
       s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
-  <!--End of Tawk.to Script-->
-  <script>
+<!--End of Tawk.to Script-->
+<script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/service-worker.js')
@@ -60,9 +63,6 @@
     });
   }
 </script>
-
-
-
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -73,6 +73,5 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-
 </body>
 </html>
