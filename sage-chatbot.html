@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ask Sage - Chatbot</title>
-  <link rel="manifest" href="manifest.json">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ask Sage - Chatbot</title>
+<link href="manifest.json" rel="manifest"/>
+<style>
     #sageChatBtn {
       position: fixed;
       bottom: 20px;
@@ -44,19 +44,23 @@
   </style>
 </head>
 <body>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
 
-  <!-- Floating Sage Button -->
-  <button id="sageChatBtn">Ask Sage</button>
-
-  <!-- Chat Window -->
-  <div id="sageChatWindow">
-    <iframe 
-      src="https://embed.tawk.to/681d203afe55ac190d5636e6/1hvnjsplk" 
-      allow="autoplay; microphone; camera"
-    ></iframe>
-  </div>
-
-  <script>
+<!-- Floating Sage Button -->
+<button id="sageChatBtn">Ask Sage</button>
+<!-- Chat Window -->
+<div id="sageChatWindow">
+<iframe allow="autoplay; microphone; camera" src="https://embed.tawk.to/681d203afe55ac190d5636e6/1hvnjsplk"></iframe>
+</div>
+<script>
     const btn = document.getElementById('sageChatBtn');
     const chatWindow = document.getElementById('sageChatWindow');
 
@@ -66,8 +70,6 @@
         : 'none';
     });
   </script>
-
-
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -79,5 +81,8 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
 </body>
 </html>
