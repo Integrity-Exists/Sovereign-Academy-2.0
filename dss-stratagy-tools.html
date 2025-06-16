@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DSS Strategy Tools - Sovereign Academy</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DSS Strategy Tools - Sovereign Academy</title>
+<link href="manifest.json" rel="manifest"/>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
     :root {
       --primary-color: #2C3E50;
       --secondary-color: #F4D03F;
@@ -85,71 +86,69 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>DSS Defense Strategy Tools</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
 
-    <div class="form-section">
-      <h2>Generate PDF Strategy Plan</h2>
-      <form id="strategyForm">
-        <label for="case">Case Type</label>
-        <select id="case" required>
-          <option value="CPS">CPS</option>
-          <option value="Kinship Custody">Kinship Custody</option>
-          <option value="Foster Parent">Foster Parent</option>
-          <option value="Reunification">Reunification</option>
-        </select>
-
-        <label for="goal">Main Goal</label>
-        <input type="text" id="goal" required />
-
-        <label for="barriers">Main Barriers</label>
-        <textarea id="barriers" rows="4" required></textarea>
-
-        <button type="submit">Create My Plan (PDF)</button>
-      </form>
-      <div id="pdfStatus" class="results"></div>
-    </div>
-
-    <div class="dashboard-section">
-      <h2>Live Case Tracker</h2>
-      <p><em>Feature coming soon:</em> Visual dashboard of most common DSS conflict types and strategic recommendations.</p>
-    </div>
-
-    <hr>
-
-    <h2>What to Do If DSS Shows Up</h2>
-    <ol>
-      <li><strong>Stay calm</strong> and do not allow entry without a warrant.</li>
-      <li><strong>Ask for identification</strong> and request their business card.</li>
-      <li><strong>Do not answer questions</strong> without legal representation.</li>
-      <li><strong>Document everything</strong>: who came, what time, what was said.</li>
-      <li><strong>Politely refuse entry</strong> unless they present a valid court order or there’s a clear emergency.</li>
-    </ol>
-
-    <hr>
-
-    <h2>📄 Tools You Can Use</h2>
-    <ul>
-      <li><a href="motion-to-dismiss.docx" download>📄 Motion to Dismiss Template (DOCX)</a></li>
-      <li><a href="notice-of-appearance.docx" download>📝 Notice of Appearance (DOCX)</a></li>
-      <li><a href="court-prep-checklist.pdf" download>🧾 Court Prep Checklist (PDF)</a></li>
-    </ul>
-    <p><a href="printable-resources.html">🖨 View More Printable Legal Resources</a></p>
-
-    <hr>
-
-    <h2>⚖️ Know Your Rights</h2>
-    <ul>
-      <li><strong>📜 Right to remain silent:</strong> You do NOT have to answer questions or sign anything without a lawyer.</li>
-      <li><strong>🏠 Right to privacy:</strong> DSS cannot enter your home without a court order or emergency.</li>
-      <li><strong>👩‍⚖️ Right to legal counsel:</strong> You can request a public defender or legal aid.</li>
-      <li><strong>📸 Right to record:</strong> In Virginia, you may legally record your own conversations — document everything.</li>
-      <li><strong>🛑 You can say NO:</strong> Refuse drug tests, interviews, or inspections unless ordered by a judge.</li>
-    </ul>
-    <p><em>When in doubt, Ask Sage. Better informed than intimidated.</em></p>
-  </div>
-
-  <script>
+<div class="container">
+<h1>DSS Defense Strategy Tools</h1>
+<div class="form-section">
+<h2>Generate PDF Strategy Plan</h2>
+<form id="strategyForm">
+<label for="case">Case Type</label>
+<select id="case" required="">
+<option value="CPS">CPS</option>
+<option value="Kinship Custody">Kinship Custody</option>
+<option value="Foster Parent">Foster Parent</option>
+<option value="Reunification">Reunification</option>
+</select>
+<label for="goal">Main Goal</label>
+<input id="goal" required="" type="text"/>
+<label for="barriers">Main Barriers</label>
+<textarea id="barriers" required="" rows="4"></textarea>
+<button type="submit">Create My Plan (PDF)</button>
+</form>
+<div class="results" id="pdfStatus"></div>
+</div>
+<div class="dashboard-section">
+<h2>Live Case Tracker</h2>
+<p><em>Feature coming soon:</em> Visual dashboard of most common DSS conflict types and strategic recommendations.</p>
+</div>
+<hr/>
+<h2>What to Do If DSS Shows Up</h2>
+<ol>
+<li><strong>Stay calm</strong> and do not allow entry without a warrant.</li>
+<li><strong>Ask for identification</strong> and request their business card.</li>
+<li><strong>Do not answer questions</strong> without legal representation.</li>
+<li><strong>Document everything</strong>: who came, what time, what was said.</li>
+<li><strong>Politely refuse entry</strong> unless they present a valid court order or there’s a clear emergency.</li>
+</ol>
+<hr/>
+<h2>📄 Tools You Can Use</h2>
+<ul>
+<li><a download="" href="motion-to-dismiss.docx">📄 Motion to Dismiss Template (DOCX)</a></li>
+<li><a download="" href="notice-of-appearance.docx">📝 Notice of Appearance (DOCX)</a></li>
+<li><a download="" href="court-prep-checklist.pdf">🧾 Court Prep Checklist (PDF)</a></li>
+</ul>
+<p><a href="printable-resources.html">🖨 View More Printable Legal Resources</a></p>
+<hr/>
+<h2>⚖️ Know Your Rights</h2>
+<ul>
+<li><strong>📜 Right to remain silent:</strong> You do NOT have to answer questions or sign anything without a lawyer.</li>
+<li><strong>🏠 Right to privacy:</strong> DSS cannot enter your home without a court order or emergency.</li>
+<li><strong>👩‍⚖️ Right to legal counsel:</strong> You can request a public defender or legal aid.</li>
+<li><strong>📸 Right to record:</strong> In Virginia, you may legally record your own conversations — document everything.</li>
+<li><strong>🛑 You can say NO:</strong> Refuse drug tests, interviews, or inspections unless ordered by a judge.</li>
+</ul>
+<p><em>When in doubt, Ask Sage. Better informed than intimidated.</em></p>
+</div>
+<script>
     document.getElementById("strategyForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const caseType = document.getElementById("case").value;
@@ -165,7 +164,7 @@
       document.getElementById("pdfStatus").textContent = "✅ Your strategy plan is ready to download!";
     });
   </script>
-  <script>
+<script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/service-worker.js')
@@ -174,8 +173,6 @@
     });
   }
 </script>
-
-
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -187,5 +184,20 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
 </body>
 </html>
