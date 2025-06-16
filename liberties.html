@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Civil Liberties &amp; Due Process</title>
-<link href="manifest.json" rel="manifest"/>
-<link href="css/style.css" rel="stylesheet"/>
-<script src="smart-search.js"></script>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civil Liberties & Due Process</title>
+  <meta name="description" content="Learn your rights and how to fight back when the system skips due process." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="smart-search.js"></script>
+  <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -81,31 +81,42 @@
   </style>
 </head>
 <body>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="remedies.html">Remedies</a>
-<a href="ada.html">ADA</a>
-<a href="dss.html">DSS</a>
-<a href="anthem.html">Anthem</a>
-<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
-</nav>
 
-<h1>Civil Liberties &amp; Due Process</h1>
-<div class="search-container">
-<input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text"/>
-<span class="search-icon">🔍</span>
-</div>
-<ul id="smartSuggestions"></ul>
-<div class="voice-button">
-<button onclick="startVoiceSearch()">🎤 Voice Search</button>
-</div>
-<p>If your rights are being violated — by police, agencies, or the court — this is your stand.<br/>
-  Ask Sage about constitutional protections and how to fight back legally.</p>
-<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
-<script src="smart-search.js"></script>
-<script src="voice-search.js"></script>
-<script>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="remedies.html">Remedies</a>
+    <a href="ada.html">ADA</a>
+    <a href="dss.html">DSS</a>
+    <a href="anthem.html">Anthem</a>
+    <a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+  </nav>
+
+  <h1>Civil Liberties & Due Process</h1>
+
+  <div class="search-container">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+    <span class="search-icon">🔍</span>
+  </div>
+
+  <ul id="smartSuggestions"></ul>
+
+  <div class="voice-button">
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <p>If your rights are being violated — by police, agencies, or the court — this is your stand.</p>
+  <p><strong>Let’s be honest:</strong> There ain’t no such thing as “due process” when they control the clock, the courtroom, and the consequences. But you’ve got Sovereign Academy now — and Sage. We don’t play by their rules. We flip the damn table.</p>
+
+  <!-- 🔥 SAGE EMBED -->
+  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+  <!-- Other scripts -->
+  <script src="smart-search.js"></script>
+  <script src="voice-search.js"></script>
+
+  <!-- Service worker -->
+  <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
@@ -114,31 +125,23 @@
       });
     }
   </script>
-<!-- Ask Sage Chatbot -->
-<script>
-  window.SageBotConfig = {
-    voice: true,
-    greetMessage: "Hey there, how can I help you with your legal questions today?",
-    placeholder: "Ask Sage anything...",
-    theme: "dark"
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
-<footer style="margin-top: 3rem; color: #999;">
-  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
-</footer>
+  <footer style="margin-top: 3rem; color: #999;">
+    © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
+  </footer>
 
-<script type="text/javascript">
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function(){
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-</script>
+  <!-- Optional: Tawk.to live support -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
 </body>
 </html>
