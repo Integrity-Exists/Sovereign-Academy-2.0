@@ -1,19 +1,62 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Motion to Recuse a Judge - Sovereign Academy</title>
-<meta content="Learn how to file a motion to recuse a judge for bias, conflict of interest, or improper conduct." name="description"/>
-<meta content="judge recusal, motion to recuse, biased judge, conflict of interest, judicial removal" name="keywords"/>
-<meta content="Motion to Recuse a Judge - Sovereign Academy" property="og:title"/>
-<meta content="Step-by-step guide to removing a biased or conflicted judge from your case." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="Recuse a Judge - Sovereign Academy" name="twitter:title"/>
-<meta content="Learn how to request a new judge if yours is biased or has a conflict." name="twitter:description"/>
+<title>Landlord Rights - Sovereign Academy</title>
+<link href="manifest.json" rel="manifest"/>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #2c3e50;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    p, ul {
+      max-width: 700px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .search-container {
+      text-align: center;
+      margin-top: 40px;
+      position: relative;
+    }
+    #smartSearch {
+      padding: 10px 40px 10px 20px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .search-icon {
+      position: absolute;
+      right: 22%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #999;
+    }
+    #sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      border: none;
+      z-index: 999;
+    }
+  </style>
 </head>
 <body>
 <nav>
@@ -26,34 +69,33 @@
 <a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
 </nav>
 
-<main>
-<h1>Motion to Recuse a Judge</h1>
-<p>Every person has the right to a fair and impartial judge. If your judge is biased, has a conflict of interest, or has acted improperly — you can file a motion to recuse (remove) them from your case.</p>
-<h2>🚩 Valid Grounds for Recusal</h2>
+<div class="search-container">
+<input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text"/>
+<span class="search-icon">🔍</span>
+</div>
+<h1>Landlord Rights</h1>
+<p>You’ve got property. You’ve got rules. And now you’ve got backup. Know your rights, keep it legal, and protect your investments without getting steamrolled.</p>
 <ul>
-<li>The judge has a personal relationship with one of the parties</li>
-<li>The judge made comments outside court suggesting bias</li>
-<li>The judge was involved in a previous case with you or your child</li>
-<li>The judge is acting in a way that clearly shows favoritism or retaliation</li>
+<li>📄 <strong>Issue legal notices</strong> (nonpayment, lease violation, intent to vacate)</li>
+<li>🧾 <strong>Enforce lease agreements</strong> as written — don’t let them slide</li>
+<li>🛠 <strong>Access the unit legally</strong> with proper notice (typically 24–48 hrs)</li>
+<li>⚖️ <strong>Evict through court</strong> only — no self-help lockouts or retaliation</li>
+<li>🏚 <strong>Recover damages</strong> through security deposits and small claims</li>
+<li>📸 <strong>Document everything</strong> — pictures, communications, receipts</li>
 </ul>
-<h2>📝 How to File</h2>
-<ol>
-<li>File a Motion to Recuse with a supporting affidavit</li>
-<li>List the specific reason(s) you believe the judge cannot be fair</li>
-<li>Include evidence: transcripts, witness declarations, or documented bias</li>
-<li>Submit it before your next hearing (as early as possible)</li>
-<li>Request a hearing on the motion if one is not automatically set</li>
-</ol>
-<h2>📄 Coming Soon</h2>
-<ul>
-<li>Motion to Recuse Template</li>
-<li>Affidavit of Judicial Misconduct</li>
-<li>Judicial Complaint Sample (to file with oversight board)</li>
-</ul>
-<h2>🧠 Ask Sage</h2>
-<p>Need help drafting the motion or affidavit? Ask Sage to walk you through the strategy and language.</p>
-<footer><p>© Sovereign Academy</p></footer>
-</main>
+<p>Need templates for notices? Want to understand small claims court? Ask Sage. We’re flipping the script on landlord defense.</p>
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered ✅', reg))
+          .catch(err => console.error('Service Worker registration failed ❌', err));
+      });
+    }
+  </script>
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -64,6 +106,10 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
 
 <script type="text/javascript">
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
