@@ -1,18 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#2C3E50" />
-  <meta name="description" content="Custody & Family Law help — Ask Sage about visitation, parenting plans, and emergency motions." />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
-  <title>Custody & Family Law Help</title>
-  <script src="smart-search.js"></script>
-
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#2C3E50" name="theme-color"/>
+<meta content="Custody &amp; Family Law help — Ask Sage about visitation, parenting plans, and emergency motions." name="description"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="icons/icon-192x192.png" rel="icon" type="image/png"/>
+<link href="icons/icon-512x512.png" rel="apple-touch-icon"/>
+<title>Custody &amp; Family Law Help</title>
+<script src="smart-search.js"></script>
+<style>
     :root {
       --primary-color: #2C3E50;
       --secondary-color: #F4D03F;
@@ -68,25 +67,30 @@
   </style>
 </head>
 <body>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
 
-  <h1>👪 Custody & Family Law Help</h1>
-  <p>Welcome to your legal support hub for custody and family law questions. Ask Sage anything — visitation, parenting plans, or emergency hearings.</p>
-
-  <div class="search-container">
-    <input type="text" id="smartSearch" placeholder="🔍 Search legal topics..." onkeyup="smartNavigate(this.value)" />
-    <br>
-    <button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
-  </div>
-
-  <!-- AI Chatbot Iframe -->
-  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
-
-  <!-- Smart + Voice Scripts -->
-  <script src="smart-search.js"></script>
-  <script src="voice-search.js"></script>
-
-  <!-- Service Worker -->
-  <script>
+<h1>👪 Custody &amp; Family Law Help</h1>
+<p>Welcome to your legal support hub for custody and family law questions. Ask Sage anything — visitation, parenting plans, or emergency hearings.</p>
+<div class="search-container">
+<input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text"/>
+<br/>
+<button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
+</div>
+<!-- AI Chatbot Iframe -->
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+<!-- Smart + Voice Scripts -->
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
+<!-- Service Worker -->
+<script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
@@ -95,9 +99,8 @@
       });
     }
   </script>
-
-  <!-- Tawk.to Chat -->
-  <script type="text/javascript">
+<!-- Tawk.to Chat -->
+<script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -108,8 +111,6 @@
       s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
-
-
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -121,5 +122,8 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
 </body>
 </html>
