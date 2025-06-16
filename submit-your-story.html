@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Submit Your Story - Sovereign Academy</title>
-  <meta name="description" content="Share your fight against injustice. Submit your story to be featured on Sovereign Academy.">
-  <meta name="keywords" content="submit cps story, dss survivor story, real legal injustice, parent testimony, sovereign voice">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Submit Your Story - Sovereign Academy</title>
+<meta content="Share your fight against injustice. Submit your story to be featured on Sovereign Academy." name="description"/>
+<meta content="submit cps story, dss survivor story, real legal injustice, parent testimony, sovereign voice" name="keywords"/>
+<style>
     body {
       font-family: sans-serif;
       background: #111;
@@ -50,29 +51,32 @@
   </style>
 </head>
 <body>
-  <h1>📣 Submit Your Story</h1>
-  <p>Have you been through it? CPS, DSS, wrongful court actions, injustice? Tell your story here. We’ll never publish it without your permission — but your voice may help someone else survive.</p>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
 
-  <form name="submit-story" method="POST" data-netlify="true">
-    <label for="name">Name (or Alias)</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email (kept private)</label>
-    <input type="email" id="email" name="email">
-
-    <label for="story">Your Story</label>
-    <textarea id="story" name="story" rows="10" required></textarea>
-
-    <label>
-      <input type="checkbox" name="consent" required>
+<h1>📣 Submit Your Story</h1>
+<p>Have you been through it? CPS, DSS, wrongful court actions, injustice? Tell your story here. We’ll never publish it without your permission — but your voice may help someone else survive.</p>
+<form data-netlify="true" method="POST" name="submit-story">
+<label for="name">Name (or Alias)</label>
+<input id="name" name="name" required="" type="text"/>
+<label for="email">Email (kept private)</label>
+<input id="email" name="email" type="email"/>
+<label for="story">Your Story</label>
+<textarea id="story" name="story" required="" rows="10"></textarea>
+<label>
+<input name="consent" required="" type="checkbox"/>
       I consent to having my story reviewed and potentially shared publicly (name may be anonymized).
     </label>
-
-    <button type="submit">🔥 Submit My Story</button>
-  </form>
-
-  <footer>&copy; Sovereign Academy</footer>
-
+<button type="submit">🔥 Submit My Story</button>
+</form>
+<footer>© Sovereign Academy</footer>
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -84,5 +88,16 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
 </body>
 </html>
