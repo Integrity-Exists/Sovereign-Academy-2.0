@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal Resources - Sovereign Academy</title>
-  <link rel="manifest" href="manifest.json">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Legal Resources - Sovereign Academy</title>
+<link href="manifest.json" rel="manifest"/>
+<style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -53,28 +54,32 @@
   </style>
 </head>
 <body>
-  <h1>Printable Legal Resources</h1>
-  <p>Need forms, templates, or checklists? We've got you covered. Download free legal tools to support your fight for justice.</p>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="remedies.html">Remedies</a>
+<a href="ada.html">ADA</a>
+<a href="dss.html">DSS</a>
+<a href="anthem.html">Anthem</a>
+<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+</nav>
 
-  <ul>
-    <li><a href="motion-to-dismiss.docx" download>✉️ Motion to Dismiss Template (DOCX)</a></li>
-    <li><a href="notice-of-appearance.docx" download>📄 Notice of Appearance (DOCX)</a></li>
-    <li><a href="court-prep-checklist.pdf" download>🗃️ Court Prep Checklist (PDF)</a></li>
-    <li><a href="power-of-attorney-template.pdf" download>🗑️ Power of Attorney Template (PDF)</a></li>
-    <li><a href="declaration-of-facts.docx" download>📋 Declaration of Facts (DOCX)</a></li>
-  </ul>
-
-  <div style="text-align: center;">
-    <input type="text" id="smartSearch" placeholder="Search legal topics..."
-      style="padding: 10px; width: 60%; font-size: 16px;"
-      onkeyup="smartNavigate(this.value)">
-    <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">🎤 Voice Search
+<h1>Printable Legal Resources</h1>
+<p>Need forms, templates, or checklists? We've got you covered. Download free legal tools to support your fight for justice.</p>
+<ul>
+<li><a download="" href="motion-to-dismiss.docx">✉️ Motion to Dismiss Template (DOCX)</a></li>
+<li><a download="" href="notice-of-appearance.docx">📄 Notice of Appearance (DOCX)</a></li>
+<li><a download="" href="court-prep-checklist.pdf">🗃️ Court Prep Checklist (PDF)</a></li>
+<li><a download="" href="power-of-attorney-template.pdf">🗑️ Power of Attorney Template (PDF)</a></li>
+<li><a download="" href="declaration-of-facts.docx">📋 Declaration of Facts (DOCX)</a></li>
+</ul>
+<div style="text-align: center;">
+<input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics..." style="padding: 10px; width: 60%; font-size: 16px;" type="text"/>
+<button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">🎤 Voice Search
     </button>
-  </div>
-
-  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
-
-  <script>
+</div>
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+<script>
     function smartNavigate(query) {
       query = query.toLowerCase().trim();
       const routes = {
@@ -108,9 +113,8 @@
       }
     }
   </script>
-  <script src="smart-search.js"></script>
-  <script src="voice-search.js"></script>
-
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -122,5 +126,20 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
 </body>
 </html>
