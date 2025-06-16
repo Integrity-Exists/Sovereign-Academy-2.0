@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Legal Remedies for Incarcerated Individuals</title>
-  <link rel="manifest" href="manifest.json">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Legal Remedies for Incarcerated Individuals</title>
+<link href="manifest.json" rel="manifest"/>
+<style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -87,40 +87,37 @@
   </style>
 </head>
 <body>
-  <nav style="text-align:center; padding: 10px; background-color: #2C3E50;">
-  <a href="index.html" style="color:white; margin: 0 10px; text-decoration:none;">Home</a>
-  <a href="custody.html" style="color:white; margin: 0 10px; text-decoration:none;">Custody</a>
-  <a href="dss.html" style="color:white; margin: 0 10px; text-decoration:none;">DSS</a>
-  <a href="remedies.html" style="color:white; margin: 0 10px; text-decoration:none;">Remedies</a>
-  <a href="eviction.html" style="color:white; margin: 0 10px; text-decoration:none;">Eviction</a>
-  <a href="records.html" style="color:white; margin: 0 10px; text-decoration:none;">Records</a>
-  <a href="liberties.html" style="color:white; margin: 0 10px; text-decoration:none;">Liberties</a>
-  <a href="estate.html" style="color:white; margin: 0 10px; text-decoration:none;">Estate</a>
-  <a href="arrested.html" style="color:white; margin: 0 10px; text-decoration:none;">Arrested</a>
+<nav style="text-align:center; padding: 10px; background-color: #2C3E50;">
+<a href="index.html" style="color:white; margin: 0 10px; text-decoration:none;">Home</a>
+<a href="custody.html" style="color:white; margin: 0 10px; text-decoration:none;">Custody</a>
+<a href="dss.html" style="color:white; margin: 0 10px; text-decoration:none;">DSS</a>
+<a href="remedies.html" style="color:white; margin: 0 10px; text-decoration:none;">Remedies</a>
+<a href="eviction.html" style="color:white; margin: 0 10px; text-decoration:none;">Eviction</a>
+<a href="records.html" style="color:white; margin: 0 10px; text-decoration:none;">Records</a>
+<a href="liberties.html" style="color:white; margin: 0 10px; text-decoration:none;">Liberties</a>
+<a href="estate.html" style="color:white; margin: 0 10px; text-decoration:none;">Estate</a>
+<a href="arrested.html" style="color:white; margin: 0 10px; text-decoration:none;">Arrested</a>
 </nav>
-  <h1>Legal Remedies for Incarcerated Individuals</h1>
-  <p>
+<h1>Legal Remedies for Incarcerated Individuals</h1>
+<p>
     If you're locked up or advocating for someone who is, this is where the fight starts. 
     Learn about state and federal remedies including habeas corpus, sentence reduction motions, 
     compassionate release, and clemency options. Sage can help break down what’s possible and how to begin.
   </p>
-
-  <!-- Smart Search Input -->
-  <div style="text-align: center; margin-top: 40px;">
-    <input id="smartSearch" type="text" placeholder="Search legal topics..." onkeyup="smartNavigate(this.value)" />
-    <ul id="smartSuggestions"></ul>
-    <br><br>
-    <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px;">🎤 Voice Search</button>
-  </div>
-
-  <!-- Floating Ask Sage Button -->
-  <button id="sageChatBtn">💬 Ask Sage</button>
-  <div id="sageChatWindow">
-    <iframe src="https://embed.tawk.to/681d203afe55ac190d5636e6/1hvnjsplk" allow="autoplay; microphone; camera"></iframe>
-  </div>
-
-  <!-- Service Worker -->
-  <script>
+<!-- Smart Search Input -->
+<div style="text-align: center; margin-top: 40px;">
+<input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics..." type="text"/>
+<ul id="smartSuggestions"></ul>
+<br/><br/>
+<button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px;">🎤 Voice Search</button>
+</div>
+<!-- Floating Ask Sage Button -->
+<button id="sageChatBtn">💬 Ask Sage</button>
+<div id="sageChatWindow">
+<iframe allow="autoplay; microphone; camera" src="https://embed.tawk.to/681d203afe55ac190d5636e6/1hvnjsplk"></iframe>
+</div>
+<!-- Service Worker -->
+<script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
@@ -129,9 +126,8 @@
       });
     }
   </script>
-
-  <!-- Smart Search Logic -->
-  <script>
+<!-- Smart Search Logic -->
+<script>
     const topics = [
       { keyword: "custody", page: "custody.html" },
       { keyword: "eviction", page: "eviction.html" },
@@ -223,7 +219,6 @@
         : 'none';
     });
   </script>
-
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -235,5 +230,8 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
 </body>
 </html>
