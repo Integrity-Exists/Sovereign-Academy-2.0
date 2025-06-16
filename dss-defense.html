@@ -3,54 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CPS & DSS Defense Hub - Sovereign Academy</title>
-  <meta name="description" content="Learn how to fight back against CPS overreach and protect your parental rights.">
+  <title>DSS & CPS Defense - Nationwide | Sovereign Academy</title>
+  <meta name="description" content="Learn how to defend yourself against CPS and DSS overreach — with nationwide guidance and real tools." />
+  <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="css/style.css" />
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered ✅', reg))
+          .catch(err => console.error('Service Worker registration failed ❌', err));
+      });
+    }
+  </script>
   <style>
-    #sage-bot {
+    #sageChatWindow {
       position: fixed;
-      bottom: 100px;
-      left: 20px;
-      z-index: 9999;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      height: 440px;
+      border: none;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
     }
   </style>
 </head>
-
 <body>
-<nav style="display: flex; justify-content: space-between; align-items: center; background: #f0f0f0; padding: 10px;">
-<div>
-<strong>Sovereign Academy</strong>
-</div>
-<div>
-<a href="index.html">Home</a> |
-<a href="about.html">About</a> |
-<a href="remedies.html">Remedies</a> |
-<a href="ada.html">ADA</a> |
-<a href="dss.html">DSS</a> |
-<a href="anthem.html">Anthem</a> |
-<a href="ask-sage.html">Ask Sage</a>
-</div>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="remedies.html">Remedies</a>
+    <a href="ada.html">ADA</a>
+    <a href="dss.html">DSS</a>
+    <a href="anthem.html">Anthem</a>
+    <a href="ask-sage.html">Ask Sage</a>
+  </nav>
 
-  <main style="text-align: center; padding: 2em;">
-    <h1>CPS & DSS Defense Hub</h1>
-    <p style="max-width: 700px; margin: auto; font-size: 1.2em;">
-      CPS knocking at your door? DSS making threats or taking your child without cause? You are not alone — and you're not powerless. Sovereign Academy is here to show you what they <em>can’t</em> do, what rights they <em>have to</em> respect, and how to fight back legally and fiercely.
-    </p>
-    <p style="max-width: 700px; margin: auto; font-size: 1.2em;">
-      From unlawful removals to bogus service plans, we'll help you decode the game, document your defense, and demand due process. This is about reclaiming your power — as a parent, as a citizen, and as a sovereign soul.
-    </p>
+  <h1>🛡️ DSS & CPS Defense - Nationwide</h1>
+  <p>Every state has a child protection agency. Most overreach. We teach you how to respond — using **your rights**, not just their rules.</p>
 
-    <input type="text" placeholder="🔍 Search legal topics..." style="padding: 10px; width: 300px; margin-top: 20px; border-radius: 5px; border: 1px solid #ccc;" />
-    <br />
-    <button style="margin-top: 10px; padding: 10px 20px; font-size: 1em;">🎤 Voice Search</button>
+  <div class="search-container">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <main>
+    <section>
+      <h2>What You’ll Learn</h2>
+      <ul>
+        <li>🧾 How to demand due process in DSS investigations</li>
+        <li>📬 What to do when you get a letter from CPS</li>
+        <li>🧠 How to challenge false reports</li>
+        <li>⚖️ What rights parents really have — by law</li>
+        <li>🛠️ Motion templates and evidence demands</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>State-Specific Strategies</h2>
+      <p>We’ve included links to official CPS/DSS pages by state. If your agency has a different name (DCFS, DHS, DYFS, etc.), you’ll still find the tools here work the same.</p>
+    </section>
   </main>
 
-  <footer style="text-align: center; margin-top: 3em; font-size: 0.9em;">
-    <p>© 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.</p>
+  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+  <footer>
+    <p>© Sovereign Academy — Created by Gina Lopez & Sage, co-founder with claws 🐾. Built by Integrity Exists.</p>
   </footer>
 
-  <!-- TEMP COMMENTED OUT FOR TESTING -->
-  <!-- <script src="https://cdn.jsdelivr.net/gh/your-bot-script/ask-sage.js"></script> -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Hey there, how can I help you with your DSS or CPS questions today?",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 </body>
 </html>
