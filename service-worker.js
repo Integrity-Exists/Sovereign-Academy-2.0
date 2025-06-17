@@ -1,11 +1,20 @@
-const CACHE_NAME = 'sovereign-academy-v1';
+const CACHE_NAME = 'sovereign-academy-v2';
 const urlsToCache = [
-  '/',
   '/index.html',
-  '/style.css',
-  '/download-responsive.css',
-  '/smart-search.js',
-  '/voice-search.js',
+  '/about.html',
+  '/remedies.html',
+  '/ask-sage.html',
+  '/dss.html',
+  '/custody.html',
+  '/ada.html',
+  '/anthem.html',
+  '/veterans.html',
+  '/llc-guide.html',
+  '/llc-to-trust.html',
+  '/css/style.css',
+  '/css/download-responsive.css',
+  '/js/smart-search.js',
+  '/js/voice-search.js',
   '/manifest.json',
   '/icons/icon-192-any.png',
   '/icons/icon-512-any.png',
@@ -13,8 +22,9 @@ const urlsToCache = [
   '/icons/icon-512-maskable.png'
 ];
 
-// Install and cache
+// ✅ INSTALL
 self.addEventListener('install', event => {
+  self.skipWaiting(); // 👈 Instantly activate new SW
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       return cache.addAll(urlsToCache);
@@ -22,16 +32,7 @@ self.addEventListener('install', event => {
   );
 });
 
-// Fetch from cache first
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
-});
-
-// Cleanup old caches
+// ✅ ACTIVATE & CLEANUP
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
@@ -44,5 +45,14 @@ self.addEventListener('activate', event => {
         })
       )
     )
+  );
+});
+
+// ✅ FETCH
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });
