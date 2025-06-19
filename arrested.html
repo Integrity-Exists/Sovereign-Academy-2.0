@@ -48,7 +48,15 @@
     <a href="ask-sage.html">Ask Sage</a>
   </div>
 </nav>
-
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, what happened? Need help after an arrest?",
+    placeholder: "Ask Sage about arrest rights, bail, or legal defenses...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
 <h1>What to Do If You're Arrested</h1>
 
@@ -77,15 +85,7 @@
   © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
 </footer>
 
-<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-<script>
-  window.SageBotConfig = {
-    voice: true,
-    greetMessage: "Hey there, what happened? Need help after an arrest?",
-    placeholder: "Ask Sage about arrest rights, bail, or legal defenses...",
-    theme: "dark"
-  };
-</script>
+
 
 </body>
 </html>
