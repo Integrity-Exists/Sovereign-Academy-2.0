@@ -2,8 +2,8 @@
   "name": "Sovereign Academy",
   "short_name": "Sovereign",
   "id": "index.html",
-  "dir": "ltr",
   "lang": "en",
+  "dir": "ltr",
   "start_url": "index.html",
   "display": "standalone",
   "orientation": "portrait",
@@ -54,7 +54,13 @@
   "launch_handler": {
     "client_mode": "navigate-existing"
   },
-  "categories": ["education", "productivity", "utilities"],
+  "categories": [
+    "education",
+    "productivity",
+    "utilities",
+    "law",
+    "guides"
+  ],
   "protocol_handlers": [
     {
       "protocol": "web-justice",
@@ -73,5 +79,10 @@
         "application/json": [".json"]
       }
     }
-  ]
+  ],
+  "iarc_rating_id": "SOVEREIGN-UNRATED-BUT-LAWFUL", 
+  "prefer_related_applications": false,
+  "scope_extensions": [],
+  "handle_links": "preferred",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"]
 }
