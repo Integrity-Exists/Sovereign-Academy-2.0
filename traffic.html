@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -56,7 +55,28 @@
     strong {
       color: #000;
     }
-  </style>
+    .search-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    #smartSearch {
+      padding: 10px 20px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .voice-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+    }
+</style>
 </head>
 <body>
 <nav style="display: flex; justify-content: space-between; align-items: center; background: #f0f0f0; padding: 10px;">
@@ -73,7 +93,6 @@
     <a href="ask-sage.html">Ask Sage</a>
   </div>
 </nav>
-
 <main>
 <h1>Know Your Rights During Traffic Stops</h1>
 <p><strong>🚨 If You’re Pulled Over:</strong></p>
@@ -97,6 +116,13 @@
 <blockquote>“I’m invoking my Fifth Amendment right to remain silent. I want a lawyer.”</blockquote>
 <p><strong>⚖️ Tip from Sage:</strong> You do NOT have to be rude. Just be firm. Let the facts, not emotion, drive your case. Ask Sage inside the app for more support if you’re facing charges.</p>
 </main>
+<div class="search-container">
+  <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text"/>
+  <br/>
+  <button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
+</div>
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
 <!-- Tawk.to Live Chat -->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -108,7 +134,7 @@
       s1.setAttribute('crossorigin','*');
       s0.parentNode.insertBefore(s1,s0);
     })();
-  </script>
+</script>
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -119,7 +145,6 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-
 <footer style="margin-top: 3rem; color: #999;">
   © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
 </footer>
