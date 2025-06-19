@@ -2,15 +2,14 @@
   "name": "Sovereign Academy",
   "short_name": "Sovereign",
   "id": "index.html",
-  "lang": "en",
   "dir": "ltr",
+  "lang": "en-US",
   "start_url": "index.html",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": "./",
   "background_color": "#ffffff",
   "theme_color": "#2C3E50",
-  "description": "Sovereign Academy is your AI-powered legal toolkit. Fight CPS, defend your rights in court, and learn the law in plain English. Get real legal forms, self-representation strategies, and 24/7 AI chat built by people who lived it.",
+  "description": "Sovereign Academy is your AI-powered legal toolkit. Fight CPS, defend your rights in court, and learn the law in plain English. Real legal forms, self-rep strategies, and 24/7 Sage AI built by people who lived it.",
   "icons": [
     {
       "src": "icon-192.png",
@@ -42,7 +41,7 @@
       "src": "screenshot_home.png",
       "type": "image/png",
       "sizes": "720x1280",
-      "label": "Sovereign Academy Crest"
+      "label": "Sovereign Academy Home"
     },
     {
       "src": "screenshot_features.png",
@@ -59,8 +58,10 @@
     "productivity",
     "utilities",
     "law",
-    "guides"
+    "self-help"
   ],
+  "iarc_rating_id": "e10plus",
+  "prefer_related_applications": false,
   "protocol_handlers": [
     {
       "protocol": "web-justice",
@@ -80,9 +81,7 @@
       }
     }
   ],
-  "iarc_rating_id": "SOVEREIGN-UNRATED-BUT-LAWFUL", 
-  "prefer_related_applications": false,
-  "scope_extensions": [],
-  "handle_links": "preferred",
-  "display_override": ["standalone", "fullscreen", "minimal-ui"]
+  "scope_extensions": [
+    "https://app.integrityexists.com/*"
+  ]
 }
