@@ -32,6 +32,15 @@
       max-width: 600px;
       margin: 0 auto 2rem;
     }
+    input[type="text"] {
+      width: 90%;
+      max-width: 500px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 
@@ -40,11 +49,10 @@
   <h1>Ask Sage</h1>
   <p>Your AI-powered legal ally. Ask me anything — no legalese, no BS.</p>
 
-  <footer style="margin-top: 3rem; color: #999;">
-    © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
-  </footer>
+  <!-- Smart Search Bar -->
+  <input type="text" id="search" placeholder="Type here to search the app..." onkeypress="handleSearch(event)" />
 
-  <!-- Ask Sage Chatbot Config -->
+  <!-- SageBot Config -->
   <script>
     window.SageBotConfig = {
       voice: true,
@@ -53,11 +61,23 @@
       theme: "dark"
     };
   </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
-  <!-- Local Ask Sage Script -->
-  <script src="js/sagebot.js"></script>
+  <!-- Smart Search Script -->
+  <script>
+    function handleSearch(event) {
+      if (event.key === "Enter") {
+        const q = event.target.value.toLowerCase();
+        if (q.includes("custody")) location.href = "dss.html";
+        else if (q.includes("rights")) location.href = "arrested.html";
+        else if (q.includes("ada")) location.href = "ada.html";
+        else if (q.includes("motion")) location.href = "remedies.html";
+        else location.href = "index.html"; // fallback
+      }
+    }
+  </script>
 
-  <!-- Tawk.to Live Chat (Optional but included) -->
+  <!-- Tawk.to Live Chat -->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function(){
@@ -69,6 +89,23 @@
       s0.parentNode.insertBefore(s1, s0);
     })();
   </script>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('✅ Service Worker registered:', reg))
+          .catch(err => console.error('❌ Service Worker failed:', err));
+      });
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer style="margin-top: 3rem; color: #999;">
+    © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws.<br>
+    Built by Integrity Exists.
+  </footer>
 
 </body>
 </html>
