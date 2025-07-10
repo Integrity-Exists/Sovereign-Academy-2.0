@@ -8,83 +8,98 @@
   <meta name="keywords" content="legal help, sovereign rights, CPS defense, ADA, custody, court motion builder, Sage AI">
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Ask Sage Chatbot -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Hey there, how can I help you with your legal questions?",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/widget.js"></script>
+
+  <!-- Smart & Voice Search -->
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      background-color: #fefefe;
-      color: #111;
-    }
-    nav {
-      background: #2C3E50;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .banner {
-      background-color: #fff4cc;
-      color: #000;
-      text-align: center;
-      padding: 10px;
-      font-weight: bold;
-      border-bottom: 1px solid #ccc;
-    }
-    .search-bar {
-      max-width: 500px;
-      margin: 20px auto;
-      text-align: center;
-    }
-    input[type="text"] {
-      width: 90%;
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .topic-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 10px 20px;
-    }
-    .topic-grid a {
-      text-decoration: none;
-      background: #2C3E50;
-      color: white;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-weight: bold;
-      box-shadow: 0 0 4px rgba(0,0,0,0.3);
-      transition: all 0.2s ease-in-out;
-    }
-    .topic-grid a:hover {
-      background: #1a252f;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
 </head>
-<body>
 
+<body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="custody.html">Custody</a>
-    <a href="dss.html">CPS / DSS</a>
-    <a href="remedies.html">Remedies</a>
-    <a href="liberties.html">Civil Liberties</a>
-    <a href="about.html">About</a>
+    <h1>Sovereign Academy</h1>
+    <p><strong>Empowering the People. Guided by Integrity. Backed by Sage.</strong></p>
   </nav>
 
-  <div class="banner">
+  <main>
+    <section>
+      <h2>All Pages</h2>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ada-complaint.html">ADA Complaint</a></li>
+        <li><a href="admin-remedy.html">Admin Remedy</a></li>
+        <li><a href="anthem.html">Anthem</a></li>
+        <li><a href="arrested.html">What to Do If You're Arrested</a></li>
+        <li><a href="ask-sage.html">Ask Sage</a></li>
+        <li><a href="chevron-doctrine.html">Chevron Doctrine</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="court-prep.html">Court Prep</a></li>
+        <li><a href="courtroom-scripts.html">Courtroom Scripts</a></li>
+        <li><a href="custody.html">Custody</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="defend-false-allegations.html">Defend False Allegations</a></li>
+        <li><a href="demand-discovery.html">Demand Discovery</a></li>
+        <li><a href="download-hub.html">Download Hub</a></li>
+        <li><a href="dss-defense.html">DSS Defense</a></li>
+        <li><a href="dss-stratagy-tools.html">DSS Strategy Tools</a></li>
+        <li><a href="dss.html">DSS Overview</a></li>
+        <li><a href="emergency-custody-response.html">Emergency Custody Response</a></li>
+        <li><a href="estate.html">Estate Planning</a></li>
+        <li><a href="evictions.html">Evictions</a></li>
+        <li><a href="file-complaint-judge-attorney.html">File Complaint (Judge or Attorney)</a></li>
+        <li><a href="fix-your-case-timeline.html">Fix Your Case Timeline</a></li>
+        <li><a href="how-to-read-docket.html">How to Read a Docket</a></li>
+        <li><a href="how-to-serve-motions.html">How to Serve Motions</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="judicial-recusal.html">Judicial Recusal</a></li>
+        <li><a href="landlord-rights.html">Landlord Rights</a></li>
+        <li><a href="liberties.html">Civil Liberties</a></li>
+        <li><a href="llc-guide.html">Start Your LLC</a></li>
+        <li><a href="llc-to-trust.html">Convert LLC to Trust</a></li>
+        <li><a href="missed-court.html">Missed Court</a></li>
+        <li><a href="my-case.html">My Case</a></li>
+        <li><a href="name-change.html">Name Change</a></li>
+        <li><a href="open-case.html">Open a Case</a></li>
+        <li><a href="printable-resources.html">Printable Resources</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="pro-se-vs-sui-juris.html">Pro Se vs. Sui Juris</a></li>
+        <li><a href="real-stories.html">Real Stories</a></li>
+        <li><a href="records.html">Records</a></li>
+        <li><a href="remedies.html">Remedies</a></li>
+        <li><a href="remove-gal.html">Remove a GAL</a></li>
+        <li><a href="reopen-your-case.html">Reopen Your Case</a></li>
+        <li><a href="request-for-continuance.html">Request for Continuance</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="restore-rights.html">Restore Rights</a></li>
+        <li><a href="sage-chatbot.html">Sage Chatbot</a></li>
+        <li><a href="smart-search.html">Smart Search</a></li>
+        <li><a href="sovereign.html">Sovereign</a></li>
+        <li><a href="submit-your-story.html">Submit Your Story</a></li>
+        <li><a href="success.html">Success</a></li>
+        <li><a href="sue-cps-federal.html">Sue CPS in Federal Court</a></li>
+        <li><a href="sui-juris.html">Sui Juris</a></li>
+        <li><a href="take-me-to.html">Take Me To...</a></li>
+        <li><a href="terms-of-use.html">Terms of Use</a></li>
+        <li><a href="traffic.html">Traffic Stops</a></li>
+        <li><a href="veterans.html">Veterans Support</a></li>
+        <li><a href="welcome.html">Welcome</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sovereign Academy | Created by Gina Lopez & Sage the AI</p>
+  </footer>
+</body>
+</html>
