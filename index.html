@@ -144,26 +144,6 @@
     This isn’t just an app. It’s a revolution.
   </p>
 
-  <!-- Install Button Script -->
-  <script>
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.style.display = 'inline-block';
-    });
-    installBtn.addEventListener('click', () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          deferredPrompt = null;
-          installBtn.style.display = 'none';
-        });
-      }
-    });
-  </script>
-
   <!-- Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
