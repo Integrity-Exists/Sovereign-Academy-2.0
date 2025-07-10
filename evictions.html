@@ -6,8 +6,9 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Evictions &amp; Housing Help</title>
 <link href="manifest.json" rel="manifest"/>
-<link href="css/style.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
 <script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
 <style>
     body {
       font-family: Arial, sans-serif;
@@ -108,8 +109,6 @@
 <button onclick="startVoiceSearch()">🎤 Voice Search</button>
 </div>
 <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
-<script src="smart-search.js"></script>
-<script src="voice-search.js"></script>
 <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
