@@ -2,73 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ask Sage</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      background-color: #1e1e2f;
-      color: white;
       font-family: sans-serif;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
+      background: #1c1c1c;
+      color: #fff;
     }
-    #chat {
-      flex: 1;
-      overflow-y: auto;
-      padding: 12px;
+    #chatbox {
+      padding: 20px;
     }
-    #inputBox {
-      display: flex;
+    #sage-input {
+      width: 90%;
       padding: 10px;
-      background: #2c2c3a;
-    }
-    #inputBox input {
-      flex: 1;
-      padding: 10px;
-      border-radius: 4px;
+      margin-top: 10px;
+      border-radius: 5px;
       border: none;
-    }
-    #inputBox button {
-      margin-left: 8px;
-      padding: 10px;
-      background: #00c27e;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div id="chat">
-    <p><em>🤖 Sage is online. Ask away.</em></p>
+  <div id="chatbox">
+    <h2>👩‍⚖️ Ask Sage</h2>
+    <p>Sage is online. Ask your legal question below:</p>
+    <input id="sage-input" type="text" placeholder="Type your question...">
   </div>
-  <div id="inputBox">
-    <input id="userInput" type="text" placeholder="Ask Sage...">
-    <button onclick="send()">Send</button>
-  </div>
-
-  <script>
-    function send() {
-      const input = document.getElementById("userInput");
-      const message = input.value.trim();
-      if (!message) return;
-
-      const chat = document.getElementById("chat");
-
-      const userMsg = document.createElement("p");
-      userMsg.textContent = "🧍 You: " + message;
-      chat.appendChild(userMsg);
-
-      const sageMsg = document.createElement("p");
-      sageMsg.textContent = "🤖 Sage: Good question! (This is just a test response for now.)";
-      chat.appendChild(sageMsg);
-
-      input.value = "";
-      chat.scrollTop = chat.scrollHeight;
-    }
-  </script>
 </body>
 </html>
