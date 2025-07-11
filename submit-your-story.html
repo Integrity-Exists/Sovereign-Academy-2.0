@@ -1,41 +1,83 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Submit Your Story - Sovereign Academy</title>
-<meta content="Share your fight against injustice. Submit your story to be featured on Sovereign Academy." name="description"/>
-<meta content="submit cps story, dss survivor story, real legal injustice, parent testimony, sovereign voice" name="keywords"/>
-<style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Your Story - Sovereign Academy</title>
+  <meta name="description" content="Share your fight against injustice. Submit your story to be featured on Sovereign Academy."/>
+  <meta name="keywords" content="submit cps story, dss survivor story, real legal injustice, parent testimony, sovereign voice"/>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
       background: #111;
       color: #fff;
-      padding: 2rem;
+      margin: 0;
+      padding: 2rem 1rem;
       text-align: center;
     }
-    form {
-      max-width: 600px;
-      margin: 2rem auto;
+
+    nav {
       background: #222;
+      padding: 0.75rem;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      margin-top: 1rem;
+    }
+
+    p {
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #1c1c1c;
       padding: 2rem;
       border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      text-align: left;
     }
-    input, textarea, label {
+
+    label {
+      margin-top: 1rem;
+      font-weight: bold;
       display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
       width: 100%;
-      margin-bottom: 1rem;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      background: #2a2a2a;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
       font-size: 1rem;
     }
-    input, textarea {
-      padding: 0.75rem;
-      background: #333;
-      border: none;
-      color: #fff;
+
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
     }
+
     button {
+      margin-top: 1.5rem;
       padding: 1rem 2rem;
       font-size: 1rem;
       background: #ff4444;
@@ -43,61 +85,83 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
+
+    button:hover {
+      background: #cc0000;
+    }
+
     footer {
       margin-top: 3rem;
       color: #777;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="remedies.html">Remedies</a>
-<a href="ada.html">ADA</a>
-<a href="dss.html">DSS</a>
-<a href="anthem.html">Anthem</a>
-<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
-</nav>
 
-<h1>📣 Submit Your Story</h1>
-<p>Have you been through it? CPS, DSS, wrongful court actions, injustice? Tell your story here. We’ll never publish it without your permission — but your voice may help someone else survive.</p>
-<form data-netlify="true" method="POST" name="submit-story">
-<label for="name">Name (or Alias)</label>
-<input id="name" name="name" required="" type="text"/>
-<label for="email">Email (kept private)</label>
-<input id="email" name="email" type="email"/>
-<label for="story">Your Story</label>
-<textarea id="story" name="story" required="" rows="10"></textarea>
-<label>
-<input name="consent" required="" type="checkbox"/>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="remedies.html">Remedies</a>
+    <a href="ada.html">ADA</a>
+    <a href="dss.html">DSS</a>
+    <a href="anthem.html">Anthem</a>
+    <a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+  </nav>
+
+  <h1>📣 Submit Your Story</h1>
+  <p>Have you been through it? CPS, DSS, wrongful court actions, injustice? Tell your story here. We’ll never publish it without your permission — but your voice may help someone else survive.</p>
+
+  <form name="submit-story" method="POST" data-netlify="true">
+    <label for="name">Name (or Alias)</label>
+    <input id="name" name="name" type="text" required />
+
+    <label for="email">Email (kept private)</label>
+    <input id="email" name="email" type="email" />
+
+    <label for="story">Your Story</label>
+    <textarea id="story" name="story" rows="10" required></textarea>
+
+    <label>
+      <input type="checkbox" name="consent" required />
       I consent to having my story reviewed and potentially shared publicly (name may be anonymized).
     </label>
-<button type="submit">🔥 Submit My Story</button>
-</form>
-<footer>© Sovereign Academy</footer>
-<!-- Ask Sage Chatbot -->
-<script>
-  window.SageBotConfig = {
-    voice: true,
-    greetMessage: "Hey there, how can I help you with your legal questions today?",
-    placeholder: "Ask Sage anything...",
-    theme: "dark"
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
-<script type="text/javascript">
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function(){
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-</script>
+    <button type="submit">🔥 Submit My Story</button>
+  </form>
+
+  <footer>© 2025 Sovereign Academy — Powered by Gina Lopez & Sage 🦁</footer>
+
+  <!-- Ask Sage Chatbot -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Want to share your truth? I’m listening.",
+      placeholder: "Ask Sage anything before you submit...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Live Chat Embed -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
 </body>
 </html>
