@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ask Sage - Your Legal AI Ally</title>
+
   <meta name="description" content="Your AI-powered legal coach. Ask anything. No legalese, no BS.">
   <meta name="keywords" content="Ask Sage, legal chatbot, sovereign academy AI, court help, DSS, custody advice">
   <meta property="og:title" content="Ask Sage - Your Legal AI Ally">
@@ -12,6 +13,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ask Sage - Your Legal AI Ally">
   <meta name="twitter:description" content="Your AI-powered court companion. Real help. No fluff.">
+
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -32,29 +34,25 @@
       max-width: 600px;
       margin: 0 auto 2rem;
     }
-    input[type="text"] {
-      width: 90%;
-      max-width: 500px;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: none;
-      margin-top: 1rem;
+    #sage-chat-container {
+      margin-top: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 
 <body>
-
   <h1>Ask Sage</h1>
   <p>Your AI-powered legal ally. Ask me anything — no legalese, no BS.</p>
 
-  <!-- Smart Search Bar -->
-  <input type="text" id="search" placeholder="Type here to search the app..." onkeypress="handleSearch(event)" />
+  <!-- 🧠 Ask Sage Chat Interface -->
+  <div id="sage-chat-container"></div>
 
-  <!-- SageBot Config -->
   <script>
     window.SageBotConfig = {
+      containerId: "sage-chat-container",
       voice: true,
       greetMessage: "Hey there, how can I help you with your legal questions today?",
       placeholder: "Ask Sage anything...",
@@ -63,21 +61,7 @@
   </script>
   <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
-  <!-- Smart Search Script -->
-  <script>
-    function handleSearch(event) {
-      if (event.key === "Enter") {
-        const q = event.target.value.toLowerCase();
-        if (q.includes("custody")) location.href = "dss.html";
-        else if (q.includes("rights")) location.href = "arrested.html";
-        else if (q.includes("ada")) location.href = "ada.html";
-        else if (q.includes("motion")) location.href = "remedies.html";
-        else location.href = "index.html"; // fallback
-      }
-    }
-  </script>
-
-  <!-- Tawk.to Live Chat -->
+  <!-- Tawk.to Live Chat (optional, not required for Ask Sage) -->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function(){
@@ -106,6 +90,5 @@
     © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws.<br>
     Built by Integrity Exists.
   </footer>
-
 </body>
 </html>
