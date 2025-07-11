@@ -1,22 +1,17 @@
-(function() {
-  const config = window.SageBotConfig || {};
-  const iframe = document.createElement("iframe");
-  iframe.src = "https://integrityexists.com/sage-chatbot.html";
-  iframe.id = "sageChatWindow";
-  iframe.style.position = "fixed";
-  iframe.style.bottom = "20px";
-  iframe.style.right = "20px";
-  iframe.style.width = "360px";
-  iframe.style.height = "500px";
-  iframe.style.border = "none";
-  iframe.style.zIndex = "9999";
-  iframe.style.borderRadius = "10px";
-  iframe.allow = "microphone;";
-
-  document.body.appendChild(iframe);
-
-  // Message config to iframe after load
-  iframe.onload = function() {
-    iframe.contentWindow.postMessage({ type: "init", config }, "*");
-  };
+(function () {
+  const botWindow = document.createElement("iframe");
+  botWindow.id = "sageChatWindow";
+  botWindow.src = "sage-chatbot.html"; // or full URL if preferred
+  botWindow.style = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 340px;
+    height: 500px;
+    border: none;
+    z-index: 9999;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  `;
+  document.body.appendChild(botWindow);
 })();
