@@ -1,73 +1,105 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Take Me To... - Sovereign Academy</title>
-<meta content="Quick-access legal support hub. Choose what you need and go directly there with one click." name="description"/>
-<meta content="legal help, where do I go, CPS help, court help, self-representation, legal tools quick access" name="keywords"/>
-<meta content="Take Me To... - Sovereign Academy" property="og:title"/>
-<meta content="Tap to go directly where you need: DSS help, Ask Sage, forms, court prep, and more." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="Quick Legal Help - Sovereign Academy" name="twitter:title"/>
-<meta content="Big buttons. Clear choices. No tech knowledge needed. Just tap and go." name="twitter:description"/>
-<style>
-    body { font-family: sans-serif; text-align: center; padding: 2em; }
-    h1 { font-size: 2em; }
-    .btn-grid { display: grid; grid-template-columns: 1fr; gap: 1em; max-width: 400px; margin: auto; }
-    a.button {
-      background-color: #222;
-      color: white;
-      padding: 1em;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 1.1em;
-      display: block;
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Take Me To... - Sovereign Academy</title>
+
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    body {
+      background-color: var(--accent-color, #ECF0F1);
+      color: var(--primary-color, #2C3E50);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
     }
-    a.button:hover {
-      background-color: #444;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: auto;
+      margin-top: 2rem;
+    }
+
+    .link-tile {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-decoration: none;
+      color: #2C3E50;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    .link-tile:hover {
+      transform: translateY(-4px);
+      background: #f4f4f4;
     }
   </style>
 </head>
 <body>
+
 <nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="remedies.html">Remedies</a>
-<a href="ada.html">ADA</a>
-<a href="dss.html">DSS</a>
-<a href="anthem.html">Anthem</a>
-<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="remedies.html">Remedies</a>
+  <a href="ada.html">ADA</a>
+  <a href="dss.html">DSS</a>
+  <a href="anthem.html">Anthem</a>
+  <a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
 </nav>
 
-<main>
-<h1>Where Do You Need to Go?</h1>
-<p>Just tap a button. We'll take you there.</p>
-<div class="btn-grid">
-<a class="button" href="ask-sage.html">🧠 Ask Sage for Help</a>
-<a class="button" href="dss-defense.html">🚨 DSS / CPS Defense</a>
-<a class="button" href="expungement.html">🧹 Expunge My Record</a>
-<a class="button" href="court-prep.html">👩‍⚖️ Get Ready for Court</a>
-<a class="button" href="foia-request.html">📄 Request My Case File (FOIA)</a>
-<a class="button" href="name-change.html">📝 Change My Name</a>
-<a class="button" href="dashboard.html">📂 Go to My Dashboard</a>
+<h1>🚀 Take Me To...</h1>
+<p>Select where you need to go right now. Your legal journey, your way.</p>
+
+<div class="link-grid">
+  <a class="link-tile" href="dss-defense.html">🔒 DSS / CPS Defense</a>
+  <a class="link-tile" href="court-prep.html">👨‍⚖️ Courtroom Prep</a>
+  <a class="link-tile" href="ask-sage.html">🧠 Ask Sage</a>
+  <a class="link-tile" href="remedies.html">📚 Legal Remedies</a>
+  <a class="link-tile" href="ada.html">♿ ADA Rights</a>
+  <a class="link-tile" href="llc-overview.html">💼 Start My LLC</a>
+  <a class="link-tile" href="know-your-rights.html">🚨 Know My Rights</a>
+  <a class="link-tile" href="veterans.html">🎖️ Veterans Support</a>
 </div>
-<footer><p style="margin-top: 2em;">© Sovereign Academy</p></footer>
-</main>
+
+<footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
+  © 2025 Sovereign Academy. All rights reserved.
+</footer>
+
+<!-- Scripts -->
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
     voice: true,
-    greetMessage: "Hey there, how can I help you with your legal questions today?",
-    placeholder: "Ask Sage anything...",
+    greetMessage: "Where do you want to go next? I’ll guide you.",
+    placeholder: "Ask Sage anything legal...",
     theme: "dark"
   };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
+<!-- Tawk.to Chat -->
 <script type="text/javascript">
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
   (function(){
@@ -79,5 +111,6 @@
     s0.parentNode.insertBefore(s1, s0);
   })();
 </script>
+
 </body>
 </html>
