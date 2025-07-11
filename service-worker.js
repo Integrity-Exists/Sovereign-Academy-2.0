@@ -11,10 +11,11 @@ const urlsToCache = [
   '/veterans.html',
   '/llc-guide.html',
   '/llc-to-trust.html',
+  '/trust-conversion.html',
+  '/arrested.html',
   '/style.css',
-  '/css/download-responsive.css',
-  '/js/smart-search.js',
-  '/js/voice-search.js',
+  '/smart-search.js',
+  '/voice-search.js',
   '/manifest.json',
   '/icons/icon-192-any.png',
   '/icons/icon-512-any.png',
@@ -24,21 +25,21 @@ const urlsToCache = [
 
 // ✅ INSTALL
 self.addEventListener('install', event => {
-  self.skipWaiting(); // 👈 Instantly activate new SW
+  self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
+      .catch(err => console.error('❌ Cache addAll failed:', err))
   );
 });
 
-// ✅ ACTIVATE & CLEANUP
+// ✅ ACTIVATE & CLEAN OLD CACHE
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then(keyList =>
+    caches.keys().then(keys =>
       Promise.all(
-        keyList.map(key => {
+        keys.map(key => {
           if (!cacheWhitelist.includes(key)) {
             return caches.delete(key);
           }
@@ -51,8 +52,11 @@ self.addEventListener('activate', event => {
 // ✅ FETCH
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request)
+      .then(response => response || fetch(event.request))
+      .catch(err => {
+        console.warn('Fetch failed; returning offline fallback:', err);
+        return new Response('Offline');
+      })
   );
 });
