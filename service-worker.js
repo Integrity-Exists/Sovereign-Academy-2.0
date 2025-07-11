@@ -17,10 +17,10 @@ const urlsToCache = [
   '/smart-search.js',
   '/voice-search.js',
   '/manifest.json',
-  '/icons/icon-192-any.png',
-  '/icons/icon-512-any.png',
-  '/icons/icon-192-maskable.png',
-  '/icons/icon-512-maskable.png'
+  '/icon-192-any.png',
+  '/icon-512-any.png',
+  '/icon-192-maskable.png',
+  '/icon-512-maskable.png'
 ];
 
 // ✅ INSTALL
