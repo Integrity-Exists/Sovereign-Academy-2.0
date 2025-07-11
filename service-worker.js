@@ -18,7 +18,6 @@ const urlsToCache = [
   '/voice-search.js',
   '/manifest.json',
   '/icon-192-any.png',
-  '/icon-512-any.png',
   '/icon-192-maskable.png',
   '/icon-512-maskable.png'
 ];
