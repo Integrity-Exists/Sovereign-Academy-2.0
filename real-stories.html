@@ -1,30 +1,109 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Real Stories from the Front Lines - Sovereign Academy</title>
-<meta content="Hear from parents, fighters, and survivors who stood up to DSS, CPS, and injustice." name="description"/>
-<meta content="cps survivor, parent story, sovereign resistance, real dss stories, court injustice, tiktok cps" name="keywords"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Stories from the Front Lines - Sovereign Academy</title>
+  <meta name="description" content="Hear from parents, fighters, and survivors who stood up to DSS, CPS, and injustice." />
+  <meta name="keywords" content="cps survivor, parent story, sovereign resistance, real dss stories, court injustice, tiktok cps" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="smart-search.js"></script>
+  <script src="voice-search.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #ffaa00;
+    }
+    p {
+      max-width: 700px;
+      margin: 1rem auto;
+    }
+    .search-container {
+      text-align: center;
+      margin-top: 30px;
+      position: relative;
+    }
+    #smartSearch {
+      padding: 10px 40px 10px 20px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .search-icon {
+      position: absolute;
+      right: 22%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #999;
+    }
+    .voice-button {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .voice-button button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      border: none;
+      z-index: 999;
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; background: #111; color: #fff; text-align: center; padding: 3rem;">
+<body>
+
 <nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="remedies.html">Remedies</a>
-<a href="ada.html">ADA</a>
-<a href="dss.html">DSS</a>
-<a href="anthem.html">Anthem</a>
-<a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="remedies.html">Remedies</a>
+  <a href="ada.html">ADA</a>
+  <a href="dss.html">DSS</a>
+  <a href="anthem.html">Anthem</a>
+  <a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
 </nav>
 
 <h1>📣 Real Stories from the Front Lines</h1>
 <p>These are the voices they tried to silence. Soon, this page will showcase the courage of those who stood up, spoke out, and fought back.</p>
 <p>If you’ve got a story — you’ll have a home here to tell it.</p>
 <p style="margin-top: 2rem; font-size: 1.5rem; color: #ffaa00;">Coming soon... and it's gonna be LOUD.</p>
-<footer style="margin-top: 4rem; color: #777;">© Sovereign Academy</footer>
+
+<div class="search-container">
+  <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+  <span class="search-icon">🔍</span>
+</div>
+
+<div class="voice-button">
+  <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+</div>
+
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('Service Worker registered ✅', reg))
+        .catch(err => console.error('Service Worker registration failed ❌', err));
+    });
+  }
+</script>
+
 <!-- Ask Sage Chatbot -->
 <script>
   window.SageBotConfig = {
@@ -35,6 +114,10 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<footer style="margin-top: 3rem; color: #777;">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
 
 <script type="text/javascript">
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -47,5 +130,6 @@
     s0.parentNode.insertBefore(s1, s0);
   })();
 </script>
+
 </body>
 </html>
