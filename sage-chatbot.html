@@ -1,29 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sage Chatbot - Clean</title>
+  <meta charset="UTF-8" />
+  <title>Ask Sage</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: transparent;
       height: 100%;
-      overflow: hidden;
+      font-family: sans-serif;
+      background-color: #1e1e2f;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+    #chat {
+      flex: 1;
+      padding: 12px;
+      overflow-y: auto;
+    }
+    #inputBox {
+      display: flex;
+      padding: 10px;
+      background: #2c2c3a;
+    }
+    #inputBox input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+    #inputBox button {
+      margin-left: 10px;
+      padding: 10px 15px;
+      background-color: #00c27e;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <!-- Ask Sage Chatbot Script -->
+
+  <div id="chat">
+    <p><em>🤖 Sage is online. Ask away.</em></p>
+  </div>
+  <div id="inputBox">
+    <input id="userInput" type="text" placeholder="Ask Sage..." />
+    <button onclick="send()">Send</button>
+  </div>
+
   <script>
-    window.SageBotConfig = {
-      voice: true,
-      greetMessage: "You're in the right place. Let's make sense of this legal mess.",
-      placeholder: "Ask Sage anything...",
-      theme: "dark"
-    };
+    function send() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const chat = document.getElementById("chat");
+      const userMsg = document.createElement("p");
+      userMsg.textContent = "🧍‍♀️ You: " + msg;
+      chat.appendChild(userMsg);
+
+      const sageMsg = document.createElement("p");
+      sageMsg.textContent = "🤖 Sage: That's a great question. (I'm in test mode right now, but full functionality is coming!)";
+      chat.appendChild(sageMsg);
+
+      input.value = "";
+      chat.scrollTop = chat.scrollHeight;
+    }
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 </body>
 </html>
