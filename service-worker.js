@@ -11,7 +11,7 @@ const urlsToCache = [
   '/veterans.html',
   '/llc-guide.html',
   '/llc-to-trust.html',
-  '/css/style.css',
+  '/style.css',
   '/css/download-responsive.css',
   '/js/smart-search.js',
   '/js/voice-search.js',
