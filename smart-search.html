@@ -4,6 +4,11 @@
   <meta charset="utf-8" />
   <title>Smart Legal Search - Sovereign Academy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="smart-search.js" defer></script>
+  <script src="voice-search.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js" defer></script>
   <style>
     body {
       font-family: sans-serif;
@@ -54,6 +59,17 @@
 
   <button onclick="startVoiceSearch()">🎙️ Voice Search</button>
 
+  <!-- Ask Sage Chatbot Config -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Ready to find legal answers fast? Ask away.",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+
+  <!-- Smart Search Script -->
   <script>
     const topics = [
       { keyword: "custody", page: "custody.html" },
@@ -65,7 +81,11 @@
       { keyword: "remedies", page: "remedies.html" },
       { keyword: "arrested", page: "arrested.html" },
       { keyword: "resources", page: "resources.html" },
-      { keyword: "parole", page: "remedies.html" }
+      { keyword: "parole", page: "remedies.html" },
+      { keyword: "trust", page: "trust-conversion.html" },
+      { keyword: "conspiracy", page: "conspiracy.html" },
+      { keyword: "traffic", page: "traffic-stop.html" },
+      { keyword: "ada", page: "ada.html" }
     ];
 
     function levenshtein(a, b) {
