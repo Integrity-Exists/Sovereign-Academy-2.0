@@ -1,61 +1,67 @@
-const CACHE_NAME = 'sovereign-academy-v2';
 const urlsToCache = [
   '/index.html',
   '/about.html',
-  '/remedies.html',
-  '/ask-sage.html',
-  '/dss.html',
-  '/custody.html',
   '/ada-complaint.html',
+  '/admin-remedy.html',
   '/anthem.html',
-  '/veterans.html',
+  '/arrested.html',
+  '/ask-sage.html',
+  '/chevron-doctrine.html',
+  '/community.html',
+  '/conspiracy-defense.html',
+  '/contact.html',
+  '/court-prep.html',
+  '/courtroom-scripts.html',
+  '/custody.html',
+  '/dashboard.html',
+  '/defend-false-allegations.html',
+  '/demand-discovery.html',
+  '/dss.html',
+  '/dss-defense.html',
+  '/dss-stratagy-tools.html',
+  '/emergency-custody-response.html',
+  '/estate.html',
+  '/evictions.html',
+  '/file-complaint-judge-attorney.html',
+  '/fix-your-case-timeline.html',
+  '/how-to-read-docket.html',
+  '/how-to-serve-motions.html',
+  '/judicial-recusal.html',
+  '/landlord-rights.html',
+  '/liberties.html',
   '/llc-guide.html',
   '/llc-to-trust.html',
-  '/trust-conversion.html',
-  '/arrested.html',
+  '/missed-court.html',
+  '/my-case.html',
+  '/name-change.html',
+  '/open-case.html',
+  '/printable-resources.html',
+  '/privacy.html',
+  '/pro-se-vs-sui-juris.html',
+  '/real-stories.html',
+  '/records.html',
+  '/remedies.html',
+  '/remove-gal.html',
+  '/reopen-your-case.html',
+  '/request-for-continuance.html',
+  '/resources.html',
+  '/restore-rights.html',
+  '/sage-chatbot.html',
+  '/smart-search.html',
+  '/sovereign.html',
   '/style.css',
-  '/smart-search.js',
+  '/submit-your-story.html',
+  '/success.html',
+  '/sue-cps-federal.html',
+  '/sui-juris.html',
+  '/take-me-to.html',
+  '/terms-of-use.html',
+  '/traffic.html',
+  '/veterans.html',
   '/voice-search.js',
+  '/smart-search.js',
   '/manifest.json',
   '/icon-192-any.png',
   '/icon-192-maskable.png',
   '/icon-512-maskable.png'
 ];
-
-// ✅ INSTALL
-self.addEventListener('install', event => {
-  self.skipWaiting();
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-      .catch(err => console.error('❌ Cache addAll failed:', err))
-  );
-});
-
-// ✅ ACTIVATE & CLEAN OLD CACHE
-self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.map(key => {
-          if (!cacheWhitelist.includes(key)) {
-            return caches.delete(key);
-          }
-        })
-      )
-    )
-  );
-});
-
-// ✅ FETCH
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-      .catch(err => {
-        console.warn('Fetch failed; returning offline fallback:', err);
-        return new Response('Offline');
-      })
-  );
-});
