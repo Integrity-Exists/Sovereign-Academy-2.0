@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="style.css" />
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
+
   <style>
     body {
       font-family: sans-serif;
@@ -36,11 +37,35 @@
       max-width: 600px;
       margin: 0 auto 2rem;
     }
-    #sage-chat-container {
-      margin-top: 2rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+    .search-container {
+      margin-bottom: 2rem;
+    }
+    #sage-chat-interface {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+      background: #222;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+    #sage-output {
+      min-height: 150px;
+      text-align: left;
+      padding: 1rem;
+      background: #333;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      white-space: pre-wrap;
+    }
+    #sage-input {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background-color: #444;
+      color: #eee;
     }
   </style>
 </head>
@@ -48,36 +73,38 @@
 <body>
   <h1>Ask Sage</h1>
   <p>Your AI-powered legal ally. Ask me anything — no legalese, no BS.</p>
-<div class="search-container">
-  <input type="text" id="smartSearch" placeholder="Search legal topics...">
-  <span class="search-icon">🔍</span>
-</div>
 
-  <!-- 🧠 Ask Sage Chat Interface -->
-  <div id="sage-chat-container"></div>
+  <div class="search-container">
+    <input type="text" id="smartSearch" placeholder="Search legal topics...">
+    <span class="search-icon">🔍</span>
+  </div>
+
+  <!-- 🔥 Embedded Ask Sage Interface -->
+  <div id="sage-chat-interface">
+    <div id="sage-output">👋 Hello! What legal question can I help with today?</div>
+    <input type="text" id="sage-input" placeholder="Ask Sage anything..." />
+  </div>
 
   <script>
-    window.SageBotConfig = {
-      containerId: "sage-chat-container",
-      voice: true,
-      greetMessage: "Hey there, how can I help you with your legal questions today?",
-      placeholder: "Ask Sage anything...",
-      theme: "dark"
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+    const output = document.getElementById('sage-output');
+    const input = document.getElementById('sage-input');
 
-  <!-- Tawk.to Live Chat (optional, not required for Ask Sage) -->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function(){
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
+    input.addEventListener('keydown', async (e) => {
+      if (e.key === 'Enter') {
+        const question = input.value.trim();
+        if (!question) return;
+        output.innerHTML += `\n\n❓ <strong>You:</strong> ${question}\n`;
+        input.value = '...thinking...';
+
+        // Simulated Sage response for now
+        const fakeResponse = "🔍 Let me walk you through that... (real Sage backend coming soon!)";
+
+        await new Promise(resolve => setTimeout(resolve, 800)); // simulate delay
+        output.innerHTML += `\n💬 <strong>Sage:</strong> ${fakeResponse}`;
+        input.value = '';
+        output.scrollTop = output.scrollHeight;
+      }
+    });
   </script>
 
   <!-- Service Worker -->
@@ -90,9 +117,8 @@
       });
     }
   </script>
-  
-  
-   <!-- Footer -->
+
+  <!-- Footer -->
   <footer style="margin-top: 3rem; color: #999;">
     © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws.<br>
     Built by Integrity Exists.
