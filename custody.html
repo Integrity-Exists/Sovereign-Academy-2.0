@@ -7,6 +7,7 @@
   <meta name="description" content="Legal guidance for custody, visitation, and emergency family motions across the U.S.">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
+
   <style>
     :root {
       --primary-color: #2C3E50;
@@ -28,6 +29,19 @@
       max-width: 600px;
       margin: 10px auto;
     }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f0f0f0;
+      padding: 10px;
+    }
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
     .search-container {
       text-align: center;
       margin-top: 30px;
@@ -48,44 +62,63 @@
       background-color: var(--primary-color);
       color: #fff;
       border: none;
-  
+    }
+    iframe#sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      height: 440px;
+      border: none;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+    footer {
+      margin-top: 3rem;
+      color: #999;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-<nav style="display: flex; justify-content: space-between; align-items: center; background: #f0f0f0; padding: 10px;">
+
+<nav>
+  <div><strong>Sovereign Academy</strong></div>
   <div>
-    <strong>Sovereign Academy</strong>
-  </div>
-  <div>
-    <a href="index.html">Home</a> 
-    <a href="about.html">About</a> 
-    <a href="remedies.html">Remedies</a> 
-    <a href="ada.html">ADA</a> 
-    <a href="dss.html">DSS</a> 
-    <a href="anthem-banner.html">Anthem</a> 
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="remedies.html">Remedies</a>
+    <a href="ada.html">ADA</a>
+    <a href="dss.html">DSS</a>
+    <a href="anthem-banner.html">Anthem</a>
     <a href="ask-sage.html">Ask Sage</a>
   </div>
 </nav>
 
 <h1>👪 Custody & Family Law Help</h1>
 <p>Welcome to your nationwide support hub for custody and family law questions. Ask Sage anything — visitation, parenting plans, or emergency hearings.</p>
+
 <div class="search-container">
   <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text"/>
   <br/>
   <button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
 </div>
+
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+<!-- Scripts -->
 <script src="smart-search.js"></script>
 <script src="voice-search.js"></script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('Service Worker registered ✅', reg))
-        .catch(err => console.error('Service Worker registration failed ❌', err));
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker registration failed', err));
     });
   }
-</script>
-<script>
+
   window.SageBotConfig = {
     voice: true,
     greetMessage: "Hey there, how can I help you with your legal questions today?",
@@ -94,8 +127,10 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-<footer style="margin-top: 3rem; color: #999;">
+
+<footer>
   © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
 </footer>
+
 </body>
 </html>
