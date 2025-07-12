@@ -1,33 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ask Sage</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #1c1c1c;
-      color: #fff;
+(function () {
+  const cfg = window.SageBotConfig || {
+    containerId: "sage-chat-container",
+    greetMessage: "Hi! Ask your legal question below.",
+    placeholder: "Ask Sage…",
+    voice: false,
+    theme: "dark"
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let container = document.getElementById(cfg.containerId);
+
+    if (!container) {
+      container = document.createElement("div");
+      container.id = cfg.containerId;
+      Object.assign(container.style, {
+        position: "fixed",
+        bottom: "15px",
+        right: "15px",
+        width: "280px",
+        height: "420px",
+        zIndex: "1000",
+        transition: "opacity 0.3s ease-in-out"
+      });
+      document.body.appendChild(container);
     }
-    #chatbox {
-      padding: 20px;
-    }
-    #sage-input {
-      width: 90%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: none;
-    }
-  </style>
-</head>
-<body>
-  <div id="chatbox">
-    <h2>👩‍⚖️ Ask Sage</h2>
-    <p>Sage is online. Ask your legal question below:</p>
-    <input id="sage-input" type="text" placeholder="Type your question...">
-  </div>
-</body>
-</html>
+
+    const iframe = document.createElement("iframe");
+    iframe.src = "https://integrityexists.github.io/Sovereign-Academy-2.0/sage-chatbot.html";
+    Object.assign(iframe.style, {
+      width: "100%",
+      height: "100%",
+      border: "none",
+      borderRadius: "12px",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+      opacity: "0.92",
+      pointerEvents: "auto"
+    });
+
+    container.appendChild(iframe);
+  });
+})();
