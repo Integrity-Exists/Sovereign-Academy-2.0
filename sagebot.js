@@ -25,11 +25,13 @@
       document.body.appendChild(container);
     }
 
-   iframe.src = "https://integrityexists.github.io/sovereign-academy-2.0/sagebot.html?" +
-  `theme=${cfg.theme}&voice=${cfg.voice}` +
-  `&greet=${encodeURIComponent(cfg.greetMessage)}` +
-  `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
+    // 💡 This was missing before!
+    const iframe = document.createElement("iframe");
 
+    iframe.src = "https://integrityexists.github.io/sovereign-academy-2.0/sagebot.html?" +
+      `theme=${cfg.theme}&voice=${cfg.voice}` +
+      `&greet=${encodeURIComponent(cfg.greetMessage)}` +
+      `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
 
     Object.assign(iframe.style, {
       width: "100%",
