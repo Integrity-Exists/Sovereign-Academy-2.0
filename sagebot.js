@@ -1,29 +1,47 @@
 (function () {
-  const config = window.SageBotConfig || {
+  const cfg = window.SageBotConfig || {
     containerId: "sage-chat-container",
     greetMessage: "Hi! Ask your legal question below.",
-    placeholder: "Ask Sage...",
+    placeholder:  "Ask Sage…",
     voice: false,
     theme: "light"
   };
 
-  const container = document.getElementById(config.containerId);
-  if (!container) {
-    console.warn("⚠️ SageBot container not found:", config.containerId);
-    return;
-  }
+  // Wait until DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    let container = document.getElementById(cfg.containerId);
 
-  const iframe = document.createElement("iframe");
-  iframe.src = "https://integrityexists.github.io/ask-sage-ui/?theme=" + config.theme +
-               "&voice=" + config.voice +
-               "&greet=" + encodeURIComponent(config.greetMessage) +
-               "&placeholder=" + encodeURIComponent(config.placeholder);
+    // 🔧 Auto-create container if not found
+    if (!container) {
+      container = document.createElement("div");
+      container.id = cfg.containerId;
+      Object.assign(container.style, {
+        position: "fixed",
+        bottom: "20px",
+        right: "20px",
+        width: "350px",
+        height: "500px",
+        zIndex: "1000"
+      });
+      document.body.appendChild(container);
+    }
 
-  iframe.style.width = "100%";
-  iframe.style.height = "500px";
-  iframe.style.border = "none";
-  iframe.style.borderRadius = "10px";
-  iframe.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+    // Create iframe
+    const iframe = document.createElement("iframe");
+    iframe.src =
+      "https://integrityexists.github.io/ask-sage-ui/?" +
+      `theme=${cfg.theme}&voice=${cfg.voice}` +
+      `&greet=${encodeURIComponent(cfg.greetMessage)}` +
+      `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
 
-  container.appendChild(iframe);
+    Object.assign(iframe.style, {
+      width: "100%",
+      height: "100%",
+      border: "none",
+      borderRadius: "10px",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
+    });
+
+    container.appendChild(iframe);
+  });
 })();
