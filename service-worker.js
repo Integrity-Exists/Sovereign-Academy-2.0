@@ -6,7 +6,7 @@ const urlsToCache = [
   '/ask-sage.html',
   '/dss.html',
   '/custody.html',
-  '/ada.html',
+  '/ada-complaint.html',
   '/anthem.html',
   '/veterans.html',
   '/llc-guide.html',
