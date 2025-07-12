@@ -1,42 +1,77 @@
-(function () {
-  const cfg = window.SageBotConfig || {
-    containerId: "sage-chat-container",
-    greetMessage: "Hi! Ask your legal question below.",
-    placeholder: "Ask Sage…",
-    voice: false,
-    theme: "dark"
-  };
-
-  document.addEventListener("DOMContentLoaded", () => {
-    let container = document.getElementById(cfg.containerId);
-
-    if (!container) {
-      container = document.createElement("div");
-      container.id = cfg.containerId;
-      Object.assign(container.style, {
-        position: "fixed",
-        bottom: "15px",
-        right: "15px",
-        width: "280px",
-        height: "420px",
-        zIndex: "1000",
-        transition: "opacity 0.3s ease-in-out"
-      });
-      document.body.appendChild(container);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask Sage Chat</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
     }
 
-    const iframe = document.createElement("iframe");
-    iframe.src = "https://integrityexists.github.io/Sovereign-Academy-2.0/sage-chatbot.html";
-    Object.assign(iframe.style, {
-      width: "100%",
-      height: "100%",
-      border: "none",
-      borderRadius: "12px",
-      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-      opacity: "0.92",
-      pointerEvents: "auto"
-    });
+    #chat-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+    }
 
-    container.appendChild(iframe);
-  });
-})();
+    #chat-header {
+      background: #1f1f1f;
+      color: #fff;
+      padding: 12px;
+      font-size: 1.1rem;
+      text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    #chat-body {
+      flex-grow: 1;
+      background: #2c2c2c;
+      color: #eee;
+      padding: 15px;
+      overflow-y: auto;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      margin: 15px auto;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      display: block;
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-wrapper" class="pulse">
+    <div id="chat-header">👩‍⚖️ Ask Sage</div>
+    <div id="chat-body">
+      <p>Sage is online. Ask your legal question:</p>
+      <input type="text" placeholder="Type your question here..." />
+    </div>
+  </div>
+</body>
+</html>
