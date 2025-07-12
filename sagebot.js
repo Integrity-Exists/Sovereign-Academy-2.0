@@ -27,7 +27,7 @@
 
     const iframe = document.createElement("iframe");
 
-    iframe.src = "https://integrityexists.github.io/Sovereign-Academy-2.0/sage-chatbot.html?" +
+    iframe.src = "https://integrityexists.github.io/sovereign-academy-2.0/sage-chatbot.html?" +
       `theme=${cfg.theme}&voice=${cfg.voice}` +
       `&greet=${encodeURIComponent(cfg.greetMessage)}` +
       `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
