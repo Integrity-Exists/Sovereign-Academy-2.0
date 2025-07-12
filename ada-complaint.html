@@ -20,6 +20,7 @@
     h1, h2 {
       text-align: center;
       color: #2C3E50;
+      font-weight: bold;
     }
     p, ul, ol {
       max-width: 700px;
@@ -67,10 +68,11 @@
       margin-top: 3rem;
       color: #999;
       text-align: center;
+      padding-bottom: 40px;
     }
   </style>
 </head>
-<body>
+<body id="ada-complaint-page">
 
 <nav>
   <div><strong>Sovereign Academy</strong></div>
@@ -151,6 +153,12 @@
 
 <script src="sagebot.js"></script>
 <div id="sageBotContainer"></div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('register-sw.js');
+  }
+</script>
 
 <footer>
   © 2025 Sovereign Academy — Built by the people, powered by Sage AI. You are not alone.
