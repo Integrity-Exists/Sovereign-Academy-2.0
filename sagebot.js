@@ -4,31 +4,30 @@
     greetMessage: "Hi! Ask your legal question below.",
     placeholder:  "Ask Sage…",
     voice: false,
-    theme: "light"
+    theme: "dark"
   };
 
   document.addEventListener("DOMContentLoaded", () => {
     let container = document.getElementById(cfg.containerId);
 
-    // 🔧 Create container if missing
     if (!container) {
       container = document.createElement("div");
       container.id = cfg.containerId;
       Object.assign(container.style, {
         position: "fixed",
-        bottom: "20px",
-        right: "20px",
-        width: "350px",
-        height: "500px",
-        zIndex: "1000"
+        bottom: "15px",
+        right: "15px",
+        width: "280px",
+        height: "420px",
+        zIndex: "1000",
+        transition: "opacity 0.3s ease-in-out"
       });
       document.body.appendChild(container);
     }
 
-    // 🧠 Use your own local page
     const iframe = document.createElement("iframe");
     iframe.src =
-      "ask-sage.html?" +
+      "https://integrityexists.github.io/ask-sage-ui/?" +
       `theme=${cfg.theme}&voice=${cfg.voice}` +
       `&greet=${encodeURIComponent(cfg.greetMessage)}` +
       `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
@@ -37,8 +36,10 @@
       width: "100%",
       height: "100%",
       border: "none",
-      borderRadius: "10px",
-      boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
+      borderRadius: "12px",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+      opacity: "0.92",
+      pointerEvents: "auto"
     });
 
     container.appendChild(iframe);
