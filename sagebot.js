@@ -26,8 +26,12 @@
     }
 
     const iframe = document.createElement("iframe");
+iframe.src = `https://app.integrityexists.com/sage-chatbot.html?` +
+  `theme=${cfg.theme}&voice=${cfg.voice}` +
+  `&greet=${encodeURIComponent(cfg.greetMessage)}` +
+  `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
 
-        iframe.src = `https://integrityexists.github.io/sovereign-academy-2.0/sage-chatbot.html?theme=${cfg.theme}&voice=${cfg.voice}&greet=${encodeURIComponent(cfg.greetMessage)}&placeholder=${encodeURIComponent(cfg.placeholder)}`;
+        
         
     Object.assign(iframe.style, {
       width: "100%",
