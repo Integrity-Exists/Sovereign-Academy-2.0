@@ -1,17 +1,29 @@
 (function () {
-  const botWindow = document.createElement("iframe");
-  botWindow.id = "sageChatWindow";
-  botWindow.src = "sage-chatbot.html"; // or full URL if preferred
-  botWindow.style = `
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 340px;
-    height: 500px;
-    border: none;
-    z-index: 9999;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-  `;
-  document.body.appendChild(botWindow);
+  const config = window.SageBotConfig || {
+    containerId: "sage-chat-container",
+    greetMessage: "Hi! Ask your legal question below.",
+    placeholder: "Ask Sage...",
+    voice: false,
+    theme: "light"
+  };
+
+  const container = document.getElementById(config.containerId);
+  if (!container) {
+    console.warn("⚠️ SageBot container not found:", config.containerId);
+    return;
+  }
+
+  const iframe = document.createElement("iframe");
+  iframe.src = "https://integrityexists.github.io/ask-sage-ui/?theme=" + config.theme +
+               "&voice=" + config.voice +
+               "&greet=" + encodeURIComponent(config.greetMessage) +
+               "&placeholder=" + encodeURIComponent(config.placeholder);
+
+  iframe.style.width = "100%";
+  iframe.style.height = "500px";
+  iframe.style.border = "none";
+  iframe.style.borderRadius = "10px";
+  iframe.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+
+  container.appendChild(iframe);
 })();
