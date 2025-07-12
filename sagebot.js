@@ -7,11 +7,10 @@
     theme: "light"
   };
 
-  // Wait until DOM is ready
   document.addEventListener("DOMContentLoaded", () => {
     let container = document.getElementById(cfg.containerId);
 
-    // 🔧 Auto-create container if not found
+    // 🔧 Create container if missing
     if (!container) {
       container = document.createElement("div");
       container.id = cfg.containerId;
@@ -26,10 +25,10 @@
       document.body.appendChild(container);
     }
 
-    // Create iframe
+    // 🧠 Use your own local page
     const iframe = document.createElement("iframe");
     iframe.src =
-      "https://integrityexists.github.io/ask-sage-ui/?" +
+      "ask-sage.html?" +
       `theme=${cfg.theme}&voice=${cfg.voice}` +
       `&greet=${encodeURIComponent(cfg.greetMessage)}` +
       `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
