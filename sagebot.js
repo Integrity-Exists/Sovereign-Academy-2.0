@@ -2,7 +2,7 @@
   const cfg = window.SageBotConfig || {
     containerId: "sage-chat-container",
     greetMessage: "Hi! Ask your legal question below.",
-    placeholder:  "Ask Sage…",
+    placeholder: "Ask Sage…",
     voice: false,
     theme: "dark"
   };
@@ -10,6 +10,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     let container = document.getElementById(cfg.containerId);
 
+    // Auto-create floating chat container if not present
     if (!container) {
       container = document.createElement("div");
       container.id = cfg.containerId;
@@ -25,14 +26,14 @@
       document.body.appendChild(container);
     }
 
-    // 💡 This was missing before!
+    // Build iframe URL
     const iframe = document.createElement("iframe");
-
-    iframe.src = "https://integrityexists.github.io/sovereign-academy-2.0/sage-chatbot.html?" +
+    iframe.src = "https://integrityexists.github.io/sovereign-academy-2.0/sagebot.html?" +
       `theme=${cfg.theme}&voice=${cfg.voice}` +
       `&greet=${encodeURIComponent(cfg.greetMessage)}` +
       `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
 
+    // Style iframe (smaller and sleeker)
     Object.assign(iframe.style, {
       width: "100%",
       height: "100%",
@@ -44,5 +45,10 @@
     });
 
     container.appendChild(iframe);
+
+    // Optional: Let’s call quick-answer setup here if needed later.
+    // if (typeof setupQuickAnswers === 'function') {
+    //   setupQuickAnswers();
+    // }
   });
 })();
