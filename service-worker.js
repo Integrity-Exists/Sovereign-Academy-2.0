@@ -1,3 +1,4 @@
+const CACHE_NAME = 'sovereign-cache-v1';
 const urlsToCache = [
   '/index.html',
   '/about.html',
@@ -65,3 +66,42 @@ const urlsToCache = [
   '/icon-192-maskable.png',
   '/icon-512-maskable.png'
 ];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log('[ServiceWorker] Pre-caching');
+      return cache.addAll(urlsToCache);
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (key !== CACHE_NAME) {
+            console.log('[ServiceWorker] Removing old cache:', key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    }).catch((error) => {
+      // graceful fail (e.g. offline or widget.js requested)
+      if (event.request.url.includes('widget.js')) {
+        return new Response('', { status: 204 });
+      }
+    })
+  );
+});
