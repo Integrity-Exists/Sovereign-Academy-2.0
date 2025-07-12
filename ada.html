@@ -42,17 +42,6 @@
       color: #2C3E50;
       font-weight: bold;
     }
-    #sageChatWindow {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 320px;
-      height: 440px;
-      border: none;
-      z-index: 999;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
     .search-container {
       text-align: center;
       margin-top: 2rem;
@@ -152,8 +141,6 @@
   <button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
 </div>
 
-<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
-
 <script>
   window.SageBotConfig = {
     voice: true,
@@ -162,7 +149,7 @@
     theme: "dark"
   };
 </script>
-  
+
 <script src="sagebot.js"></script>
 <div id="sageBotContainer"></div>
 
