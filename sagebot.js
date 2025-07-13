@@ -1,48 +1,109 @@
-(function () {
-  const cfg = window.SageBotConfig || {
-    containerId: "sage-chat-container",
-    greetMessage: "Hi! Ask your legal question below.",
-    placeholder: "Ask Sage…",
-    voice: false,
-    theme: "dark"
-  };
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask Sage Chat</title>
+  <style>
+    body {
+      margin: 0;
+      background: #1e1e1e;
+      color: white;
+      font-family: sans-serif;
+    }
+    #chat-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    #chat-header {
+      padding: 10px;
+      text-align: center;
+      background: #333;
+      font-weight: bold;
+    }
+    #chat-body {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    #chat-input {
+      display: flex;
+      padding: 10px;
+      background: #222;
+    }
+    #chat-input input {
+      flex: 1;
+      padding: 8px;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+    }
+    #chat-input button {
+      margin-left: 8px;
+      padding: 8px 12px;
+      background: #4caf50;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .message {
+      margin: 8px 0;
+    }
+    .user { color: #00ffff; }
+    .sage { color: #90ee90; }
+  </style>
+</head>
+<body>
+  <div id="chat-wrapper">
+    <div id="chat-header">👩‍⚖️ Ask Sage</div>
+    <div id="chat-body">
+      <div class="message sage">Hello! What legal question can I help with today?</div>
+    </div>
+    <div id="chat-input">
+      <input id="user-input" type="text" placeholder="Type your legal question..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
 
-  document.addEventListener("DOMContentLoaded", () => {
-    let container = document.getElementById(cfg.containerId);
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("user-input");
+      const chat = document.getElementById("chat-body");
+      const message = input.value.trim();
+      if (!message) return;
 
-    if (!container) {
-      container = document.createElement("div");
-      container.id = cfg.containerId;
-      Object.assign(container.style, {
-        position: "fixed",
-        bottom: "15px",
-        right: "15px",
-        width: "280px",
-        height: "420px",
-        zIndex: "1000",
-        transition: "opacity 0.3s ease-in-out"
-      });
-      document.body.appendChild(container);
+      // Display user message
+      chat.innerHTML += `<div class="message user">You: ${message}</div>`;
+      input.value = "";
+      input.disabled = true;
+
+      try {
+        const res = await fetch("/.netlify/functions/ask-sage", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await res.json();
+        if (data.response) {
+          chat.innerHTML += `<div class="message sage">Sage: ${data.response}</div>`;
+        } else {
+          chat.innerHTML += `<div class="message sage">⚠️ Error: ${data.error}</div>`;
+        }
+      } catch (err) {
+        chat.innerHTML += `<div class="message sage">⚠️ Network error: ${err.message}</div>`;
+      } finally {
+        input.disabled = false;
+        input.focus();
+        chat.scrollTop = chat.scrollHeight;
+      }
     }
 
-    const iframe = document.createElement("iframe");
-iframe.src = `https://app.integrityexists.com/sage-chatbot.html?` +
-  `theme=${cfg.theme}&voice=${cfg.voice}` +
-  `&greet=${encodeURIComponent(cfg.greetMessage)}` +
-  `&placeholder=${encodeURIComponent(cfg.placeholder)}`;
-
-        
-        
-    Object.assign(iframe.style, {
-      width: "100%",
-      height: "100%",
-      border: "none",
-      borderRadius: "12px",
-      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-      opacity: "0.92",
-      pointerEvents: "auto"
+    document.getElementById("user-input").addEventListener("keypress", e => {
+      if (e.key === "Enter") sendMessage();
     });
-
-    container.appendChild(iframe);
-  });
-})();
+  </script>
+</body>
+</html>
