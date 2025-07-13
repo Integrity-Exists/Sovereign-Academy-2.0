@@ -17,6 +17,18 @@
   <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
   <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
 </head>
+<script defer src="smart-search.js"></script>
+<script defer src="voice-search.js"></script>
+<script defer src="sagebot.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered:', reg))
+        .catch(err => console.error('❌ Service Worker failed:', err));
+    });
+  }
+</script>
 
 <body>
 
