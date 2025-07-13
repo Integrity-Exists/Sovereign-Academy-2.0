@@ -38,6 +38,15 @@
       border-bottom-right-radius: 10px;
     }
 
+    #response {
+      margin-top: 10px;
+      padding: 10px;
+      background: #333;
+      border-radius: 8px;
+      font-style: italic;
+      white-space: pre-wrap;
+    }
+
     input[type="text"] {
       width: 90%;
       margin: 15px auto;
@@ -53,15 +62,9 @@
     }
 
     @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
-      }
-      70% {
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-      }
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
     }
   </style>
 </head>
@@ -70,8 +73,42 @@
     <div id="chat-header">👩‍⚖️ Ask Sage</div>
     <div id="chat-body">
       <p>Sage is online. Ask your legal question:</p>
-      <input type="text" placeholder="Type your question here..." />
+      <input id="user-input" type="text" placeholder="Type your question here..." />
+      <div id="response"></div>
     </div>
   </div>
+
+  <script>
+    const input = document.getElementById("user-input");
+    const responseDiv = document.getElementById("response");
+
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const question = input.value.trim();
+        if (!question) return;
+
+        responseDiv.textContent = "Sage is thinking…";
+        input.disabled = true;
+
+        fetch("/.netlify/functions/ask-sage", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: question })
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            responseDiv.textContent = data.response || "No reply from Sage.";
+          })
+          .catch((err) => {
+            console.error("Sage error:", err);
+            responseDiv.textContent = "An error occurred.";
+          })
+          .finally(() => {
+            input.disabled = false;
+            input.value = "";
+          });
+      }
+    });
+  </script>
 </body>
 </html>
