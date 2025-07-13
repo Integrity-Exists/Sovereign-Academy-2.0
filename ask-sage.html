@@ -85,27 +85,42 @@
     <input type="text" id="sage-input" placeholder="Ask Sage anything..." />
   </div>
 
-  <script>
-    const output = document.getElementById('sage-output');
-    const input = document.getElementById('sage-input');
+ <script>
+  const output = document.getElementById('sage-output');
+  const input = document.getElementById('sage-input');
 
-    input.addEventListener('keydown', async (e) => {
-      if (e.key === 'Enter') {
-        const question = input.value.trim();
-        if (!question) return;
-        output.innerHTML += `\n\n❓ <strong>You:</strong> ${question}\n`;
-        input.value = '...thinking...';
+  input.addEventListener('keydown', async (e) => {
+    if (e.key === 'Enter') {
+      const question = input.value.trim();
+      if (!question) return;
 
-        // Simulated Sage response for now
-        const fakeResponse = "🔍 Let me walk you through that... (real Sage backend coming soon!)";
+      output.innerHTML += `\n\n❓ <strong>You:</strong> ${question}\n`;
+      input.value = '...thinking...';
 
-        await new Promise(resolve => setTimeout(resolve, 800)); // simulate delay
-        output.innerHTML += `\n💬 <strong>Sage:</strong> ${fakeResponse}`;
-        input.value = '';
-        output.scrollTop = output.scrollHeight;
+      try {
+        const response = await fetch('/.netlify/functions/ask-sage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: question })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          output.innerHTML += `\n💬 <strong>Sage:</strong> ${data.response}`;
+        } else {
+          output.innerHTML += `\n⚠️ <strong>Error:</strong> ${data.error}`;
+        }
+      } catch (err) {
+        output.innerHTML += `\n🚨 <strong>Network error:</strong> ${err.message}`;
       }
-    });
-  </script>
+
+      input.value = '';
+      output.scrollTop = output.scrollHeight;
+    }
+  });
+</script>
+
 
   <!-- Service Worker -->
   <script>
