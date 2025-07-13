@@ -10,6 +10,13 @@ const openai = new OpenAIApi(configuration);
 
 exports.handler = async (event) => {
   try {
+    if (event.httpMethod !== "POST") {
+      return {
+        statusCode: 405,
+        body: JSON.stringify({ error: "Method Not Allowed" }),
+      };
+    }
+
     const { message } = JSON.parse(event.body);
 
     if (!message) {
