@@ -1,12 +1,8 @@
-// netlify/functions/ask-sage.js
+const OpenAI = require("openai");
 
-const { Configuration, OpenAIApi } = require("openai");
-
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-const openai = new OpenAIApi(configuration);
 
 exports.handler = async (event) => {
   try {
@@ -26,7 +22,7 @@ exports.handler = async (event) => {
       };
     }
 
-    const response = await openai.createChatCompletion({
+    const chatResponse = await openai.chat.completions.create({
       model: "gpt-4",
       messages: [{ role: "user", content: message }],
       temperature: 0.7,
@@ -34,7 +30,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ response: response.data.choices[0].message.content }),
+      body: JSON.stringify({ response: chatResponse.choices[0].message.content }),
     };
   } catch (err) {
     return {
