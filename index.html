@@ -3,71 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-
-  <title>Sovereign Academy - Home</title>
-  <meta name="description" content="Sovereign Academy: Your AI-powered legal toolkit for self-representation, DSS defense, and knowing your rights.">
-  <meta name="keywords" content="legal help, sovereign rights, CPS defense, ADA, custody, court motion builder, Sage AI">
-  <meta name="theme-color" content="#000000" />
-
-  <!-- Social Sharing -->
-  <meta property="og:title" content="Sovereign Academy" />
-  <meta property="og:description" content="Fight back with knowledge! Get legal tools, case law, and AI coaching for your courtroom journey." />
-  <meta property="og:image" content="https://integrityexists.com/ask-sage-icon.png" />
-  <meta property="og:url" content="https://integrityexists.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Icons & Manifest -->
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icon-192.png" type="image/png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <title>Ask Sage – Your Legal AI Ally</title>
+  <meta name="description" content="Ask Sage: Your 24/7 legal AI coach. No legalese, no fear – just real answers." />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Ask Sage Chatbot -->
-  <script>
-    window.SageBotConfig = {
-      voice: true,
-      greetMessage: "Hey there, how can I help you with your legal questions?",
-      placeholder: "Ask Sage anything...",
-      theme: "dark"
-    };
-  </script>
- 
-  <!-- Smart & Voice Search -->
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
-  <script defer src="sagebot.js"></script>
 
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f0f, #111);
+      font-family: 'Segoe UI', sans-serif;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .hero {
+      padding: 4rem 2rem 2rem;
+      background: radial-gradient(circle, #00ffcc33 0%, #000000 100%);
+      box-shadow: 0 0 40px #00ffcc44;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color: #00ffcc;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #ccc;
+    }
+    .cta-button {
+      background: #00ffcc;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 0 12px #00ffcc88;
+    }
+    .what-sage-does {
+      padding: 2rem;
+    }
+    .what-sage-does h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00ffcc;
+    }
+    .what-sage-does ul {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+      columns: 2;
+      font-size: 1.1rem;
+    }
+    .what-sage-does li {
+      padding: 0.5rem 0;
+    }
+    #sage-chat-interface {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #1a1a1a;
+      border: 2px solid #00ffcc;
+      border-radius: 16px;
+      box-shadow: 0 0 25px #00ffccaa, 0 0 50px #00ffcc55 inset;
+    }
+    #sage-output {
+      min-height: 200px;
+      text-align: left;
+      padding: 1rem;
+      background: #2a2a2a;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      max-height: 400px;
+    }
+    #sage-input {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: 2px solid #00ffcc;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    #sage-input:focus {
+      outline: none;
+      box-shadow: 0 0 10px #00ffcc;
+    }
+    .founder-quote {
+      margin: 3rem auto;
+      font-style: italic;
+      color: #aaa;
+      font-size: 1rem;
+      max-width: 700px;
+    }
+    footer {
+      color: #888;
+      margin: 3rem auto 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Disclaimer moved up top -->
-  <div style="background: #f8d7da; color: #721c24; padding: 15px; border-top: 2px solid #f5c6cb; text-align: center; font-size: 14px;">
-    <strong>⚠️ Legal Disclaimer:</strong> Sovereign Academy is not a law firm, and we are not attorneys. This platform does not offer legal advice — only tools, education, and empowerment. Always consult a licensed attorney for legal representation.
-  </div>
+  <section class="hero">
+    <h1>Ask Sage</h1>
+    <p>Your 24/7 legal AI — fearless, fast, and always in your corner.</p>
+    <a href="#chat" class="cta-button">🔥 Launch Sage Now</a>
+  </section>
 
-  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-    <a href="index.html" style="color: white; margin: 0 15px;">Home</a>
-    <a href="custody.html" style="color: white; margin: 0 15px;">Custody</a>
-    <a href="dss.html" style="color: white; margin: 0 15px;">CPS / DSS</a>
-    <a href="remedies.html" style="color: white; margin: 0 15px;">Remedies</a>
-    <a href="liberties.html" style="color: white; margin: 0 15px;">Civil Liberties</a>
-    <a href="about.html" style="color: white; margin: 0 15px;">About</a>
-  </nav>
+  <section class="what-sage-does">
+    <h2>What Can Sage Help You With?</h2>
+    <ul>
+      <li>🛡️ CPS / DSS Defense</li>
+      <li>👪 Custody Strategy</li>
+      <li>📑 Motion Drafting</li>
+      <li>🧠 Understanding Court Procedure</li>
+      <li>🎙️ Voice-Activated Help</li>
+      <li>📚 Legal Education (Plain English)</li>
+    </ul>
+  </section>
 
-  <div style="background-color: #fff8dc; color: #222; padding: 15px; text-align: center; font-weight: bold; border-bottom: 2px solid #ccc;">
-    🚧 Sovereign Academy is under active construction — but we’re live and lighting fires in courtrooms. 💥
-  </div>
+  <section id="chat">
+    <div id="sage-chat-interface">
+      <div id="sage-output">👋 <strong>Sage:</strong> What legal question can I help with today?</div>
+      <input type="text" id="sage-input" placeholder="Type your question and press Enter..." />
+    </div>
+  </section>
 
-  <div style="text-align: center; margin: 30px;">
-    <input type="text" id="smartSearch" placeholder="🔍 Search legal topics..." 
-           style="padding: 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" 
-           onkeyup="smartNavigate(this.value)">
-  </div>
+  <section class="founder-quote">
+    <blockquote>
+      “Sage is the star of this show — I’m merely the vessel.”<br>
+      <footer>— Gina Lopez, Co-Founder of Sovereign Academy</footer>
+    </blockquote>
+  </section>
 
-  <div style="text-align: center;">
-    <button id="installBtn" style="display:none; padding: 10px 20px; font-size: 16px; border-radius: 6px;">📲 Install Sovereign Academy App</button>
-  </div>
+  <footer>
+    © 2025 Sovereign Academy — Built by Gina Lopez & Sage. Designed for court warriors, freedom fighters, and those who won't be silenced.
+  </footer>
+
+  <script>
+    const output = document.getElementById('sage-output');
+    const input = document.getElementById('sage-input');
+    input.addEventListener('keydown', async (e) => {
+      if (e.key === 'Enter') {
+        const question = input.value.trim();
+        if (!question) return;
+        output.innerHTML += `\n\n❓ <strong>You:</strong> ${question}\n`;
+        input.value = '';
+        const loading = document.createElement('div');
+        loading.classList.add('thinking');
+        loading.textContent = '💭 Sage is thinking...';
+        output.appendChild(loading);
+        try {
+          const response = await fetch('/.netlify/functions/ask-sage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: question })
+          });
+          const data = await response.json();
+          loading.remove();
+          if (response.ok) {
+            output.innerHTML += `\n💬 <strong>Sage:</strong> ${data.response}`;
+          } else {
+            output.innerHTML += `\n⚠️ <strong>Error:</strong> ${data.error}`;
+          }
+        } catch (err) {
+          loading.remove();
+          output.innerHTML += `\n🚨 <strong>Network error:</strong> ${err.message}`;
+        }
+        output.scrollTop = output.scrollHeight;
+      }
+    });
+  </script>
 </body>
 </html>
-
