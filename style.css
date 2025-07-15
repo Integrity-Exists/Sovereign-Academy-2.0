@@ -168,4 +168,31 @@ footer {
     right: 10px;
   }
 }
+/* === Afterburner Link Effects === */
+section ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+
+section ul li a:hover {
+  color: #ff00cc;
+  transform: scale(1.05);
+  text-shadow: 0 0 8px #ff00cc, 0 0 15px #00ffff;
+}
+
+/* Optional glow-up animation for Sovereign Toolkit section */
+#sovereign-toolkit {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
 
