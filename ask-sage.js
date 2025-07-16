@@ -1,43 +1,36 @@
-const { OpenAI } = require("openai");
+const { Configuration, OpenAIApi } = require("openai");
 
-const openai = new OpenAI({
+const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-exports.handler = async (event) => {
+const openai = new OpenAIApi(configuration);
+
+exports.handler = async function (event, context) {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: "Method Not Allowed",
+    };
+  }
+
+  const body = JSON.parse(event.body);
+  const prompt = body.prompt || "Hello, world.";
+
   try {
-    if (event.httpMethod !== "POST") {
-      return {
-        statusCode: 405,
-        body: JSON.stringify({ error: "Method Not Allowed" }),
-      };
-    }
-
-    const { message } = JSON.parse(event.body);
-
-    if (!message) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "No message provided" }),
-      };
-    }
-
-    const chatResponse = await openai.chat.completions.create({
+    const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: message }],
-      temperature: 0.7,
+      messages: [{ role: "user", content: prompt }],
     });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        response: chatResponse.choices[0].message.content,
-      }),
+      body: JSON.stringify({ response: completion.data.choices[0].message.content }),
     };
-  } catch (err) {
+  } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: err.message }),
+      body: `Error: ${error.message}`,
     };
   }
 };
