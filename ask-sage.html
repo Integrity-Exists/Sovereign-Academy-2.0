@@ -112,7 +112,7 @@
           const response = await fetch('/.netlify/functions/ask-sage', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: question })
+            body: JSON.stringify({ prompt: question })
           });
 
           const data = await response.json();
