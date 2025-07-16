@@ -1,4 +1,4 @@
-const OpenAI = require("openai");
+const { OpenAI } = require("openai");
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -30,7 +30,9 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ response: chatResponse.choices[0].message.content }),
+      body: JSON.stringify({
+        response: chatResponse.choices[0].message.content,
+      }),
     };
   } catch (err) {
     return {
