@@ -1,9 +1,9 @@
 [build]
-  functions = "functions"
+  functions = "netlify/functions"
   publish = "."
 
 [dev]
-  functions = "functions"
+  functions = "netlify/functions"
 
 [[redirects]]
   from = "/.netlify/functions/*"
