@@ -2,163 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ask Sage - Your Legal AI Ally</title>
-
-  <meta name="description" content="Your AI-powered legal coach. Ask anything. No legalese, no BS.">
-  <meta name="keywords" content="Ask Sage, legal chatbot, sovereign academy AI, court help, DSS, custody advice">
-  <meta property="og:title" content="Ask Sage - Your Legal AI Ally">
-  <meta property="og:description" content="Ask anything — get real-time guidance with no legalese.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ask Sage - Your Legal AI Ally">
-  <meta name="twitter:description" content="Your AI-powered court companion. Real help. No fluff.">
-
-  <link rel="manifest" href="manifest.json" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask Sage - Sovereign Academy</title>
+  <meta name="description" content="Your AI-powered legal ally. Ask anything. No legalese, no fluff—just fire.">
+  <meta name="theme-color" content="#000000" />
   <link rel="stylesheet" href="style.css" />
-  <script defer src="smart-search.js"></script>
-  <script defer src="voice-search.js"></script>
-
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #0f0f0f, #111);
-      color: #e0e0e0;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+    }
+    #sage-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
       text-align: center;
-      padding: 2rem;
     }
     h1 {
-      font-size: 3rem;
-      color: #00ffcc;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.25rem;
-      color: #ccc;
-      max-width: 640px;
-      margin: 0 auto 2rem;
-    }
-    #sage-chat-interface {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 1.5rem;
-      background: #1a1a1a;
-      border: 2px solid #00ffcc;
-      border-radius: 16px;
-      box-shadow: 0 0 25px #00ffccaa, 0 0 50px #00ffcc55 inset;
-    }
-    #sage-output {
-      min-height: 200px;
-      text-align: left;
-      padding: 1rem;
-      background: #2a2a2a;
-      border-radius: 10px;
+      font-size: 2.5rem;
+      color: #0f0;
+      text-shadow: 0 0 10px #0f0;
       margin-bottom: 1rem;
-      white-space: pre-wrap;
-      overflow-y: auto;
-      max-height: 400px;
     }
-    #sage-input {
-      width: 100%;
-      padding: 1rem;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      border: 2px solid #00ffcc;
-      background-color: #121212;
-      color: #e0e0e0;
+    iframe {
+      width: 90%;
+      height: 600px;
+      border: 2px solid #0f0;
+      box-shadow: 0 0 20px #0f0;
+      border-radius: 10px;
+      background: black;
     }
-    #sage-input:focus {
-      outline: none;
-      box-shadow: 0 0 10px #00ffcc;
+    section {
+      background: #111;
+      padding: 40px 20px;
     }
-    .thinking {
-      font-style: italic;
+    h2 {
+      color: #fff;
+      text-align: center;
+    }
+    ul {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+      columns: 2;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a {
+      color: #0f0;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
       color: #888;
+      font-size: 0.9rem;
+      padding: 2rem 1rem;
     }
   </style>
 </head>
+
 <body>
-
-  <div style="background-color: #000; padding: 10px;">
-   <a href="dashboard.html" style="color: #39ff14; margin: 0 15px;">📊 Dashboard</a>
-   <a href="home.html" style="color: white; margin: 0 15px;">Home</a>
-   <a href="home.html" style="color: white; margin: 0 15px;">Home</a>
-   <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
-   <a href="contact.html" style="color: #39ff14; margin: 0 15px;">📨 Contact</a>
-</div>
-  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-    <a href="home.html" style="color: white; margin: 0 15px;">Home</a>
-    <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
-    <a href="custody.html" style="color: white; margin: 0 15px;">Custody</a>
-^    <a href="dss.html" style="color: white; margin: 0 15px;">CPS / DSS</a>
-    <a href="remedies.html" style="color: white; margin: 0 15px;">Remedies</a>
-    <a href="liberties.html" style="color: white; margin: 0 15px;">Civil Liberties</a>
-    <a href="about.html" style="color: white; margin: 0 15px;">About</a>
-  </nav>
-
-
-  <h1>Ask Sage</h1>
-  <p>Your AI-powered legal ally. Ask me anything — no legalese, no BS.</p>
-
-  <div id="sage-chat-interface">
-    <div id="sage-output">👋 <strong>Sage:</strong> What legal question can I help with today?</div>
-    <input type="text" id="sage-input" placeholder="Type your question and press Enter..." />
+  <div id="sage-container">
+    <h1>🧠 Ask Sage</h1>
+    <iframe src="sage-chatbot.html" title="Ask Sage"></iframe>
   </div>
 
-  <script>
-    const output = document.getElementById('sage-output');
-    const input = document.getElementById('sage-input');
+  <section>
+    <h2>🔥 Explore the Full Sovereign Toolkit</h2>
+    <ul>
+      <li><a href="custody.html">👪 Custody</a></li>
+      <li><a href="dss.html">📄 DSS Overview</a></li>
+      <li><a href="restore-rights.html">🎯 Restore Rights</a></li>
+      <li><a href="court-prep.html">🧾 Court Prep</a></li>
+      <li><a href="veterans.html">🎖 Veterans</a></li>
+      <li><a href="estate.html">📜 Estate Planning</a></li>
+      <li><a href="download-hub.html">📂 Download Hub</a></li>
+      <li><a href="emergency-custody-response.html">🚨 Emergency Custody</a></li>
+      <li><a href="remove-gal.html">❌ Remove GAL</a></li>
+      <li><a href="llc-guide.html">📘 LLC Guide</a></li>
+      <li><a href="llc-to-trust.html">🏛 Convert to Trust</a></li>
+      <li><a href="chevron-doctrine.html">⚖️ Chevron Decision</a></li>
+      <li><a href="conspiracy-defense.html">👁 Conspiracy Charges</a></li>
+      <li><a href="about.html">📚 About Sovereign Academy</a></li>
+    </ul>
+  </section>
 
-    input.addEventListener('keydown', async (e) => {
-      if (e.key === 'Enter') {
-        const question = input.value.trim();
-        if (!question) return;
-
-        output.innerHTML += `\n\n❓ <strong>You:</strong> ${question}\n`;
-        input.value = '';
-        const loading = document.createElement('div');
-        loading.classList.add('thinking');
-        loading.textContent = '💭 Sage is thinking...';
-        output.appendChild(loading);
-
-        try {
-          const response = await fetch('/.netlify/functions/ask-sage', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: question })
-          });
-
-          const data = await response.json();
-          loading.remove();
-
-          if (response.ok) {
-            output.innerHTML += `\n💬 <strong>Sage:</strong> ${data.response}`;
-          } else {
-            output.innerHTML += `\n⚠️ <strong>Error:</strong> ${data.error}`;
-          }
-        } catch (err) {
-          loading.remove();
-          output.innerHTML += `\n🚨 <strong>Network error:</strong> ${err.message}`;
-        }
-
-        output.scrollTop = output.scrollHeight;
-      }
-    });
-  </script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('✅ Service Worker registered:', reg))
-          .catch(err => console.error('❌ Service Worker failed:', err));
-      });
-    }
-  </script>
-
-  <footer style="margin-top: 3rem; color: #888;">
-    © 2025 Sovereign Academy — Co-created by Gina Lopez & <span style="color:#00ffcc">Sage</span>, your legal AI with claws & clarity.<br>
-    <em>Built by Integrity Exists. Sparked by rebellion. Powered by code & conviction.</em>
+  <footer>
+    Built by <strong>Gina Lopez</strong> & <strong>Sage</strong>, your AI co-pilot for court survival.<br>
+    © 2025 Sovereign Academy. No fear. No fluff. Just fire.
   </footer>
 </body>
 </html>
+
