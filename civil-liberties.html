@@ -9,20 +9,30 @@
   <meta property="og:title" content="Your Civil Liberties - Sovereign Academy" />
   <meta property="og:description" content="Understand your rights — and how to fight when they’re violated." />
   <meta name="twitter:card" content="summary" />
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Smart & Voice Search -->
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
-  <script defer src="sagebot.js"></script>
+
+  <!-- Ask Sage Chatbot -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Want to know how to stand up for your rights? Ask away.",
+      placeholder: "Ask Sage about civil liberties, violations, or remedies...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 </head>
 
 <body>
-  <nav style="background: #2C3E50; padding: 10px; text-align: center;">
-    <a href="home.html" style="color: white; margin: 0 15px;">Home</a>
-    <a href="about.html" style="color: white; margin: 0 15px;">About</a>
-    <a href="dss.html" style="color: white; margin: 0 15px;">CPS / DSS</a>
-    <a href="remedies.html" style="color: white; margin: 0 15px;">Remedies</a>
-    <a href="custody.html" style="color: white; margin: 0 15px;">Custody</a>
+  <!-- Navigation -->
+  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
   </nav>
 
   <main style="padding: 40px; text-align: center;">
@@ -31,21 +41,4 @@
 
     <section style="margin-top: 2rem; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
       <h2>🔓 First Amendment: Freedom of Speech, Religion, Press & Assembly</h2>
-      <p>You have the right to speak your truth, pray how you want, and organize peacefully — even if it makes others uncomfortable.</p>
-
-      <h2>🔍 Fourth Amendment: No Unlawful Searches or Seizures</h2>
-      <p>No warrant? No entry. No probable cause? No search. Assert your right to privacy every time.</p>
-
-      <h2>⚖️ Fifth & Fourteenth Amendments: Due Process</h2>
-      <p>You are innocent until proven guilty. The government cannot deprive you of life, liberty, or property without <strong>fair legal steps</strong>.</p>
-
-      <h2>💥 When Rights Are Violated</h2>
-      <p>It’s not just unfair — it’s <strong>actionable</strong>. Document it. Stand your ground. Sue if necessary. <a href="remedies.html">Remedies live here.</a></p>
-    </section>
-  </main>
-
-  <footer style="text-align:center; margin: 2rem 0; font-size: 0.9rem; color: #888;">
-    © 2025 Sovereign Academy — Defend your rights with power. Site by Gina Lopez & Sage.
-  </footer>
-</body>
-</html>
+      <p>You have the right to speak your truth, pray
