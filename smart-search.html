@@ -47,132 +47,75 @@
       font-size: 16px;
       cursor: pointer;
     }
+    #sageChatWindow {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+    }
+    #sageChatWindow iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    #sageChatBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2C3E50;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
 
-  <h2>🔍 Smart Legal Search</h2>
-  <p>Search common legal topics by voice or text. Fuzzy match helps if spelling isn’t your thing 😎</p>
+<!-- Neon Nav -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
 
-  <input id="smartSearch" oninput="smartNavigate(this.value)" placeholder="e.g., custudy, paroll, arrest" type="text" />
-  <ul id="smartSuggestions" style="display:none;"></ul>
+<h2>🔍 Smart Legal Search</h2>
+<p>Search common legal topics by voice or text. Fuzzy match helps if spelling isn’t your thing 😎</p>
 
-  <button onclick="startVoiceSearch()">🎙️ Voice Search</button>
+<input id="smartSearch" oninput="smartNavigate(this.value)" placeholder="e.g., custudy, paroll, arrest" type="text" />
+<ul id="smartSuggestions" style="display:none;"></ul>
 
-  <!-- Ask Sage Chatbot Config -->
-  <script>
-    window.SageBotConfig = {
-      voice: true,
-      greetMessage: "Ready to find legal answers fast? Ask away.",
-      placeholder: "Ask Sage anything...",
-      theme: "dark"
-    };
-  </script>
+<button onclick="startVoiceSearch()">🎙️ Voice Search</button>
 
-  <!-- Smart Search Script -->
-  <script>
-    const topics = [
-      { keyword: "custody", page: "custody.html" },
-      { keyword: "eviction", page: "eviction.html" },
-      { keyword: "records", page: "records.html" },
-      { keyword: "dss", page: "dss.html" },
-      { keyword: "liberties", page: "liberties.html" },
-      { keyword: "estate", page: "estate.html" },
-      { keyword: "remedies", page: "remedies.html" },
-      { keyword: "arrested", page: "arrested.html" },
-      { keyword: "resources", page: "resources.html" },
-      { keyword: "parole", page: "remedies.html" },
-      { keyword: "trust", page: "trust-conversion.html" },
-      { keyword: "conspiracy", page: "conspiracy.html" },
-      { keyword: "traffic", page: "traffic-stop.html" },
-      { keyword: "ada", page: "ada.html" }
-    ];
+<!-- Ask Sage Config -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Ready to find legal answers fast? Ask away.",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
 
-    function levenshtein(a, b) {
-      const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
-      for (let i = 0; i <= a.length; i++) matrix[0][i] = i;
-      for (let i = 1; i <= b.length; i++) {
-        for (let j = 1; j <= a.length; j++) {
-          matrix[i][j] = Math.min(
-            matrix[i - 1][j] + 1,
-            matrix[i][j - 1] + 1,
-            matrix[i - 1][j - 1] + (b[i - 1] === a[j - 1] ? 0 : 1)
-          );
-        }
-      }
-      return matrix[b.length][a.length];
-    }
+<!-- Ask Sage Chatbot -->
+<div id="sageChatWindow">
+  <iframe src="sage-chatbot.html"></iframe>
+</div>
+<button id="sageChatBtn" onclick="document.getElementById('sageChatWindow').style.display='block'">
+  💬 Ask Sage
+</button>
 
-    function fuzzyMatch(input) {
-      input = input.toLowerCase().trim();
-      let bestMatch = null;
-      let bestScore = Infinity;
-
-      topics.forEach(t => {
-        const score = levenshtein(input, t.keyword);
-        if (score < bestScore && score <= 3) {
-          bestMatch = t;
-          bestScore = score;
-        }
-      });
-
-      return bestMatch;
-    }
-
-    function smartNavigate(input) {
-      const match = fuzzyMatch(input);
-      if (match) window.location.href = match.page;
-      updateSuggestions(input);
-    }
-
-    function updateSuggestions(input) {
-      const suggestionsBox = document.getElementById("smartSuggestions");
-      suggestionsBox.innerHTML = "";
-
-      if (!input) {
-        suggestionsBox.style.display = "none";
-        return;
-      }
-
-      const matches = topics.filter(t =>
-        t.keyword.toLowerCase().includes(input)
-      );
-
-      if (matches.length === 0) {
-        suggestionsBox.style.display = "none";
-        return;
-      }
-
-      matches.forEach(t => {
-        const li = document.createElement("li");
-        li.textContent = t.keyword;
-        li.onclick = () => (window.location.href = t.page);
-        suggestionsBox.appendChild(li);
-      });
-
-      suggestionsBox.style.display = "block";
-    }
-
-    function startVoiceSearch() {
-      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-      recognition.lang = "en-US";
-      recognition.start();
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        document.getElementById("smartSearch").value = transcript;
-        smartNavigate(transcript);
-      };
-
-      recognition.onerror = (event) => {
-        alert("Voice recognition error: " + event.error);
-      };
-    }
-  </script>
-
-  <footer style="margin-top: 3rem; color: #999;">
-    © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
-  </footer>
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
 
 </body>
 </html>
