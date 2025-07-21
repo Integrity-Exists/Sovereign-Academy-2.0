@@ -13,36 +13,73 @@
 
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png"/>
+
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
+
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #fff;
-      color: #222;
+      font-family: Arial, sans-serif;
+      background-color: #ECF0F1;
+      color: #2C3E50;
       padding: 2rem;
       line-height: 1.6;
+      margin: 0;
     }
+
+    nav {
+      background-color: #2C3E50;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: #F4D03F;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
     h1 {
       text-align: center;
       color: #2C3E50;
       margin-bottom: 1rem;
     }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+    }
+
+    section {
+      margin-top: 2rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: #555;
+      font-size: 0.95em;
+    }
   </style>
 </head>
 <body>
 
-  <nav style="display: flex; justify-content: space-between; align-items: center; background: #f0f0f0; padding: 10px;">
-    <div><strong>Sovereign Academy</strong></div>
-    <div>
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="remedies.html">Remedies</a>
-      <a href="ada.html">ADA</a>
-      <a href="dss.html">DSS</a>
-      <a href="anthem-banner.html">Anthem</a>
-      <a href="ask-sage.html">Ask Sage</a>
-    </div>
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">About</a>
+    <a href="remedies.html">Remedies</a>
+    <a href="ada.html">ADA</a>
+    <a href="dss.html">DSS</a>
+    <a href="anthem.html">Anthem</a>
+    <a href="ask-sage.html">Ask Sage</a>
   </nav>
 
   <main>
@@ -89,10 +126,11 @@
     </section>
   </main>
 
-  <footer style="margin-top: 3rem; color: #999;">
-    © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists. With honor for every veteran who served.
+  <footer>
+    © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists. With honor for every veteran who served.
   </footer>
 
+  <!-- Ask Sage Chatbot -->
   <script>
     window.SageBotConfig = {
       voice: true,
@@ -102,5 +140,25 @@
     };
   </script>
   <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
 </body>
 </html>
