@@ -5,8 +5,7 @@
 "display": "standalone", 
 "background_color": "#000000", 
 "theme_color": "#00ff00", 
-"description": "Your AI-powered legal ally. No fear. No fluff. Just justice.", "orientation": "portrait", 
-"icons": [ 
+"description": "Your AI-powered legal ally. No fear. No fluff. Just justice.", "icons": [ 
 { 
 "src": "icon-192.png", 
 "sizes": "192x192", 
@@ -18,12 +17,6 @@
 "sizes": "192x192", 
 "type": "image/png", 
 "purpose": "maskable" 
-}, 
-{ 
-"src": "icon-192-any.png", 
-"sizes": "192x192", 
-"type": "image/png", 
-"purpose": "any" 
 }, 
 { 
 "src": "icon-512.png", 
@@ -40,20 +33,27 @@
 ], 
 "screenshots": [ 
 { 
-"src": "screenshot1.png",
+"src": "screenshot1.png", 
 "sizes": "720x1280", 
 "type": "image/png" 
 }, 
 { 
 "src": "screenshot2.png", 
 "sizes": "1080x1920", 
-"type": "image/png" 
+"type": "image/png"
 } 
 ], 
-"categories": ["education", "productivity", "legal"], "iarc_rating_id": "e10c3e41-0000-4000-8000-000000000000", "scope": ".", 
-"scope_extensions": [], 
-"prefer_related_applications": false, 
-"related_applications": [], 
+"categories": ["education", "productivity", "legal"], 
+"iarc_rating_id": "e10+", 
 "lang": "en", 
 "dir": "ltr", 
-"app_id": "com.integrityexists.sovereignacademy" }
+"orientation": "portrait", 
+"display_override": ["fullscreen", "standalone", "minimal-ui", "browser"], "app_id": "com.integrityexists.sovereignacademy", 
+"launch_handler": { 
+"client_mode": "navigate-existing" 
+}, 
+"prefer_related_applications": false, 
+"related_applications": [], 
+"scope": "/", 
+"scope_extensions": [] 
+}
