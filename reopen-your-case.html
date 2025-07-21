@@ -9,12 +9,44 @@
   <link rel="manifest" href="manifest.json"/>
   <link rel="stylesheet" href="style.css"/>
   <script src="smart-search.js"></script>
+  <script src="voice-search.js"></script>
+
+  <!-- Ask Sage Config -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Want to reopen your case? I'm right here with legal backup.",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+
+  <!-- Chatbot Style -->
+  <style>
+    #sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      border: none;
+      z-index: 999;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+<nav style="display: flex; justify-content: space-between; align-items: center; background: #f0f0f0; padding: 10px;">
+  <div><strong>Sovereign Academy</strong></div>
+  <div>
+    <a href="home.html">Home</a> 
+    <a href="about.html">About</a> 
+    <a href="remedies.html">Remedies</a> 
+    <a href="ada.html">ADA</a> 
+    <a href="dss.html">DSS</a> 
+    <a href="anthem.html">Anthem</a> 
+    <a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+  </div>
 </nav>
 
 <main style="padding: 2rem; max-width: 900px; margin: auto;">
@@ -58,9 +90,6 @@ I request this case be reopened in the interest of justice.”
 
 <!-- Ask Sage Chatbot -->
 <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
-
-<!-- Voice Search Script -->
-<script src="voice-search.js"></script>
 
 <!-- Service Worker -->
 <script>
