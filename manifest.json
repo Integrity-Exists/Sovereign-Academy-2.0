@@ -1,15 +1,11 @@
 {
   "name": "Sovereign Academy",
   "short_name": "Sovereign",
-  "id": "/index.html",
-  "dir": "ltr",
-  "lang": "en-US",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#ffffff",
-  "theme_color": "#2C3E50",
-  "description": "Sovereign Academy is your AI-powered legal toolkit. Fight CPS, defend your rights in court, and learn the law in plain English. Real legal forms, self-rep strategies, and 24/7 Sage AI built by people who lived it.",
+  "background_color": "#000000",
+  "theme_color": "#00ff00",
+  "description": "Your AI-powered legal ally. No fear. No fluff. Just fire.",
   "icons": [
     {
       "src": "icon-192.png",
@@ -22,83 +18,28 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "icon-192-maskable.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icon-512-maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ],
+  "orientation": "portrait",
   "screenshots": [
     {
-      "src": "screenshot_home.png",
-      "type": "image/png",
+      "src": "screenshot1.png",
       "sizes": "720x1280",
-      "label": "Sovereign Academy Home"
+      "type": "image/png"
     },
     {
-      "src": "screenshot_features.png",
-      "type": "image/png",
-      "sizes": "720x1280",
-      "label": "Ask Sage Feature"
+      "src": "screenshot2.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
     }
   ],
-  "shortcuts": [
-    {
-      "name": "Ask Sage Now",
-      "short_name": "Ask Sage",
-      "url": "/ask-sage.html",
-      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Your Legal Dashboard",
-      "short_name": "Dashboard",
-      "url": "/my-case.html",
-      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
-    }
-  ],
-  "launch_handler": {
-    "client_mode": "navigate-existing"
-  },
-  "categories": [
-    "education",
-    "productivity",
-    "utilities",
-    "law",
-    "self-help"
-  ],
-  "iarc_rating_id": "e10plus",
+  "categories": ["education", "productivity", "legal"],
+  "iarc_rating_id": "e10c3e41-0000-4000-8000-000000000000",
+  "scope": ".",
+  "scope_extensions": [],
   "prefer_related_applications": false,
-  "protocol_handlers": [
-    {
-      "protocol": "web-justice",
-      "url": "https://integrityexists.com/?case=%s"
-    },
-    {
-      "protocol": "web-open-case",
-      "url": "/open-case.html?case=%s"
-    }
-  ],
-  "file_handlers": [
-    {
-      "action": "/open-case.html",
-      "accept": {
-        "application/pdf": [".pdf"],
-        "application/json": [".json"]
-      }
-    }
-  ],
-  "scope_extensions": [
-    "https://app.integrityexists.com/*"
-  ]
+  "related_applications": [],
+  "lang": "en",
+  "dir": "ltr",
+  "app_id": "com.integrityexists.sovereignacademy"
 }
-
-
-
