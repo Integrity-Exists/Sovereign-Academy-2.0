@@ -9,12 +9,35 @@
   <link rel="stylesheet" href="style.css"/>
 
   <style>
+    :root {
+      --primary-color: #2C3E50;
+      --accent-color: #ECF0F1;
+    }
+
     body {
-      background-color: var(--accent-color, #ECF0F1);
-      color: var(--primary-color, #2C3E50);
+      background-color: var(--accent-color);
+      color: var(--primary-color);
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 2rem;
+    }
+
+    nav {
+      background: var(--primary-color);
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     h1 {
@@ -37,27 +60,33 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       text-decoration: none;
-      color: #2C3E50;
+      color: var(--primary-color);
       font-weight: bold;
-      transition: transform 0.2s;
+      transition: transform 0.2s, background 0.2s;
     }
 
     .link-tile:hover {
       transform: translateY(-4px);
       background: #f4f4f4;
     }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--primary-color);
+    }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="home.html">Home</a>
+  <a href="index.html">🏠 Home</a>
   <a href="about.html">About</a>
   <a href="remedies.html">Remedies</a>
   <a href="ada.html">ADA</a>
   <a href="dss.html">DSS</a>
   <a href="anthem.html">Anthem</a>
-  <a href="ask-sage.html" style="font-weight: bold;">Ask Sage</a>
+  <a href="ask-sage.html">Ask Sage</a>
 </nav>
 
 <h1>🚀 Take Me To...</h1>
@@ -74,14 +103,13 @@
   <a class="link-tile" href="veterans.html">🎖️ Veterans Support</a>
 </div>
 
-<footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
-  © 2025 Sovereign Academy. All rights reserved.
+<footer>
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. 🦁
 </footer>
 
 <!-- Scripts -->
 <script src="smart-search.js"></script>
 <script src="voice-search.js"></script>
-
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js');
