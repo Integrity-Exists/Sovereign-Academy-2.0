@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ask Sage - Sovereign Academy</title>
-  <meta name="description" content="Your AI-powered legal ally. Ask anything. No legalese, no fluff—just fire.">
+  <title>Sovereign Academy - Ask Sage</title>
+  <meta name="description" content="Ask Sage — your AI-powered legal coach. No legalese, no fluff. Just fire.">
   <meta name="theme-color" content="#000000" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
   <style>
     body {
       background-color: #000;
@@ -15,11 +16,25 @@
       margin: 0;
       padding: 0;
     }
+    nav {
+      background: #2C3E50;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #00FFCC;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-shadow: 0 0 5px #00FFCC;
+    }
     #sage-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 50px 20px;
+      padding: 50px 20px 30px;
       text-align: center;
     }
     h1 {
@@ -35,6 +50,11 @@
       box-shadow: 0 0 20px #0f0;
       border-radius: 10px;
       background: black;
+    }
+    .divider {
+      border-top: 2px solid #0f0;
+      margin: 40px auto 0;
+      width: 80%;
     }
     section {
       background: #111;
@@ -59,7 +79,7 @@
       text-decoration: none;
     }
     a:hover {
-      text-decoration: underline;
+      text-shadow: 0 0 5px #0f0;
     }
     footer {
       text-align: center;
@@ -71,10 +91,17 @@
 </head>
 
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="topics.html">Topics</a>
+  </nav>
+
   <div id="sage-container">
     <h1>🧠 Ask Sage</h1>
     <iframe src="sage-chatbot.html" title="Ask Sage"></iframe>
   </div>
+
+  <div class="divider"></div>
 
   <section>
     <h2>🔥 Explore the Full Sovereign Toolkit</h2>
@@ -102,4 +129,3 @@
   </footer>
 </body>
 </html>
-
