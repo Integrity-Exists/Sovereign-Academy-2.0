@@ -1,10 +1,10 @@
 {
   "name": "Sovereign Academy",
   "short_name": "Sovereign",
-  "id": "index.html",
+  "id": "/index.html",
   "dir": "ltr",
   "lang": "en-US",
-  "start_url": "index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
@@ -50,6 +50,20 @@
       "label": "Ask Sage Feature"
     }
   ],
+  "shortcuts": [
+    {
+      "name": "Ask Sage Now",
+      "short_name": "Ask Sage",
+      "url": "/ask-sage.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Your Legal Dashboard",
+      "short_name": "Dashboard",
+      "url": "/my-case.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ],
   "launch_handler": {
     "client_mode": "navigate-existing"
   },
@@ -69,12 +83,12 @@
     },
     {
       "protocol": "web-open-case",
-      "url": "open-case.html?case=%s"
+      "url": "/open-case.html?case=%s"
     }
   ],
   "file_handlers": [
     {
-      "action": "open-case.html",
+      "action": "/open-case.html",
       "accept": {
         "application/pdf": [".pdf"],
         "application/json": [".json"]
@@ -85,3 +99,6 @@
     "https://app.integrityexists.com/*"
   ]
 }
+
+
+
