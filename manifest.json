@@ -1,59 +1,25 @@
 { 
-"name": "Sovereign Academy", 
-"short_name": "Sovereign", 
-"start_url": "index.html", 
+"name": "Sovereign Academy", "short_name": "Sovereign", "start_url": "/index.html", 
 "display": "standalone", 
-"background_color": "#000000", 
-"theme_color": "#00ff00", 
-"description": "Your AI-powered legal ally. No fear. No fluff. Just justice.", "icons": [ 
+"background_color": "#ffffff", "theme_color": "#2C3E50", "orientation": "portrait", 
+"icons": [ 
 { 
-"src": "icon-192.png", 
+"src": "/icon-192.png", 
 "sizes": "192x192", 
-"type": "image/png", 
-"purpose": "any" 
-}, 
-{ 
-"src": "icon-192-maskable.png", 
-"sizes": "192x192", 
-"type": "image/png", 
-"purpose": "maskable" 
-}, 
-{ 
-"src": "icon-512.png", 
-"sizes": "512x512", 
-"type": "image/png", 
-"purpose": "any" 
-}, 
-{ 
-"src": "icon-512-maskable.png", 
-"sizes": "512x512", 
-"type": "image/png", 
-"purpose": "maskable" 
-} 
-], 
-"screenshots": [ 
-{ 
-"src": "screenshot1.png", 
-"sizes": "720x1280", 
 "type": "image/png" 
 }, 
 { 
-"src": "screenshot2.png", 
-"sizes": "1080x1920", 
-"type": "image/png"
+"src": "/icon-512.png", 
+"sizes": "512x512", 
+"type": "image/png" 
 } 
 ], 
-"categories": ["education", "productivity", "legal"], 
-"iarc_rating_id": "e10+", 
-"lang": "en", 
-"dir": "ltr", 
-"orientation": "portrait", 
-"display_override": ["fullscreen", "standalone", "minimal-ui", "browser"], "app_id": "com.integrityexists.sovereignacademy", 
-"launch_handler": { 
-"client_mode": "navigate-existing" 
+"protocol_handlers": [ 
+{ 
+"protocol": "web+justice", "url": "/justice.html" 
 }, 
-"prefer_related_applications": false, 
-"related_applications": [], 
-"scope": "/", 
-"scope_extensions": [] 
+{ 
+"protocol": "web+open-case", "url": "/open-case.html" 
+} 
+] 
 }
