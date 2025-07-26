@@ -3,17 +3,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const userInput = document.getElementById("user-input");
   const chatLog = document.getElementById("chat-log");
 
+  if (!chatForm || !userInput || !chatLog) {
+    console.warn("Ask Sage UI elements not found.");
+    return;
+  }
+
+  function appendMessage(sender, message) {
+    const div = document.createElement("div");
+    div.textContent = `${sender}: ${message}`;
+    chatLog.appendChild(div);
+  }
+
   chatForm.addEventListener("submit", async function (e) {
     e.preventDefault();
     const prompt = userInput.value.trim();
     if (!prompt) return;
 
-    appendMessage("user", prompt);
+    appendMessage("You", prompt);
     userInput.value = "";
-    appendMessage("sage", "Thinking...");
+    appendMessage("Sage", "Thinking...");
 
     try {
-      const response = await fetch('/api/ask-sage', {
+      const response = await fetch("/api/ask-sage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -22,25 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       const data = await response.json();
-      updateLastSageMessage(data.response || "[No response]");
-    } catch (error) {
-      console.error("Error:", error);
-      updateLastSageMessage("Something went wrong. Try again later.");
+      const result = data.choices?.[0]?.message?.content || "[No response]";
+      chatLog.lastChild.textContent = `Sage: ${result}`;
+    } catch (err) {
+      chatLog.lastChild.textContent = "Sage: [Something went wrong]";
+      console.error("Ask Sage error:", err);
     }
   });
-
-  function appendMessage(sender, message) {
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("message", sender);
-    messageElement.innerText = message;
-    chatLog.appendChild(messageElement);
-    chatLog.scrollTop = chatLog.scrollHeight;
-  }
-
-  function updateLastSageMessage(message) {
-    const sageMessages = chatLog.querySelectorAll(".message.sage");
-    if (sageMessages.length) {
-      sageMessages[sageMessages.length - 1].innerText = message;
-    }
-  }
 });
