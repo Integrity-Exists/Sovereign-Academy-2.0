@@ -19,6 +19,7 @@ messages: [{ role: "user", content: prompt }]
 }) 
 }); 
 const data = await response.json(); 
+console.log(" FULL OpenAI response:", JSON.stringigy(data, null, 2));  
 const result = data.choices?.[0]?.message?.content || "[No response]"; res.status(200).json({ response: result }); 
 } catch (error) { 
 console.error("❌ Ask Sage Error:", error.stack || error.message || error); res.status(500).json({ error: error.stack || error.message || "Something went wrong." }); } 
