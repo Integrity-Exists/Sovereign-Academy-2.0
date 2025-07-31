@@ -9,7 +9,7 @@ appendMessage("user", prompt);
 userInput.value = ""; 
 appendMessage("sage", "Thinking..."); 
 try { 
-const response = await fetch("https://ask-sage-api.vercel.app/api/ask-sage", { method: "POST", 
+const response = await fetch("/api/ask-sage", { method: "POST", 
 headers: { 
 "Content-Type": "application/json" 
 }, 
