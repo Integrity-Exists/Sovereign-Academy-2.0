@@ -1,35 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("sage-chat-form");
-  const input = document.getElementById("user-input");
-  const log = document.getElementById("chat-log");
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const prompt = input.value.trim();
-    if (!prompt) return;
+  try {
+    const { prompt } = await req.json();  // only read once
+    // console.log('Prompt received:', prompt); // optional debug log
 
-    // Display user input
-    log.innerHTML += `<div><strong>You:</strong> ${prompt}</div>`;
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-4",
+        messages: [{ role: "user", content: prompt }]
+      })
+    });
 
-    try {
-      const res = await fetch("/api/ask-sage", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
-      });
+    const data = await response.json();
+    const result = data.choices?.[0]?.message?.content || "[No response]";
+    res.status(200).json({ response: result });
 
-      const data = await res.json();
-      console.log("Sage says:", data); // <== log for debugging
-
-      const reply = data.response || "[No response]";
-      log.innerHTML += `<div><strong>Sage:</strong> ${reply}</div>`;
-  } catch (err) {
-    console.error("OpenAI Error:", err);
-    res.status(500).json({
-      error: "Internal server error",
-      details: err.message || "Something went wrong"
-  });
+  } catch (error) {
+    console.error("Ask Sage API Error:", error);
+    res.status(500).json({ error: 'Something went wrong. Please try again.' });
+  }
 }
-
-  });
-});
