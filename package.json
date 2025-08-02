@@ -1,8 +1,13 @@
 { 
-"name": "ask-sage-function", 
+"name": "sovereign-academy-2-0", 
 "version": "1.0.0", 
 "type": "module", 
+"description": "Ask Sage backend for Sovereign Academy", "repository": { 
+"type": "git", 
+"url": "https://github.com/IntegrityExists/sovereign-academy-2.0" }, 
+"author": "Gina Lopez <admin@integrityexists.com>", "license": "MIT", 
 "dependencies": { 
-"node-fetch": "^3.3.2", "openai": "^5.9.0" 
+"node-fetch": "^3.3.2", 
+"openai": "^5.9.0" 
 } 
 }
