@@ -1,4 +1,6 @@
-window.addEventListener("DOMContentLoaded", function () { const chatForm = document.getElementById("sage-chat-form"); const userInput = document.getElementById("user-input"); 
+window.addEventListener("DOMContentLoaded", function () { 
+const chatForm = document.getElementById("sage-chat-form"); 
+const userInput = document.getElementById("user-input"); 
 const chatLog = document.getElementById("chat-log"); 
 chatForm.addEventListener("submit", async function (e) { 
 e.preventDefault(); 
