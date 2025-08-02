@@ -21,16 +21,25 @@ document.addEventListener("DOMContentLoaded", function () {
         body: JSON.stringify({ prompt })
       });
 
+      const resClone = response.clone(); // allow safe fallback
+
       if (!response.ok) {
-        const text = await response.text();
-        console.error("Not JSON:", text);
+        const text = await resClone.text();
         updateLastSageMessage(`⚠️ Server error: ${text}`);
         return;
       }
 
-      const data = await response.json();
-      updateLastSageMessage(data.response || "[No response]");
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonErr) {
+        const text = await resClone.text();
+        console.error("Not JSON:", text);
+        updateLastSageMessage(`⚠️ Error: ${text}`);
+        return;
+      }
 
+      updateLastSageMessage(data.response || "[No response]");
     } catch (error) {
       console.error("Request Error:", error);
       updateLastSageMessage("⚠️ Something went wrong. Please try again.");
