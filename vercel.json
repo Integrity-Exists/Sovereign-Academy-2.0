@@ -2,12 +2,16 @@
 "version": 2, 
 "functions": { 
 "api/ask-sage.js": { 
-"runtime": "nodejs18.x" } 
+"runtime": "nodejs18.x" 
+} 
 }, 
 "routes": [ 
 { 
 "src": "/api/(.*)", 
 "dest": "/api/$1" 
+}, 
+{ 
+"src": "/(manifest.json|style.css|icon.*\\.png|favicon\\.ico)", "dest": "/$1" 
 }, 
 { 
 "src": "/(.*)", 
