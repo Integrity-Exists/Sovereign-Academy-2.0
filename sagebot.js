@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     appendMessage("sage", "Thinking...");
 
     try {
-      const response = await fetch("/api/ask-sage", {
+      const response = fetch("/api/ask-sage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data = await response.json();
       } catch (jsonErr) {
         const text = await resClone.text();
-        console.error("Not JSON:", text);
+        console.error(text);
         updateLastSageMessage(`⚠️ Error: ${text}`);
         return;
       }
