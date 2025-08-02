@@ -32,4 +32,9 @@ try {
 } catch (err) {
   console.error(err);
   updateLastSageMessage("⚠️ Something went wrong. Please try again.");
+ });
 }
+
+  });
+});
+
