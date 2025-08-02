@@ -1,10 +1,10 @@
 {
   "name": "sovereign-academy",
   "dependencies": {
-    "openai": "^4.67.3"  // For Sage bot
+    "openai": "^4.67.3"  
   },
   "scripts": {
-    "dev": "vercel dev",      // Local development
-    "deploy": "vercel --prod" // Deploy to production
+    "dev": "vercel dev",      
+    "deploy": "vercel --prod" 
   }
 }
