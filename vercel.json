@@ -1,21 +1,36 @@
-{ 
-"version": 2, 
-"functions": { 
-"api/ask-sage.js": { 
-"runtime": "nodejs18.x" 
-} 
-}, 
-"routes": [ 
-{ 
-"src": "/api/(.*)", 
-"dest": "/api/$1" 
-}, 
-{ 
-"src": "/(manifest.json|style.css|icon.*\\.png|favicon\\.ico)", "dest": "/$1" 
-}, 
-{ 
-"src": "/(.*)", 
-"dest": "/index.html" 
-} 
-] 
+{
+  "functions": {
+    "api/ask-sage.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
 }
