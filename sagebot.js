@@ -12,52 +12,24 @@ document.addEventListener("DOMContentLoaded", function () {
     userInput.value = "";
     appendMessage("sage", "Thinking...");
 
-    try {
-      const response = fetch("/api/ask-sage", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ prompt })
-      });
-
-      const resClone = response.clone(); // allow safe fallback
-
-      if (!response.ok) {
-        const text = await resClone.text();
-        updateLastSageMessage(`⚠️ Server error: ${text}`);
-        return;
-      }
-
-      let data;
-      try {
-        data = await response.json();
-      } catch (jsonErr) {
-        const text = await resClone.text();
-        console.error(text);
-        updateLastSageMessage(`⚠️ Error: ${text}`);
-        return;
-      }
-
-      updateLastSageMessage(data.response || "[No response]");
-    } catch (error) {
-      console.error("Request Error:", error);
-      updateLastSageMessage("⚠️ Something went wrong. Please try again.");
-    }
+try {
+  const response = await fetch("/api/ask-sage", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ prompt })
   });
 
-  function appendMessage(sender, message) {
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("message", sender);
-    messageElement.innerText = message;
-    chatLog.appendChild(messageElement);
-    chatLog.scrollTop = chatLog.scrollHeight;
+  if (!response.ok) {
+    const text = await response.text();
+    updateLastSageMessage(`⚠️ Server error: ${text}`);
+    return;
   }
 
-  function updateLastSageMessage(message) {
-    const sageMessages = chatLog.querySelectorAll(".message.sage");
-    if (sageMessages.length) {
-      sageMessages[sageMessages.length - 1].innerText = message;
-    }
-  }
-});
+  const data = await response.json();
+  updateLastSageMessage(data.response || "[No response]");
+} catch (err) {
+  console.error(err);
+  updateLastSageMessage("⚠️ Something went wrong. Please try again.");
+}
