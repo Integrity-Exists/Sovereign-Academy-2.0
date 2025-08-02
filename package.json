@@ -5,5 +5,10 @@
     "node-fetch": "^3.3.2",
     "openai": "^5.9.0"
   }
-}
+},
+  "node_modules/data-uri-to-buffer": {
+      "version": "4.0.1",
+      "resolved": "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-4.0.1.tgz",
+      "integrity": 
+
 
