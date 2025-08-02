@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     appendMessage("sage", "Thinking...");
 
 try {
-  const response = await fetch("/api/ask-sage", {
+  const response = await fetch("/api/ask-sage"), {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
