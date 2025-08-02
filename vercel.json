@@ -1,6 +1,6 @@
 { 
 "version": 2, 
-"routes": [...] 
+"routes": [
 "api/ask-sage.js": { 
 "runtime": "nodejs18" 
 } 
