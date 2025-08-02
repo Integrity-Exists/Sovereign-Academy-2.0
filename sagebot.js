@@ -7,13 +7,13 @@ appendMessage("user", prompt);
 userInput.value = ""; 
 appendMessage("sage", "Thinking..."); 
 try { 
-const response = await fetch("/api/ask-sage", { 
-method: "POST", 
+const response = await fetch("/api/ask-sage", { method: "POST", 
 headers: { 
 "Content-Type": "application/json" 
 }, 
 body: JSON.stringify({ prompt }) 
-}); 
+});
+
 if (!response.ok) { 
 const text = await response.text(); 
 updateLastSageMessage(`⚠️ Server error: ${text}`); 
