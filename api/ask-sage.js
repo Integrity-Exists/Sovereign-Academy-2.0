@@ -1,39 +1,24 @@
-document.addEventListener("DOMContentLoaded", function () { const chatForm = document.getElementById("sage-chat-form"); const userInput = document.getElementById("user-input"); const chatLog = document.getElementById("chat-log"); 
-chatForm.addEventListener("submit", async function (e) { 
-e.preventDefault(); 
-const prompt = userInput.value.trim(); 
-if (!prompt) return; 
-appendMessage("user", prompt); 
-userInput.value = ""; 
-appendMessage("sage", "Thinking..."); 
+export default async function handler(req, res) { 
+if (req.method !== "POST") { 
+return res.status(405).json({ error: "Method Not Allowed" }); } 
+const { prompt } = req.body; 
+if (!prompt) { 
+return res.status(400).json({ error: "Missing prompt" }); 
+} 
 try { 
-const response = await fetch("/api/ask-sage", { 
-method: "POST", 
+const response = await fetch("https://api.openai.com/v1/chat/completions", { method: "POST", 
 headers: { 
-"Content-Type": "application/json" 
-}, 
-body: JSON.stringify({ prompt }) 
+"Content-Type": "application/json", 
+"Authorization": `Bearer ${process.env.OPENAI_API_KEY}` }, 
+body: JSON.stringify({ 
+model: "gpt-4", 
+messages: [{ role: "user", content: prompt }] 
+}) 
 }); 
-if (!response.ok) { 
-const text = await response.text(); 
-updateLastSageMessage(`⚠️ Server error: ${text}`); 
-return; 
-} 
 const data = await response.json(); 
-updateLastSageMessage(data.response || "[No response]"); } catch (err) { 
-console.error(err); 
-updateLastSageMessage("❌ Something went wrong. Please try again."); } 
-}); 
-function appendMessage(sender, text) { 
-const message = document.createElement("div"); 
-message.classList.add("message", sender); 
-message.innerText = text; 
-chatLog.appendChild(message); 
-chatLog.scrollTop = chatLog.scrollHeight; 
-}
-function updateLastSageMessage(newText) { 
-const sageMessages = chatLog.querySelectorAll(".message.sage"); const last = sageMessages[sageMessages.length - 1]; if (last) last.innerText = newText; 
+const reply = data.choices?.[0]?.message?.content || "[No response]"; res.status(200).json({ response: reply }); 
+} catch (err) { 
+console.error("Ask Sage API error:", err); 
+res.status(500).json({ error: "Something went wrong." }); 
 } 
-});
-
-
+}
