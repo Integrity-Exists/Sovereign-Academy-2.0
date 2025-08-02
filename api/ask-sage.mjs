@@ -6,6 +6,7 @@ const { prompt } = req.body;
 if (!prompt || typeof prompt !== "string") { 
 return res.status(400).json({ error: "Prompt is required" }); 
 } 
+  console.log("Received prompt:", prompt);
 try { 
 const response = await fetch("https://api.openai.com/v1/chat/completions", { method: "POST", 
 headers: { 
