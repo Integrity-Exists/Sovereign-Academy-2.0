@@ -23,11 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const reply = data.response || "[No response]";
       log.innerHTML += `<div><strong>Sage:</strong> ${reply}</div>`;
-     } catch (err) {
-      console.error("OpenAI Error:", err);
-      res.status(500).json({ error: "Internal server error", details: err.message });
-     }
+  } catch (err) {
+    console.error("OpenAI Error:", err);
+    res.status(500).json({
+      error: "Internal server error",
+      details: err.message || "Something went wrong"
+  });
+}
 
-    input.value = "";
   });
 });
